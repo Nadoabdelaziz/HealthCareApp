@@ -103,7 +103,7 @@ public class MainActivity extends AppCompatActivity {
                                         sp.edit().putBoolean("loggedDoctor", true).apply();
                                     } else
                                         sp.edit().putBoolean("loggedDoctor", false).apply();
-                                    Intent intent = new Intent(MainActivity.this, DoctorMenuActivity.class);
+                                    Intent intent = new Intent(MainActivity.this, TheFragmnetsActivity.class);
                                     MainActivity.this.startActivity(intent);
                                 }
                             }

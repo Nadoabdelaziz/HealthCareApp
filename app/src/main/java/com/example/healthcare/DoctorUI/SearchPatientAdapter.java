@@ -54,11 +54,13 @@ public class SearchPatientAdapter extends BaseAdapter {
 
         TextView circleText = convertView.findViewById(R.id.circle_text);
         TextView fullName = convertView.findViewById(R.id.doctorFullName);
+        TextView ID = convertView.findViewById(R.id.doctorID);
 
         Patient patient = patientList.get(position);
 
         fullName.setText(patient.getFullName().trim());
         circleText.setText((patient.getFullName().charAt(0)+"").toUpperCase());
+        ID.setText("ID: "+patient.getPhoneNumber());
         return convertView;
     }
 

@@ -22,4 +22,6 @@
     <string name="title_activity_doctor_localisation">Map</string>
     <string name="title_activity_doctor_appointments">DoctorAppointments</string>
     <string name="title_activity_my_patient_medical_folder">MyPatientMedicalFolderActivity</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
