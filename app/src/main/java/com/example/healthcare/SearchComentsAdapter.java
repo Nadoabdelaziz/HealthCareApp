@@ -1,4 +1,4 @@
-package com.example.healthcare.DoctorUI;
+package com.example.healthcare;
 
 import android.content.Context;
 import android.os.Build;
@@ -10,36 +10,35 @@ import android.widget.TextView;
 
 import androidx.annotation.RequiresApi;
 
-import com.example.healthcare.R;
-import com.example.healthcare.models.Patient;
+import com.example.healthcare.models.Comment;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
-public class SearchPatientAdapter extends BaseAdapter {
+public class SearchComentsAdapter extends BaseAdapter {
     int i=0;
     Context mContext;
     LayoutInflater inflater;
-    List<Patient> patientList;
-    ArrayList<Patient> arrayList;
+    List<Comment> commentList;
+    ArrayList<Comment> commentArrayList;
 
-    public SearchPatientAdapter(Context context, List<Patient> patientList) {
+    public SearchComentsAdapter(Context context, List<Comment> commentList) {
         mContext = context;
-        this.patientList = patientList;
+        this.commentList = commentList;
         inflater = LayoutInflater.from(mContext);
-        this.arrayList = new ArrayList();
-        this.arrayList.addAll(patientList);
+        this.commentArrayList = new ArrayList();
+        this.commentArrayList.addAll(commentList);
     }
 
     @Override
     public int getCount() {
-        return patientList.size();
+        return commentList.size();
     }
 
     @Override
     public Object getItem(int position) {
-        return patientList.get(position);
+        return commentList.get(position);
     }
 
     @Override
@@ -50,31 +49,31 @@ public class SearchPatientAdapter extends BaseAdapter {
     @RequiresApi(api = Build.VERSION_CODES.N)
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        convertView = inflater.inflate(R.layout.row,null);
+        convertView = inflater.inflate(R.layout.commentrow,null);
 
-        TextView circleText = convertView.findViewById(R.id.circle_text);
+        TextView commenttxt = convertView.findViewById(R.id.comment);
         TextView fullName = convertView.findViewById(R.id.sickness);
         TextView ID = convertView.findViewById(R.id.stdname);
 
-        Patient patient = patientList.get(position);
+        Comment comment = commentList.get(position);
 
-        fullName.setText(patient.getFullName().trim());
-        circleText.setText((patient.getFullName().charAt(0)+"").toUpperCase());
-        ID.setText("ID: "+patient.getPhoneNumber());
+        fullName.setText(" " + "  الحالة المرضية :  "+ comment.getSickness().trim()  );
+        commenttxt.setText( "  " + "   ملحوظة : " + comment.getComment() );
+        ID.setText( "   " + "  اسم الطالب : "+ comment.getStdName());
         return convertView;
     }
 
     public void filter(String charText){
         charText = charText.toLowerCase(Locale.getDefault());
-        patientList.clear();
+        commentList.clear();
         if (charText.length()==0){
-            patientList.addAll(arrayList);
+            commentList.addAll(commentArrayList);
         }
         else {
-            for (Patient p : arrayList){
-                if (p.getFullName().toLowerCase(Locale.getDefault())
+            for (Comment p : commentArrayList){
+                if (p.getStdName().toLowerCase(Locale.getDefault())
                         .contains(charText)){
-                    patientList.add(p);
+                    commentList.add(p);
                 }
             }
         }
@@ -82,3 +81,4 @@ public class SearchPatientAdapter extends BaseAdapter {
     }
 
 }
+

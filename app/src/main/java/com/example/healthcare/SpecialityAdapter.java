@@ -47,7 +47,7 @@ public class SpecialityAdapter extends BaseAdapter {
         convertView = inflater.inflate(R.layout.speciality_row,null);
 
         TextView circleText = convertView.findViewById(R.id.circle_text);
-        TextView speciality = convertView.findViewById(R.id.doctorFullName);
+        TextView speciality = convertView.findViewById(R.id.sickness);
 
         String spec = specialityList.get(position);
 

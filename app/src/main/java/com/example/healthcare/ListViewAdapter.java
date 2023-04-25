@@ -52,7 +52,7 @@ public class ListViewAdapter extends BaseAdapter {
         convertView = inflater.inflate(R.layout.row,null);
 
         TextView circleText = convertView.findViewById(R.id.circle_text);
-        TextView fullName = convertView.findViewById(R.id.doctorFullName);
+        TextView fullName = convertView.findViewById(R.id.sickness);
 
         Doctor doctor = doctorList.get(position);
 

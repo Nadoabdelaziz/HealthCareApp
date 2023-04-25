@@ -15,7 +15,6 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.healthcare.models.Doctor;
 import com.example.healthcare.models.Patient;
 import com.example.healthcare.models.Teacher;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -77,7 +76,7 @@ public class CreateAccount extends AppCompatActivity {
         // Doctor fields
         doctorRadioButton=(RadioButton)findViewById(R.id.doctorRadioButton);
         doctorLinearLayout=(LinearLayout)findViewById(R.id.doctorLinearLayout);
-        doctorFullName = findViewById(R.id.doctorFullName);
+        doctorFullName = findViewById(R.id.sickness);
         doctorCode = findViewById(R.id.Code);
         doctorPhoneNumber = findViewById(R.id.doctorPhoneNumber);
         doctorEmail = findViewById(R.id.doctorEmail);
@@ -366,90 +365,6 @@ public class CreateAccount extends AppCompatActivity {
 
     }
 
-//    public void registerTeacher() {
-//        final String firstName = patientFirstName.getText().toString().trim();
-//        final String lastName = patientLastName.getText().toString().trim();
-//        final String birthDate = patientBirthDate.getText().toString().trim();
-//        final String phoneNumber = patientPhoneNumber.getText().toString().trim();
-//        final String email = patientEmail.getText().toString().trim();
-//        final String CIN = patientCIN.getText().toString().trim();
-//        final String status = maritalStatus.getSelectedItem().toString().trim();
-//        String password = patientPassword1.getText().toString().trim();
-//        String password2 = patientPassword2.getText().toString().trim();
-//        if(
-//                TextUtils.isEmpty(firstName)
-//                        || TextUtils.isEmpty(lastName)
-//                        || TextUtils.isEmpty(birthDate)
-//                        || TextUtils.isEmpty(phoneNumber)
-//                        || TextUtils.isEmpty(email)
-//                        || TextUtils.isEmpty(CIN)
-//                        || TextUtils.isEmpty(status)
-//                        || TextUtils.isEmpty(password)
-//                        || TextUtils.isEmpty(password2)
-//        )
-//        {
-//            Toast.makeText(CreateAccount.this, "All fields are required !", Toast.LENGTH_LONG).show();
-//        }
-//        else
-//        {
-//            if(!isEmailValid(email)) {
-//                patientEmail.setError("Invalid email format !");
-//                return;
-//            }
-//            if(!password.equals(password2))
-//            {
-//                patientPassword1.setError("The two passwords are not matched");
-//                return;
-//            }
-//            else
-//            {
-//                if(password.length()<=3) {
-//                    patientPassword1.setError("Password must be longer than three characters");
-//                    return;
-//                }
-//
-//            }
-//            if(!isDateValid(birthDate))
-//            {
-//                patientBirthDate.setError("Date should match the YYYY-MM-DD format !");
-//                return;
-//            }
-//            ld.startLoadingDialog();
-//            fbAuth.createUserWithEmailAndPassword(email,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-//                @Override
-//                public void onComplete(@NonNull Task<AuthResult> task) {
-//                    if(task.isSuccessful()){
-//                        Teacher patient = new Teacher(firstName, lastName, birthDate, phoneNumber, email, CIN, status);
-//                        FirebaseDatabase.getInstance().getReference("Teachers")
-//                                .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
-//                                .setValue(patient).addOnCompleteListener(new OnCompleteListener<Void>() {
-//                                    @Override
-//                                    public void onComplete(@NonNull Task<Void> task) {
-//                                        if(task.isSuccessful()) {
-//                                            Toast.makeText(CreateAccount.this, "User created successfully", Toast.LENGTH_LONG).show();
-//                                            ld.dismissDialog();
-//                                        }
-//                                        else {
-//                                            Toast.makeText(CreateAccount.this, "User creation failed", Toast.LENGTH_LONG).show();
-//                                            ld.dismissDialog();
-//                                        }
-//                                    }
-//                                });
-//                    }
-//                    else {
-//                        ld.dismissDialog();
-//                        Toast.makeText(CreateAccount.this, task.getException().getMessage(), Toast.LENGTH_LONG).show();
-//                    }
-//                }
-//            });
-//
-//
-//        }
-//
-//
-//
-//
-//    }
 
 
     public void signUpPatient(View view) {

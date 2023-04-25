@@ -190,7 +190,7 @@
         android:visibility="gone">
 
         <EditText
-            android:id="@+id/doctorFullName"
+            android:id="@+id/sickness"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"

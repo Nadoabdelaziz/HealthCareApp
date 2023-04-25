@@ -28,7 +28,7 @@
             android:textSize="18sp" />
 
         <TextView
-            android:id="@+id/doctorFullName"
+            android:id="@+id/sickness"
             android:layout_width="291dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -43,7 +43,7 @@
     </LinearLayout>
 
     <TextView
-        android:id="@+id/doctorID"
+        android:id="@+id/stdname"
         android:layout_width="191dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
