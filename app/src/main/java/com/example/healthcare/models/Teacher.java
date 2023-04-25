@@ -2,41 +2,49 @@ package com.example.healthcare.models;
 
 public class Teacher implements Comparable<Teacher> {
 
-    private String fullName;
-    private String code;
+    private String Name;
+    private String SchoolName;
+    private String birthDate;
     private String phoneNumber;
     private String email;
-    private String city;
-    private String address;
-    private String speciality;
+    private String cin;
+    private String maritalStatus;
 
     public Teacher() {
     }
 
-    public Teacher(String fullName, String code, String phoneNumber, String email, String city, String address, String speciality) {
-        this.fullName = fullName;
-        this.code = code;
+    public Teacher(String Name, String SchoolName, String birthDate, String phoneNumber, String email, String cin, String maritalStatus) {
+        this.Name = Name;
+        this.SchoolName = SchoolName;
+        this.birthDate = birthDate;
         this.phoneNumber = phoneNumber;
         this.email = email;
-        this.city = city;
-        this.address = address;
-        this.speciality = speciality;
+        this.cin = cin;
+        this.maritalStatus = maritalStatus;
     }
 
-    public String getFullName() {
-        return fullName;
+    public String getFirstName() {
+        return Name;
     }
 
-    public void setFullName(String fullName) {
-        this.fullName = fullName;
+    public void setFirstName(String Name) {
+        this.Name = Name;
     }
 
-    public String getCode() {
-        return code;
+    public String getLastName() {
+        return SchoolName;
     }
 
-    public void setCode(String code) {
-        this.code = code;
+    public void setLastName(String SchoolName) {
+        this.SchoolName = SchoolName;
+    }
+
+    public String getBirthDate() {
+        return birthDate;
+    }
+
+    public void setBirthDate(String birthDate) {
+        this.birthDate = birthDate;
     }
 
     public String getPhoneNumber() {
@@ -55,28 +63,25 @@ public class Teacher implements Comparable<Teacher> {
         this.email = email;
     }
 
-    public String getCity() {
-        return city;
+    public String getCin() {
+        return cin;
     }
 
-    public void setCity(String city) {
-        this.city = city;
+    public void setCin(String cin) {
+        this.cin = cin;
     }
 
-    public String getAddress() {
-        return address;
+    public String getMaritalStatus() {
+        return maritalStatus;
     }
 
-    public void setAddress(String address) {
-        this.address = address;
+    public void setMaritalStatus(String maritalStatus) {
+        this.maritalStatus = maritalStatus;
     }
 
-    public String getSpeciality() {
-        return speciality;
-    }
-
-    public void setSpeciality(String speciality) {
-        this.speciality = speciality;
+    public String getFullName()
+    {
+        return Name+" "+SchoolName;
     }
 
     @Override
