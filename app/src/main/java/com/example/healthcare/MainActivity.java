@@ -83,7 +83,8 @@ public class MainActivity extends AppCompatActivity {
                 @Override
                 public void onComplete(@NonNull Task<AuthResult> task) {
                     if (task.isSuccessful()) {
-                        ref = FirebaseDatabase.getInstance().getReference("Doctors");
+                        ref = FirebaseDatabase.getInstance().getReference("Teachers");
+//                        ref = FirebaseDatabase.getInstance().getReference("Doctors");
                         ref.addValueEventListener(new ValueEventListener() {
                             @Override
                             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {

@@ -13,8 +13,8 @@
         android:layout_width="match_parent"
         android:layout_height="113dp"
         android:layout_marginTop="60dp"
-        app:srcCompat="@drawable/healthcare"
-        android:layout_marginBottom="20dp"/>
+        android:layout_marginBottom="20dp"
+        app:srcCompat="@drawable/login_logo" />
 
     <TextView
         android:id="@+id/errorMessage"
@@ -40,7 +40,7 @@
             android:backgroundTint="#33aeb6"
             android:drawableLeft="@drawable/ic_person_outline"
             android:ems="10"
-            android:hint="Login..."
+            android:hint="البريد الاكتروني"
             android:inputType="textPersonName"
             android:textSize="22sp" />
 
@@ -52,7 +52,7 @@
             android:backgroundTint="#33aeb6"
             android:drawableLeft="@drawable/ic_lock_outline"
             android:ems="10"
-            android:hint="Password..."
+            android:hint="كلمة المرور"
             android:inputType="textPassword"
             android:textSize="22sp" />
 
@@ -62,10 +62,9 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="5dp"
             android:layout_marginTop="5dp"
-            android:text="Remember me"
-            android:textColor="#33aeb6"
             android:buttonTint="#33aeb6"
-            />
+            android:text="تذكرني"
+            android:textColor="#33aeb6" />
 
     </LinearLayout>
 
@@ -84,36 +83,36 @@
             android:layout_gravity="center"
             android:background="@drawable/custombutton"
             android:fontFamily="@font/montserrat"
+            android:onClick="login"
             android:padding="10dp"
-            android:text="Login"
+            android:text="تسجيل الدخول"
             android:textAllCaps="false"
             android:textColor="#ffffff"
-            android:onClick="login"
             android:textSize="24sp" />
 
         <Button
             android:id="@+id/button2"
             android:layout_width="303dp"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
             android:layout_marginTop="10dp"
             android:background="@drawable/custombutton"
             android:fontFamily="@font/montserrat"
+            android:onClick="createAccount"
             android:padding="10dp"
-            android:text="Create Account"
-            android:layout_gravity="center"
+            android:text="الاشتراك"
             android:textAllCaps="false"
             android:textColor="#ffffff"
-            android:textSize="24sp"
-            android:onClick="createAccount"/>
+            android:textSize="24sp" />
 
         <TextView
             android:id="@+id/forgotPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/passwordforgotten"
-            android:gravity="center"
             android:layout_marginTop="5dp"
-            android:onClick="passwordForgotten"/>
+            android:gravity="center"
+            android:onClick="passwordForgotten"
+            android:text="نسيت كلمة المرور" />
     </LinearLayout>
 
 </LinearLayout>

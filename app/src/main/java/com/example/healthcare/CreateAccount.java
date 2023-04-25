@@ -17,6 +17,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.healthcare.models.Doctor;
 import com.example.healthcare.models.Patient;
+import com.example.healthcare.models.Teacher;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -252,8 +253,10 @@ public class CreateAccount extends AppCompatActivity {
                 @Override
                 public void onComplete(@NonNull Task<AuthResult> task) {
                     if(task.isSuccessful()){
-                        Doctor doctor = new Doctor(fullName, Code, phoneNumber, Email, City, Address, Speciality);
-                        FirebaseDatabase.getInstance().getReference("Doctors")
+                          Teacher doctor = new Teacher(fullName, Code, phoneNumber, Email, City, Address, Speciality);
+//                        Doctor doctor = new Doctor(fullName, Code, phoneNumber, Email, City, Address, Speciality);
+//                        FirebaseDatabase.getInstance().getReference("Doctors")
+                        FirebaseDatabase.getInstance().getReference("Teachers")
                                 .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
                                 .setValue(doctor).addOnCompleteListener(new OnCompleteListener<Void>() {
                             @Override
@@ -280,9 +283,95 @@ public class CreateAccount extends AppCompatActivity {
 
     }
 
+    public void registerTeacher() {
+        final String firstName = patientFirstName.getText().toString().trim();
+        final String lastName = patientLastName.getText().toString().trim();
+        final String birthDate = patientBirthDate.getText().toString().trim();
+        final String phoneNumber = patientPhoneNumber.getText().toString().trim();
+        final String email = patientEmail.getText().toString().trim();
+        final String CIN = patientCIN.getText().toString().trim();
+        final String status = maritalStatus.getSelectedItem().toString().trim();
+        String password = patientPassword1.getText().toString().trim();
+        String password2 = patientPassword2.getText().toString().trim();
+        if(
+                TextUtils.isEmpty(firstName)
+                        || TextUtils.isEmpty(lastName)
+                        || TextUtils.isEmpty(birthDate)
+                        || TextUtils.isEmpty(phoneNumber)
+                        || TextUtils.isEmpty(email)
+                        || TextUtils.isEmpty(CIN)
+                        || TextUtils.isEmpty(status)
+                        || TextUtils.isEmpty(password)
+                        || TextUtils.isEmpty(password2)
+        )
+        {
+            Toast.makeText(CreateAccount.this, "All fields are required !", Toast.LENGTH_LONG).show();
+        }
+        else
+        {
+            if(!isEmailValid(email)) {
+                patientEmail.setError("Invalid email format !");
+                return;
+            }
+            if(!password.equals(password2))
+            {
+                patientPassword1.setError("The two passwords are not matched");
+                return;
+            }
+            else
+            {
+                if(password.length()<=3) {
+                    patientPassword1.setError("Password must be longer than three characters");
+                    return;
+                }
+
+            }
+            if(!isDateValid(birthDate))
+            {
+                patientBirthDate.setError("Date should match the YYYY-MM-DD format !");
+                return;
+            }
+            ld.startLoadingDialog();
+            fbAuth.createUserWithEmailAndPassword(email,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                @Override
+                public void onComplete(@NonNull Task<AuthResult> task) {
+                    if(task.isSuccessful()){
+                        Teacher patient = new Teacher(firstName, lastName, birthDate, phoneNumber, email, CIN, status);
+                        FirebaseDatabase.getInstance().getReference("Teachers")
+                                .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
+                                .setValue(patient).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                    @Override
+                                    public void onComplete(@NonNull Task<Void> task) {
+                                        if(task.isSuccessful()) {
+                                            Toast.makeText(CreateAccount.this, "User created successfully", Toast.LENGTH_LONG).show();
+                                            ld.dismissDialog();
+                                        }
+                                        else {
+                                            Toast.makeText(CreateAccount.this, "User creation failed", Toast.LENGTH_LONG).show();
+                                            ld.dismissDialog();
+                                        }
+                                    }
+                                });
+                    }
+                    else {
+                        ld.dismissDialog();
+                        Toast.makeText(CreateAccount.this, task.getException().getMessage(), Toast.LENGTH_LONG).show();
+                    }
+                }
+            });
+
+
+        }
+
+
+
+
+    }
+
 
     public void signUpPatient(View view) {
-        registerPatient();
+        //registerPatient();
+        registerTeacher();
     }
 
     public void signUpDoctor(View view) {

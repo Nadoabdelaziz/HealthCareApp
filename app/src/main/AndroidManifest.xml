@@ -17,9 +17,12 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
+            android:name=".Pre_Login_Activity"
+            android:exported="false" />
+        <activity
             android:name=".DoctorUI.MyPatientMedicalFolderActivity"
             android:label="@string/title_activity_my_patient_medical_folder"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".DoctorsBySpecialityActivity" />
         <activity
             android:name=".DoctorUI.DoctorAppointments"
