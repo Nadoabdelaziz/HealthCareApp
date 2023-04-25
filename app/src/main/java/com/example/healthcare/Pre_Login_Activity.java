@@ -1,13 +1,24 @@
 package com.example.healthcare;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.viewpager.widget.ViewPager;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import com.google.android.material.tabs.TabLayout;
+
 public class Pre_Login_Activity extends AppCompatActivity {
+
+    ViewPager mViewPager;
+
+    // images array
+    int[] images = {R.drawable.loginkids, R.drawable.logindoc,R.drawable.loginfam};
+
+    // Creating Object of ViewPagerAdapter
+    SliderPagerAdapter mViewPagerAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,5 +45,18 @@ public class Pre_Login_Activity extends AppCompatActivity {
                 startActivity(createAccountIntent);
             }
         });
+
+
+        mViewPager = (ViewPager)findViewById(R.id.viewmainpager);
+
+        // Initializing the ViewPagerAdapter
+        mViewPagerAdapter = new SliderPagerAdapter(Pre_Login_Activity.this, images);
+
+        // Adding the Adapter to the ViewPager
+        mViewPager.setAdapter(mViewPagerAdapter);
+        TabLayout tabLayout = (TabLayout) findViewById(R.id.tabdots);
+        tabLayout.setupWithViewPager(mViewPager, true);
     }
-}
+
+
+    }
