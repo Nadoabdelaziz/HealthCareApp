@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    xmlns:app="http://schemas.android.com/tools"
+    android:id="@+id/cardview"
+    android:layout_width="180dp"
+    android:layout_height="180dp"
+    card_view:contentPadding="8dp"
+    card_view:cardCornerRadius="8dp"
+    card_view:cardElevation="8dp"
+    android:layout_margin="10dp">
+
+    <!--Text View over Card View-->
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/profile_image"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_marginBottom="20dp"
+        android:layout_gravity="center"
+        android:src="@drawable/aliluchloutfi"
+        app:civ_border_color="#FFFFFF"
+        app:civ_border_width="2dp" />
+
+    <TextView
+        android:id="@+id/textview"
+        android:layout_marginTop="4dp"
+        android:layout_gravity = "bottom"
+        android:gravity="center_horizontal"
+        android:layout_marginBottom="28dp"
+        android:textSize="22dp"
+        android:text="hello world"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="#000"/>
+
+    <TextView
+        android:id="@+id/textview"
+        android:layout_marginTop="4dp"
+        android:layout_gravity = "bottom"
+        android:gravity="center_horizontal"
+        android:textSize="18dp"
+        android:text="ID: 123456789"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="#000"/>
+</androidx.cardview.widget.CardView>

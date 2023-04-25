@@ -2,6 +2,7 @@ package com.example.healthcare;
 
 import android.Manifest;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
@@ -18,6 +19,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
@@ -53,6 +55,7 @@ public class FifthFragment extends Fragment {
     String Uri;
     DatabaseReference databaseReference;
     String fullNameRetrieved, specialityRetrieved, emailRetrieved, phoneNumberRetrieved, addressRetrieved, cityRetrieved, codeRetrieved;
+    SharedPreferences sp;
 
 
     @Override
@@ -61,6 +64,8 @@ public class FifthFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_fifth, container, false);
         this.mview = view;
+
+        sp = getActivity().getSharedPreferences("login",getActivity().MODE_PRIVATE);
 
         fullName = mview.findViewById(R.id.fullName);
         speciality = mview.findViewById(R.id.speciality);
@@ -71,6 +76,8 @@ public class FifthFragment extends Fragment {
 
         user = FirebaseAuth.getInstance().getCurrentUser();
         uid = user.getUid();
+        Button logout = (Button) mview.findViewById(R.id.logoutbtn);
+
 
         databaseReference = FirebaseDatabase.getInstance().getReference("Teachers");
         databaseReference.addValueEventListener(new ValueEventListener() {
@@ -84,6 +91,7 @@ public class FifthFragment extends Fragment {
                 email.setText(emailRetrieved);
                 phoneNumberRetrieved = dataSnapshot.child(uid).child("phoneNumber").getValue(String.class);
                 phoneNumber.setText(phoneNumberRetrieved);
+
 //                addressRetrieved = dataSnapshot.child(uid).child("address").getValue(String.class);
 //                cityRetrieved = dataSnapshot.child(uid).child("city").getValue(String.class);
 //                address.setText(addressRetrieved + ", " + cityRetrieved);
@@ -101,10 +109,24 @@ public class FifthFragment extends Fragment {
                 });
 
 
+
             }
+
+
 
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+
+        logout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                sp.edit().putBoolean("loggedDoctor",false).apply();
+                FirebaseAuth.getInstance().signOut();
+                getActivity().finish();
+                startActivity(new Intent(getContext(), Pre_Login_Activity.class));
 
             }
         });

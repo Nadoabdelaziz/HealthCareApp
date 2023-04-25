@@ -156,4 +156,24 @@
     </LinearLayout>
 
 
+    <ImageView
+        android:id="@+id/messageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="10dp"
+        android:layout_gravity="center"
+        app:srcCompat="@drawable/ic_email" />
+
+    <Button
+        android:id="@+id/logoutbtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:text="تسجيل خروج"
+        android:textSize="28dp"
+        android:textColor="#000"
+        android:background="@color/float_transparent"
+        android:layout_marginBottom="100dp"
+        android:layout_marginStart="225dp"/>
+
 </FrameLayout>

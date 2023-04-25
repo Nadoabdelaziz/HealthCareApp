@@ -52,7 +52,7 @@ public class MainActivity extends AppCompatActivity {
         }
         if(sp.getBoolean("loggedDoctor", false))
         {
-            Intent intent = new Intent(MainActivity.this, DoctorMenuActivity.class);
+            Intent intent = new Intent(MainActivity.this, TheFragmnetsActivity.class);
             startActivity(intent);
         }
 
@@ -95,7 +95,7 @@ public class MainActivity extends AppCompatActivity {
                                         sp.edit().putBoolean("loggedPatient", true).apply();
                                     } else
                                         sp.edit().putBoolean("loggedPatient", false).apply();
-                                    Intent intent = new Intent(MainActivity.this, MenuActivity.class);
+                                    Intent intent = new Intent(MainActivity.this, TheFragmnetsActivity.class);
                                     MainActivity.this.startActivity(intent);
                                 } else {
                                     pDialog.hide();
