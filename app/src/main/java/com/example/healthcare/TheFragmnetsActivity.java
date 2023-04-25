@@ -27,7 +27,7 @@ public class TheFragmnetsActivity extends AppCompatActivity {
     SecondFragment SecFr;
     FirstFragment ThirdFr;
     FirstFragment FourFr;
-    FirstFragment FifthFr;
+    FifthFragment FifthFr;
 
 
     MenuItem prevMenuItem;
@@ -138,7 +138,7 @@ public class TheFragmnetsActivity extends AppCompatActivity {
             SecFr=new SecondFragment();
             ThirdFr=new FirstFragment();
             FourFr = new FirstFragment();
-            FifthFr = new FirstFragment();
+            FifthFr = new FifthFragment();
             adapter.addFragment(firstFr);
             adapter.addFragment(SecFr);
             adapter.addFragment(ThirdFr);

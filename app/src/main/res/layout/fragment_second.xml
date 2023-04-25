@@ -26,6 +26,15 @@
 
     </com.google.android.material.appbar.AppBarLayout>
 
+    <TextView
+        android:text="ملحوظات"
+        android:layout_width="match_parent"
+        android:textSize="28dp"
+        android:padding="10dp"
+        android:textColor="#000"
+        android:gravity="center_horizontal"
+        android:layout_height="wrap_content"/>
+
     <ListView
         android:id="@+id/Comment_list"
         android:layout_width="match_parent"
@@ -36,7 +45,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginTop="55dp"
+        android:layout_marginTop="20dp"
         android:background="@color/main_blue_color"
         android:padding="15dp"
         android:text=" + كتابة ملاحظة جديدة"
