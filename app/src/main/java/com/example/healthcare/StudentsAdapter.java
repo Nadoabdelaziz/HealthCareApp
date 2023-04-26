@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.healthcare.models.Admin;
 import com.example.healthcare.models.Patient;
+import com.example.healthcare.models.Student;
 import com.example.healthcare.models.Teacher;
 
 import java.util.List;
@@ -18,7 +19,7 @@ import java.util.List;
 public class StudentsAdapter extends RecyclerView.Adapter<StudentsAdapter.MyView> {
 
     // List with String type
-    List<Patient> list;
+    List<Student> list;
     List<Teacher> teacherslist;
     boolean teacherslist_for_admin;
 
@@ -44,7 +45,7 @@ public class StudentsAdapter extends RecyclerView.Adapter<StudentsAdapter.MyView
 
     // Constructor for adapter class
     // which takes a list of String type
-    public StudentsAdapter(List<Patient> horizontalList)
+    public StudentsAdapter(List<Student> horizontalList)
     {
         this.list = horizontalList;
         Log.d("UTAG", String.valueOf(horizontalList.isEmpty()));
@@ -92,7 +93,7 @@ public class StudentsAdapter extends RecyclerView.Adapter<StudentsAdapter.MyView
         // Set the text of each item of
         // Recycler view with the list items
         if(!teacherslist_for_admin) {
-            holder.textView.setText(list.get(position).getFirstName());
+            holder.textView.setText(list.get(position).getName());
         }
         else{
             holder.textView.setText(teacherslist.get(position).getFirstName());

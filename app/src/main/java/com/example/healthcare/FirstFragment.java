@@ -23,6 +23,7 @@ import android.widget.TextView;
 import com.example.healthcare.DoctorUI.DisplayPatientInfo;
 import com.example.healthcare.DoctorUI.SearchPatientAdapter;
 import com.example.healthcare.models.Patient;
+import com.example.healthcare.models.Student;
 import com.example.healthcare.models.Teacher;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
@@ -42,7 +43,7 @@ public class FirstFragment extends Fragment {
 //
 //    ListView listView;
     SearchPatientAdapter adapter;
-    List<Patient> myPatients;
+    List<Student> myStudents;
     List<Teacher> myTeachers;
 
     //    SearchView searchView;
@@ -115,20 +116,20 @@ public class FirstFragment extends Fragment {
 
 
 
-                myPatients = new ArrayList<>();
+                myStudents = new ArrayList<>();
                 //AddItemsToRecyclerViewArrayList();
 
-                DatabaseReference reference = FirebaseDatabase.getInstance().getReference("Patients");
+                DatabaseReference reference = FirebaseDatabase.getInstance().getReference("Students");
                 reference.addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                         for(DataSnapshot data : dataSnapshot.getChildren())
                         {
-                            Patient patient = data.getValue(Patient.class);
-                            myPatients.add(patient);
+                            Student student = data.getValue(Student.class);
+                            myStudents.add(student);
 
                         }
-                        studentsAdapter = new StudentsAdapter(myPatients);
+                        studentsAdapter = new StudentsAdapter(myStudents);
                         HorizontalLayout = new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false);
                         recyclerView.setLayoutManager(HorizontalLayout);
                         recyclerView.setAdapter(studentsAdapter);
@@ -176,22 +177,22 @@ public class FirstFragment extends Fragment {
 
 
                 myTeachers = new ArrayList<>();
-                myPatients = new ArrayList<>();
+                myStudents = new ArrayList<>();
                 //AddItemsToRecyclerViewArrayList();
 
 
                 //for students
-                DatabaseReference reference2 = FirebaseDatabase.getInstance().getReference("Patients");
+                DatabaseReference reference2 = FirebaseDatabase.getInstance().getReference("Students");
                 reference2.addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                         for(DataSnapshot data : dataSnapshot.getChildren())
                         {
-                            Patient patient = data.getValue(Patient.class);
-                            myPatients.add(patient);
+                            Student student = data.getValue(Student.class);
+                            myStudents.add(student);
 
                         }
-                        studentsAdapter = new StudentsAdapter(myPatients);
+                        studentsAdapter = new StudentsAdapter(myStudents);
                         SecHorizontalLayout = new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false);
                         recyclerView.setLayoutManager(SecHorizontalLayout);
                         recyclerView.setAdapter(studentsAdapter);
