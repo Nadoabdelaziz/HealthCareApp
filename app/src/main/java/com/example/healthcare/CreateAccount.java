@@ -1,6 +1,7 @@
 package com.example.healthcare;
 
 import android.app.DatePickerDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
@@ -342,6 +343,8 @@ public class CreateAccount extends AppCompatActivity {
                                         if(task.isSuccessful()) {
                                             Toast.makeText(CreateAccount.this, "User created successfully", Toast.LENGTH_LONG).show();
                                             ld.dismissDialog();
+                                            Intent intent = new Intent(CreateAccount.this,MainActivity.class);
+                                            startActivity(intent);
                                         }
                                         else {
                                             Toast.makeText(CreateAccount.this, "User creation failed", Toast.LENGTH_LONG).show();

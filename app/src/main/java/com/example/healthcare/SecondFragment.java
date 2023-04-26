@@ -34,7 +34,7 @@ public class SecondFragment extends Fragment {
     ListView listView;
     SearchComentsAdapter adapter;
     List<Comment> myComments;
-    SearchView searchView;
+    //SearchView searchView;
 
     View mview;
     @Override
@@ -46,7 +46,7 @@ public class SecondFragment extends Fragment {
         this.mview=view;
 
         listView = mview.findViewById(R.id.Comment_list);
-        searchView = mview.findViewById(R.id.mySearchViewComment);
+        //searchView = mview.findViewById(R.id.mySearchViewComment);
         myComments = new ArrayList<>();
 
         Button createComment = (Button) mview.findViewById(R.id.createcommmentbtn);
@@ -71,23 +71,23 @@ public class SecondFragment extends Fragment {
             }
         });
 
-        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
-            @Override
-            public boolean onQueryTextSubmit(String query) {
-                return false;
-            }
-
-            @Override
-            public boolean onQueryTextChange(String s) {
-                if (TextUtils.isEmpty(s)) {
-                    adapter.filter("");
-                    listView.clearTextFilter();
-                } else {
-                    adapter.filter(s);
-                }
-                return true;
-            }
-        });
+//        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+//            @Override
+//            public boolean onQueryTextSubmit(String query) {
+//                return false;
+//            }
+//
+//            @Override
+//            public boolean onQueryTextChange(String s) {
+//                if (TextUtils.isEmpty(s)) {
+//                    adapter.filter("");
+//                    listView.clearTextFilter();
+//                } else {
+//                    adapter.filter(s);
+//                }
+//                return true;
+//            }
+//        });
 
         createComment.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -1,5 +1,6 @@
 package com.example.healthcare;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -8,38 +9,41 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.healthcare.models.Patient;
+
 import java.util.List;
 
 public class StudentsAdapter extends RecyclerView.Adapter<StudentsAdapter.MyView> {
 
     // List with String type
-    private List<String> list;
+    List<Patient> list;
 
     // View Holder class which
     // extends RecyclerView.ViewHolder
-    public class MyView
-            extends RecyclerView.ViewHolder {
+    public class MyView extends RecyclerView.ViewHolder {
 
         // Text View
         TextView textView;
+        TextView id;
 
         // parameterised constructor for View Holder class
         // which takes the view as a parameter
         public MyView(View view)
         {
             super(view);
-
             // initialise TextView with id
             textView = (TextView)view
                     .findViewById(R.id.textview);
+            //id = (TextView) view.findViewById(R.id.textView2);
         }
     }
 
     // Constructor for adapter class
     // which takes a list of String type
-    public StudentsAdapter(List<String> horizontalList)
+    public StudentsAdapter(List<Patient> horizontalList)
     {
         this.list = horizontalList;
+        Log.d("UTAG", String.valueOf(horizontalList.isEmpty()));
     }
 
     // Override onCreateViewHolder which deals
@@ -74,7 +78,9 @@ public class StudentsAdapter extends RecyclerView.Adapter<StudentsAdapter.MyView
 
         // Set the text of each item of
         // Recycler view with the list items
-        holder.textView.setText(list.get(position));
+        holder.textView.setText(list.get(position).getFirstName());
+        //Log.d("UTAG", list.get(position).getPhoneNumber().toString());
+        //holder.id.setText(list.get(position).getPhoneNumber().toString());
     }
 
     // Override getItemCount which Returns

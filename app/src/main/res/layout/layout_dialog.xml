@@ -20,7 +20,7 @@
         android:layout_gravity="center"
         android:layout_marginBottom="10dp"
         android:fontFamily="@font/montserrat_bold"
-        android:text="Reset Password"
+        android:text="هل نسيت كلمة السر "
         android:textSize="20sp" />
 
     <EditText
@@ -47,9 +47,8 @@
         android:fontFamily="@font/montserrat"
         android:paddingLeft="10dp"
         android:paddingRight="10dp"
-        android:text="Send me an Email"
+        android:text="ارسل لبريدك الإلكتروني"
         android:textAllCaps="false"
         android:textColor="#FFF"
-
-        android:textSize="16sp" />
+        android:textSize="20sp" />
 </LinearLayout>

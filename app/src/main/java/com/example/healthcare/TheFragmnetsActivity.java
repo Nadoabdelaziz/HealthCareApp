@@ -25,7 +25,7 @@ public class TheFragmnetsActivity extends AppCompatActivity {
 //    TeacherActivity ThirdFr;
 //    TeacherActivity FourFr;
     SecondFragment SecFr;
-    FirstFragment ThirdFr;
+    ThirdFragment ThirdFr;
     FirstFragment FourFr;
     FifthFragment FifthFr;
 
@@ -136,7 +136,7 @@ public class TheFragmnetsActivity extends AppCompatActivity {
             ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
             firstFr=new FirstFragment();
             SecFr=new SecondFragment();
-            ThirdFr=new FirstFragment();
+            ThirdFr=new ThirdFragment();
             FourFr = new FirstFragment();
             FifthFr = new FifthFragment();
             adapter.addFragment(firstFr);

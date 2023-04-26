@@ -15,6 +15,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.SearchView;
 import android.widget.TextView;
@@ -61,6 +62,7 @@ public class FirstFragment extends Fragment {
     View ChildView;
     int RecyclerViewItemPosition;
     private FirebaseAuth fbAuth;
+    DatabaseReference databaseReference;
 
 
     @Override
@@ -69,40 +71,29 @@ public class FirstFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_first, container, false);
         this.mView = view;
 
-//        listView = mView.findViewById(R.id.student_list);
-//        searchView = mView.findViewById(R.id.mySearchViewS);
-
-        TextView txt = (TextView) mView.findViewById(R.id.user_name);
-
+        final TextView txt = (TextView) mView.findViewById(R.id.user_name);
         fbAuth = FirebaseAuth.getInstance();
-
-//        Log.d("TAG", fbAuth.getCurrentUser().getEmail().toString());
         if(fbAuth.getCurrentUser() != null){
-            txt.setText(fbAuth.getCurrentUser().getEmail().toString());
+            final String uid = fbAuth.getCurrentUser().getUid().toString();
+            databaseReference = FirebaseDatabase.getInstance().getReference("Teachers");
+            databaseReference.addValueEventListener(new ValueEventListener() {
+                @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                txt.setText(dataSnapshot.child(uid).child("firstName").getValue(String.class));
+            }
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                }
+            });
         }
         else{
             Log.d("TAG", "not logged ");
             txt.setText("hello");
         }
-        myPatients = new ArrayList<>();
-//
-//        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
-//            @Override
-//            public boolean onQueryTextSubmit(String query) {
-//                return false;
-//            }
-//
-//            @Override
-//            public boolean onQueryTextChange(String s) {
-//                if (TextUtils.isEmpty(s)) {
-//                    adapter.filter("");
-//                    listView.clearTextFilter();
-//                } else {
-//                    adapter.filter(s);
-//                }
-//                return true;
-//            }
-//        });
+
+
 //
 //        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 //            @Override
@@ -119,38 +110,50 @@ public class FirstFragment extends Fragment {
 //        });
 
 
-        recyclerView
-                = (RecyclerView)mView.findViewById(
-                R.id.recyclerview);
+//        source.add("محمد");
+//        source.add("علي");
+//        source.add("حسن");
+//        source.add("سعيد");
+//        source.add("ياسر");
 
-//        recyclerView.setLayoutManager(new LinearLayoutManager(getContext());
 
 
-        // Set LayoutManager on Recycler View
-//        recyclerView.setLayoutManager(
-//                RecyclerViewLayoutManager);
-
+        recyclerView = (RecyclerView)mView.findViewById(R.id.recyclerview);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+        myPatients = new ArrayList<>();
+        //AddItemsToRecyclerViewArrayList();
 
-        // Adding items to RecyclerView.
+        DatabaseReference reference = FirebaseDatabase.getInstance().getReference("Patients");
+        reference.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                for(DataSnapshot data : dataSnapshot.getChildren())
+                {
+                    Patient patient = data.getValue(Patient.class);
+                    myPatients.add(patient);
 
-        AddItemsToRecyclerViewArrayList();
+                }
+                studentsAdapter = new StudentsAdapter(myPatients);
+                HorizontalLayout = new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false);
+                recyclerView.setLayoutManager(HorizontalLayout);
+                recyclerView.setAdapter(studentsAdapter);
+                recyclerView.setHasFixedSize(true);
 
-        // calling constructor of adapter
-        // with source list as a parameter
-        studentsAdapter = new StudentsAdapter(source);
+            }
 
-        // Set Horizontal Layout Manager
-        // for Recycler view
-        HorizontalLayout
-                = new LinearLayoutManager(
-                getContext(),
-                LinearLayoutManager.HORIZONTAL,
-                false);
-        recyclerView.setLayoutManager(HorizontalLayout);
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+                System.out.println("The read failed: " + databaseError.getCode());
+            }
+        });
 
-        // Set adapter on recycler view
-        recyclerView.setAdapter(studentsAdapter);
+
+
+        //Log.d("TAG", String.valueOf(myPatients.isEmpty()));
+
+
+        //Log.d("TAG", String.valueOf(myPatients.isEmpty()));
+        //Log.d("TAG", String.valueOf(studentsAdapter.getItemCount()));
 
 
 
@@ -186,10 +189,12 @@ public class FirstFragment extends Fragment {
 
 
 
-        source.add("mohamed");
-        source.add("ali");
-        source.add("hassan");
-        source.add("said");
-        source.add("yasser");
+        source.add("محمد");
+        source.add("علي");
+        source.add("حسن");
+        source.add("سعيد");
+        source.add("ياسر");
     }
+
+
 }
