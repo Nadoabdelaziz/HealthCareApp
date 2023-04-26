@@ -5,6 +5,7 @@ import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.EditText;
@@ -47,7 +48,7 @@ public class MainActivity extends AppCompatActivity {
         rememberMe = findViewById(R.id.rememberMe);
         sp = getSharedPreferences("login", MODE_PRIVATE);
         if (sp.getBoolean("loggedPatient", false)) {
-            Intent intent = new Intent(MainActivity.this, MenuActivity.class);
+            Intent intent = new Intent(MainActivity.this, AdminActivity.class);
             startActivity(intent);
         }
         if(sp.getBoolean("loggedDoctor", false))
@@ -90,14 +91,16 @@ public class MainActivity extends AppCompatActivity {
                             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                                 String email = dataSnapshot.child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("email").getValue(String.class);
                                 if (email == null) {
+                                    Log.d("TAG", "here 1");
                                     pDialog.hide();
                                     if (rememberMe.isChecked()) {
                                         sp.edit().putBoolean("loggedPatient", true).apply();
                                     } else
                                         sp.edit().putBoolean("loggedPatient", false).apply();
-                                    Intent intent = new Intent(MainActivity.this, TheFragmnetsActivity.class);
+                                    Intent intent = new Intent(MainActivity.this, AdminActivity.class);
                                     MainActivity.this.startActivity(intent);
                                 } else {
+                                    Log.d("TAG", "here 2");
                                     pDialog.hide();
                                     if (rememberMe.isChecked()) {
                                         sp.edit().putBoolean("loggedDoctor", true).apply();
@@ -116,6 +119,7 @@ public class MainActivity extends AppCompatActivity {
                     } else {
                         errorMessage.setVisibility(View.VISIBLE);
                         pDialog.hide();
+//
                     }
                 }
             });

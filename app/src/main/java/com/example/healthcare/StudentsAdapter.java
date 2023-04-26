@@ -9,7 +9,9 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.healthcare.models.Admin;
 import com.example.healthcare.models.Patient;
+import com.example.healthcare.models.Teacher;
 
 import java.util.List;
 
@@ -17,6 +19,8 @@ public class StudentsAdapter extends RecyclerView.Adapter<StudentsAdapter.MyView
 
     // List with String type
     List<Patient> list;
+    List<Teacher> teacherslist;
+    boolean teacherslist_for_admin;
 
     // View Holder class which
     // extends RecyclerView.ViewHolder
@@ -45,6 +49,15 @@ public class StudentsAdapter extends RecyclerView.Adapter<StudentsAdapter.MyView
         this.list = horizontalList;
         Log.d("UTAG", String.valueOf(horizontalList.isEmpty()));
     }
+
+
+    public StudentsAdapter(List<Teacher> horizontalList, boolean admintrue)
+    {
+        this.teacherslist_for_admin=admintrue;
+        this.teacherslist = horizontalList;
+        Log.d("UTAG", String.valueOf(horizontalList.isEmpty()));
+    }
+
 
     // Override onCreateViewHolder which deals
     // with the inflation of the card layout
@@ -78,7 +91,12 @@ public class StudentsAdapter extends RecyclerView.Adapter<StudentsAdapter.MyView
 
         // Set the text of each item of
         // Recycler view with the list items
-        holder.textView.setText(list.get(position).getFirstName());
+        if(!teacherslist_for_admin) {
+            holder.textView.setText(list.get(position).getFirstName());
+        }
+        else{
+            holder.textView.setText(teacherslist.get(position).getFirstName());
+        }
         //Log.d("UTAG", list.get(position).getPhoneNumber().toString());
         //holder.id.setText(list.get(position).getPhoneNumber().toString());
     }
@@ -88,7 +106,10 @@ public class StudentsAdapter extends RecyclerView.Adapter<StudentsAdapter.MyView
     @Override
     public int getItemCount()
     {
-        return list.size();
+        if(!teacherslist_for_admin){
+            return list.size();
+        }
+        return teacherslist.size();
     }
 }
 

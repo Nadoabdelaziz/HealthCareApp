@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--Relative Layout-->
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AdminActivity"
+    android:id="@+id/relativelayout">
+
+    <!--Recycler View widget-->
+
+
+    <TextView
+        android:id="@+id/admin_user_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/trendingTeachers"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="23dp"
+        android:layout_marginBottom="65dp"
+        android:textColor="#000"
+        android:textSize="30dp" />
+
+    <TextView
+        android:id="@+id/labeltitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/trendingTeachers"
+        android:layout_marginRight="18dp"
+        android:layout_marginBottom="40dp"
+        android:layout_alignParentRight="true"
+        android:text="مشرف" />
+
+    <TextView
+        android:id="@+id/trendingTeachers"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/recyclerviewTeachers"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="23dp"
+        android:text="المعلمين النشطين"
+        android:textColor="#000"
+        android:textSize="20dp" />
+
+<!--    <TextView-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_above="@+id/recyclerview"-->
+<!--        android:layout_alignParentLeft="true"-->
+<!--        android:layout_marginLeft="20dp"-->
+<!--        android:layout_marginBottom="23dp"-->
+<!--        android:text="مشاهدة الكل"-->
+<!--        android:textColor="@color/main_blue_color"-->
+<!--        android:textSize="20dp" />-->
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerviewTeachers"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:scrollbars="horizontal" />
+
+</RelativeLayout>
