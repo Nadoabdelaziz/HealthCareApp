@@ -1,0 +1,341 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:scrollbars="vertical"
+    tools:context=".CreateStudentActivity">
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/montserrat_bold"
+        android:layout_marginTop="30dp"
+        android:gravity="center"
+        android:text="أضف طالبًا"
+        android:textColor="#33aeb6"
+        android:textSize="30sp" />
+    <RadioGroup
+        android:layout_width="232dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:orientation="horizontal"
+        android:layout_marginLeft="12dp">
+
+        <RadioButton
+            android:id="@+id/patientRadioButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:buttonTint="#33aeb6"
+            android:text="Patient"
+            android:textColor="#33aeb6"
+            android:textSize="18sp"
+            android:checked="true"
+            android:visibility="gone"
+            />
+
+        <RadioButton
+            android:id="@+id/doctorRadioButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:buttonTint="#33aeb6"
+            android:text="Doctor"
+            android:textColor="#33aeb6"
+            android:textSize="18sp"
+            android:visibility="gone" />
+    </RadioGroup>
+
+
+
+    <LinearLayout
+        android:id="@+id/patientLinearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="top"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginTop="20dp"
+        android:orientation="vertical"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="معلومات شخصية"
+            android:layout_gravity="right"
+            android:fontFamily="@font/montserrat_bold"
+            android:textSize="22dp"
+            android:layout_marginBottom="15dp"
+            />
+
+        <EditText
+            android:id="@+id/Stdname"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#33aeb6"
+            android:layout_marginBottom="8dp"
+            android:ems="10"
+            android:hint="أدخل اسم الطالب"
+            android:inputType="textCapSentences" />
+
+        <EditText
+            android:id="@+id/Stdnickname"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+
+            android:ems="10"
+            android:hint="أدخل المعرف"
+            android:inputType="textEmailAddress"
+            android:backgroundTint="#33aeb6"/>
+
+        <EditText
+            android:id="@+id/StdPhoneNumber"
+            android:layout_width="match_parent"
+            android:layout_marginBottom="8dp"
+
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="+96"
+            android:inputType="phone"
+            android:backgroundTint="#33aeb6"/>
+
+        <EditText
+            android:id="@+id/StdSchoolname"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+
+            android:ems="10"
+            android:hint="ادخل اسم المدرسة"
+            android:inputType="textCapSentences"
+            android:backgroundTint="#33aeb6"/>
+
+        <EditText
+            android:id="@+id/patientBirthDate"
+            android:layout_width="match_parent"
+            android:layout_marginBottom="8dp"
+
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="Birth Date (YYYY-MM-DD)"
+            android:backgroundTint="#33aeb6"
+            android:visibility="gone"
+            />
+
+
+
+        <EditText
+            android:id="@+id/patientCIN"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="CIN"
+            android:visibility="gone"
+            android:inputType="textCapSentences"
+            android:backgroundTint="#33aeb6"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/textView7"
+                android:layout_width="361dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="5dp"
+                android:layout_weight="1"
+                android:gravity="center_vertical"
+                android:text="Marital status:"
+                android:visibility="gone"
+                android:textColor="#33aeb6"
+                android:textSize="16sp" />
+
+            <Spinner
+                android:id="@+id/maritalStatus"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:visibility="gone"
+                android:layout_weight="1" />
+        </LinearLayout>
+
+
+
+        <EditText
+            android:id="@+id/StdGender"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:ems="10"
+            android:hint="الجنس " />
+
+
+        <EditText
+            android:id="@+id/StdNation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:ems="10"
+            android:hint="جنسية الطالب "/>
+
+        <EditText
+            android:id="@+id/StdBldType"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="فصيلة الدم" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="25dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="معلومات صحية"
+            android:layout_gravity="right"
+            android:textSize="22dp"
+            android:fontFamily="@font/montserrat_bold"
+            android:layout_marginBottom="5dp"
+            />
+
+        <EditText
+            android:id="@+id/Stddisease"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:ems="10"
+            android:hint="حدد المرض"
+            />
+
+
+        <EditText
+            android:id="@+id/StdPrctions"
+            android:layout_width="match_parent"
+            android:layout_marginBottom="8dp"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="تحذيرات " />
+
+
+        <EditText
+            android:id="@+id/Stdknown"
+            android:layout_width="match_parent"
+            android:layout_marginBottom="8dp"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="يُعرِّف" />
+
+        <Button
+            android:id="@+id/createStdButton"
+            android:layout_width="294dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/custombutton"
+            android:fontFamily="@font/montserrat_bold"
+            android:padding="10dp"
+            android:text="حفظ"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp" />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/doctorLinearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_marginRight="30dp"
+        android:layout_marginLeft="30dp"
+        android:visibility="gone">
+
+        <EditText
+            android:id="@+id/sickness"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textCapSentences"
+            android:hint="Full Name" />
+
+        <EditText
+            android:id="@+id/Code"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textCapSentences"
+            android:hint="Code" />
+
+        <EditText
+            android:id="@+id/doctorPhoneNumber"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="phone"
+            android:hint="Phone Number" />
+
+        <EditText
+            android:id="@+id/doctorEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textEmailAddress"
+            android:hint="Email" />
+
+        <EditText
+            android:id="@+id/City"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textCapSentences"
+            android:hint="City" />
+
+        <EditText
+            android:id="@+id/Address"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textCapSentences"
+            android:hint="Address" />
+        <EditText
+            android:id="@+id/Speciality"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textCapSentences"
+            android:hint="Speciality" />
+        <EditText
+            android:id="@+id/doctorPassword1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPassword"
+            android:hint="Password" />
+        <EditText
+            android:id="@+id/doctorPassword2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPassword"
+            android:hint="Confirm password" />
+        <Button
+            android:id="@+id/doctorButton"
+            android:layout_width="294dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/custombutton"
+            android:fontFamily="@font/montserrat_bold"
+            android:padding="10dp"
+            android:text="Sign Up"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp" />
+
+    </LinearLayout>
+
+</LinearLayout>

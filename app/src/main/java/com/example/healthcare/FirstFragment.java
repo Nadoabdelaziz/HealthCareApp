@@ -81,6 +81,8 @@ public class FirstFragment extends Fragment {
         final TextView lefttxt = (TextView) mView.findViewById(R.id.watchallforadmin);
         final TextView righttxt = (TextView) mView.findViewById(R.id.trendingforadmin);
 
+        final TextView showall = (TextView) mView.findViewById(R.id.showall);
+
         fbAuth = FirebaseAuth.getInstance();
         if(fbAuth.getCurrentUser() != null){
             final String uid = fbAuth.getCurrentUser().getUid().toString();
@@ -94,6 +96,8 @@ public class FirstFragment extends Fragment {
 
             if(!fbAuth.getCurrentUser().getEmail().equals("admin@live.com")){
 
+
+                showall.setText("مشاهدة الكل");
                 // hi text
                 databaseReference = FirebaseDatabase.getInstance().getReference("Teachers");
                 databaseReference.addValueEventListener(new ValueEventListener() {
@@ -145,6 +149,14 @@ public class FirstFragment extends Fragment {
                 lefttxt.setVisibility(View.VISIBLE);
                 righttxt.setVisibility(View.VISIBLE);
                 SecrecyclerView.setVisibility(View.VISIBLE);
+
+                showall.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent intent = new Intent(getContext(),CreateStudentActivity.class);
+                        startActivity(intent);
+                    }
+                });
 
                 // hi text
                 databaseReference = FirebaseDatabase.getInstance().getReference("Admins");
