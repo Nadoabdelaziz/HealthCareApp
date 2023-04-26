@@ -17,6 +17,12 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
+            android:name=".ContactsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".MeetingActivity"
+            android:exported="false" />
+        <activity
             android:name=".CreateCommentActivity"
             android:exported="false" />
         <activity
