@@ -18,7 +18,7 @@
         android:layout_above="@+id/trending"
         android:layout_alignParentRight="true"
         android:layout_marginRight="25dp"
-        android:layout_marginBottom="119dp"
+        android:layout_marginBottom="50dp"
         android:text="أهلا"
         android:textColor="@color/gray_btn_bg_pressed_color"
         android:textSize="30dp" />
@@ -29,10 +29,11 @@
         android:layout_height="wrap_content"
         android:layout_above="@+id/trending"
         android:layout_alignParentRight="true"
-        android:layout_marginRight="23dp"
-        android:layout_marginBottom="65dp"
+        android:layout_marginRight="60dp"
+        android:layout_marginBottom="18dp"
         android:textColor="#000"
         android:textSize="30dp" />
+
 
     <TextView
         android:id="@+id/trending"
@@ -41,27 +42,66 @@
         android:layout_above="@+id/recyclerview"
         android:layout_alignParentRight="true"
         android:layout_marginRight="20dp"
-        android:layout_marginBottom="23dp"
-        android:text="الاحدث تفاعلا"
+        android:layout_marginBottom="-150dp"
+        android:text="طلاب"
         android:textColor="#000"
         android:textSize="20dp" />
+
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_above="@+id/recyclerview"
         android:layout_alignParentLeft="true"
-        android:layout_marginBottom="23dp"
         android:layout_marginLeft="20dp"
-        android:text="مشاهدة الكل"
+        android:layout_marginBottom="-150dp"
+        android:text="عرض الكل وإضافة جديد"
         android:textColor="@color/main_blue_color"
-        android:textSize="20dp" />
+        android:textSize="18dp" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerview"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="170dp"
+        android:layout_marginBottom="64dp"
+        android:scrollbars="horizontal" />
+
+    <TextView
+        android:id="@+id/trendingforadmin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/secondrecyclerviewforadmin"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="15dp"
+        android:layout_marginRight="20dp"
+        android:text="معلمون"
+        android:visibility="gone"
+        android:textColor="#000"
+        android:textSize="20dp" />
+
+    <TextView
+        android:id="@+id/watchallforadmin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/secondrecyclerviewforadmin"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="20dp"
+        android:text="عرض الكل وإضافة جديد"
+        android:visibility="gone"
+        android:textColor="@color/main_blue_color"
+        android:textSize="18dp" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/secondrecyclerviewforadmin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/recyclerview"
         android:layout_centerInParent="true"
+        android:layout_marginTop="25dp"
+        android:visibility="gone"
         android:scrollbars="horizontal" />
 
 </RelativeLayout>

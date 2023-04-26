@@ -41,12 +41,16 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         mAuth = FirebaseAuth.getInstance();
         login = findViewById(R.id.login);
         password = findViewById(R.id.password);
         errorMessage = findViewById(R.id.errorMessage);
         rememberMe = findViewById(R.id.rememberMe);
         sp = getSharedPreferences("login", MODE_PRIVATE);
+//        sp.edit().putBoolean("loggedDoctor",false).apply();
+//        sp.edit().putBoolean("loggedPatient",false).apply();
+
         if (sp.getBoolean("loggedPatient", false)) {
             Intent intent = new Intent(MainActivity.this, TheFragmnetsActivity.class);
             startActivity(intent);

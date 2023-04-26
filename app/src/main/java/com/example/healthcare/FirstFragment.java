@@ -49,6 +49,7 @@ public class FirstFragment extends Fragment {
 
     // Recycler View object
     RecyclerView recyclerView;
+    RecyclerView SecrecyclerView;
 
     // Array list for recycler view data source
     ArrayList<String> source;
@@ -61,6 +62,7 @@ public class FirstFragment extends Fragment {
 
     // Linear Layout Manager
     LinearLayoutManager HorizontalLayout;
+    LinearLayoutManager SecHorizontalLayout;
 
     View ChildView;
     int RecyclerViewItemPosition;
@@ -75,6 +77,10 @@ public class FirstFragment extends Fragment {
         this.mView = view;
 
         final TextView txt = (TextView) mView.findViewById(R.id.user_name);
+
+        final TextView lefttxt = (TextView) mView.findViewById(R.id.watchallforadmin);
+        final TextView righttxt = (TextView) mView.findViewById(R.id.trendingforadmin);
+
         fbAuth = FirebaseAuth.getInstance();
         if(fbAuth.getCurrentUser() != null){
             final String uid = fbAuth.getCurrentUser().getUid().toString();
@@ -82,8 +88,13 @@ public class FirstFragment extends Fragment {
             recyclerView = (RecyclerView)mView.findViewById(R.id.recyclerview);
             recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
+            SecrecyclerView = (RecyclerView)mView.findViewById(R.id.secondrecyclerviewforadmin);
+            SecrecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+
+
             if(!fbAuth.getCurrentUser().getEmail().equals("admin@live.com")){
 
+                // hi text
                 databaseReference = FirebaseDatabase.getInstance().getReference("Teachers");
                 databaseReference.addValueEventListener(new ValueEventListener() {
                     @Override
@@ -131,6 +142,11 @@ public class FirstFragment extends Fragment {
             }
             else{
 
+                lefttxt.setVisibility(View.VISIBLE);
+                righttxt.setVisibility(View.VISIBLE);
+                SecrecyclerView.setVisibility(View.VISIBLE);
+
+                // hi text
                 databaseReference = FirebaseDatabase.getInstance().getReference("Admins");
                 databaseReference.addValueEventListener(new ValueEventListener() {
                     @Override
@@ -145,9 +161,41 @@ public class FirstFragment extends Fragment {
                 });
 
 
+
+
                 myTeachers = new ArrayList<>();
+                myPatients = new ArrayList<>();
                 //AddItemsToRecyclerViewArrayList();
 
+
+                //for students
+                DatabaseReference reference2 = FirebaseDatabase.getInstance().getReference("Patients");
+                reference2.addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                        for(DataSnapshot data : dataSnapshot.getChildren())
+                        {
+                            Patient patient = data.getValue(Patient.class);
+                            myPatients.add(patient);
+
+                        }
+                        studentsAdapter = new StudentsAdapter(myPatients);
+                        SecHorizontalLayout = new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false);
+                        recyclerView.setLayoutManager(SecHorizontalLayout);
+                        recyclerView.setAdapter(studentsAdapter);
+                        recyclerView.setHasFixedSize(true);
+
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError databaseError) {
+                        System.out.println("The read failed: " + databaseError.getCode());
+                    }
+                });
+
+
+
+                //for teachers
                 DatabaseReference reference = FirebaseDatabase.getInstance().getReference("Teachers");
                 reference.addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
@@ -160,9 +208,9 @@ public class FirstFragment extends Fragment {
                         }
                         studentsAdapter = new StudentsAdapter(myTeachers,true);
                         HorizontalLayout = new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false);
-                        recyclerView.setLayoutManager(HorizontalLayout);
-                        recyclerView.setAdapter(studentsAdapter);
-                        recyclerView.setHasFixedSize(true);
+                        SecrecyclerView.setLayoutManager(HorizontalLayout);
+                        SecrecyclerView.setAdapter(studentsAdapter);
+                        SecrecyclerView.setHasFixedSize(true);
 
                     }
 
@@ -171,6 +219,9 @@ public class FirstFragment extends Fragment {
                         System.out.println("The read failed: " + databaseError.getCode());
                     }
                 });
+
+
+
 
 
             }

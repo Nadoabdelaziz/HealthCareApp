@@ -177,6 +177,7 @@ public class FifthFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 sp.edit().putBoolean("loggedDoctor",false).apply();
+                sp.edit().putBoolean("loggedPatient",false).apply();
                 FirebaseAuth.getInstance().signOut();
                 getActivity().finish();
                 startActivity(new Intent(getContext(), Pre_Login_Activity.class));
