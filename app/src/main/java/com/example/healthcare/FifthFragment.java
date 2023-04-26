@@ -92,18 +92,19 @@ public class FifthFragment extends Fragment {
         Button logout = (Button) mview.findViewById(R.id.logoutbtn);
 
 
-        databaseReference = FirebaseDatabase.getInstance().getReference("Teachers");
-        databaseReference.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                fullNameRetrieved = dataSnapshot.child(uid).child("firstName").getValue(String.class);
-                fullName.setText(fullNameRetrieved);
-                specialityRetrieved = dataSnapshot.child(uid).child("lastName").getValue(String.class);
-                speciality.setText(specialityRetrieved);
-                emailRetrieved = dataSnapshot.child(uid).child("email").getValue(String.class);
-                email.setText(emailRetrieved);
-                phoneNumberRetrieved = dataSnapshot.child(uid).child("phoneNumber").getValue(String.class);
-                phoneNumber.setText(phoneNumberRetrieved);
+        if(!user.getEmail().equals("admin@live.com")) {
+            databaseReference = FirebaseDatabase.getInstance().getReference("Teachers");
+            databaseReference.addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                    fullNameRetrieved = dataSnapshot.child(uid).child("firstName").getValue(String.class);
+                    fullName.setText(fullNameRetrieved);
+                    specialityRetrieved = dataSnapshot.child(uid).child("lastName").getValue(String.class);
+                    speciality.setText(specialityRetrieved);
+                    emailRetrieved = dataSnapshot.child(uid).child("email").getValue(String.class);
+                    email.setText(emailRetrieved);
+                    phoneNumberRetrieved = dataSnapshot.child(uid).child("phoneNumber").getValue(String.class);
+                    phoneNumber.setText(phoneNumberRetrieved);
 
 //                addressRetrieved = dataSnapshot.child(uid).child("address").getValue(String.class);
 //                cityRetrieved = dataSnapshot.child(uid).child("city").getValue(String.class);
@@ -111,28 +112,67 @@ public class FifthFragment extends Fragment {
 
 //                codeRetrieved = dataSnapshot.child(uid).child("code").getValue(String.class);
 
-                StorageReference storageReference = FirebaseStorage.getInstance().getReference();
-                StorageReference profileRef = storageReference.child("Profile pictures").child(emailRetrieved + ".jpg");
-                profileRef.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<android.net.Uri>() {
-                    @Override
-                    public void onSuccess(Uri uri) {
-                        Uri = uri.toString();
-                        Picasso.get().load(uri).into(circleImageView);
-                    }
-                });
+                    StorageReference storageReference = FirebaseStorage.getInstance().getReference();
+                    StorageReference profileRef = storageReference.child("Profile pictures").child(emailRetrieved + ".jpg");
+                    profileRef.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<android.net.Uri>() {
+                        @Override
+                        public void onSuccess(Uri uri) {
+                            Uri = uri.toString();
+                            Picasso.get().load(uri).into(circleImageView);
+                        }
+                    });
 
 
-
-            }
-
+                }
 
 
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
+                @Override
+                public void onCancelled(@NonNull DatabaseError databaseError) {
 
-            }
-        });
+                }
+            });
+        }
+        else{
+            databaseReference = FirebaseDatabase.getInstance().getReference("Admins");
+            databaseReference.addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                    fullNameRetrieved = dataSnapshot.child(uid).child("firstName").getValue(String.class);
+                    fullName.setText(fullNameRetrieved);
+                    specialityRetrieved = dataSnapshot.child(uid).child("lastName").getValue(String.class);
+                    speciality.setText(specialityRetrieved);
+                    emailRetrieved = dataSnapshot.child(uid).child("email").getValue(String.class);
+                    email.setText(emailRetrieved);
+                    phoneNumberRetrieved = dataSnapshot.child(uid).child("phoneNumber").getValue(String.class);
+                    phoneNumber.setText(phoneNumberRetrieved);
 
+//                addressRetrieved = dataSnapshot.child(uid).child("address").getValue(String.class);
+//                cityRetrieved = dataSnapshot.child(uid).child("city").getValue(String.class);
+//                address.setText(addressRetrieved + ", " + cityRetrieved);
+
+//                codeRetrieved = dataSnapshot.child(uid).child("code").getValue(String.class);
+
+                    StorageReference storageReference = FirebaseStorage.getInstance().getReference();
+                    StorageReference profileRef = storageReference.child("Profile pictures").child(emailRetrieved + ".jpg");
+                    profileRef.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<android.net.Uri>() {
+                        @Override
+                        public void onSuccess(Uri uri) {
+                            Uri = uri.toString();
+                            Picasso.get().load(uri).into(circleImageView);
+                        }
+                    });
+
+
+                }
+
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                }
+            });
+
+        }
         logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

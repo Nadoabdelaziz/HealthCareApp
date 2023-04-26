@@ -23,6 +23,7 @@ import android.widget.TextView;
 import com.example.healthcare.DoctorUI.DisplayPatientInfo;
 import com.example.healthcare.DoctorUI.SearchPatientAdapter;
 import com.example.healthcare.models.Patient;
+import com.example.healthcare.models.Teacher;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -42,7 +43,9 @@ public class FirstFragment extends Fragment {
 //    ListView listView;
     SearchPatientAdapter adapter;
     List<Patient> myPatients;
-//    SearchView searchView;
+    List<Teacher> myTeachers;
+
+    //    SearchView searchView;
 
     // Recycler View object
     RecyclerView recyclerView;
@@ -75,18 +78,102 @@ public class FirstFragment extends Fragment {
         fbAuth = FirebaseAuth.getInstance();
         if(fbAuth.getCurrentUser() != null){
             final String uid = fbAuth.getCurrentUser().getUid().toString();
-            databaseReference = FirebaseDatabase.getInstance().getReference("Teachers");
-            databaseReference.addValueEventListener(new ValueEventListener() {
-                @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                txt.setText(dataSnapshot.child(uid).child("firstName").getValue(String.class));
-            }
 
-                @Override
-                public void onCancelled(@NonNull DatabaseError databaseError) {
+            recyclerView = (RecyclerView)mView.findViewById(R.id.recyclerview);
+            recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
+            if(!fbAuth.getCurrentUser().getEmail().equals("admin@live.com")){
+
+                databaseReference = FirebaseDatabase.getInstance().getReference("Teachers");
+                databaseReference.addValueEventListener(new ValueEventListener() {
+                    @Override
+                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                    txt.setText(dataSnapshot.child(uid).child("firstName").getValue(String.class));
                 }
-            });
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                    }
+                });
+
+
+
+
+                myPatients = new ArrayList<>();
+                //AddItemsToRecyclerViewArrayList();
+
+                DatabaseReference reference = FirebaseDatabase.getInstance().getReference("Patients");
+                reference.addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                        for(DataSnapshot data : dataSnapshot.getChildren())
+                        {
+                            Patient patient = data.getValue(Patient.class);
+                            myPatients.add(patient);
+
+                        }
+                        studentsAdapter = new StudentsAdapter(myPatients);
+                        HorizontalLayout = new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false);
+                        recyclerView.setLayoutManager(HorizontalLayout);
+                        recyclerView.setAdapter(studentsAdapter);
+                        recyclerView.setHasFixedSize(true);
+
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError databaseError) {
+                        System.out.println("The read failed: " + databaseError.getCode());
+                    }
+                });
+
+
+            }
+            else{
+
+                databaseReference = FirebaseDatabase.getInstance().getReference("Admins");
+                databaseReference.addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                        txt.setText(dataSnapshot.child(uid).child("firstName").getValue(String.class));
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                    }
+                });
+
+
+                myTeachers = new ArrayList<>();
+                //AddItemsToRecyclerViewArrayList();
+
+                DatabaseReference reference = FirebaseDatabase.getInstance().getReference("Teachers");
+                reference.addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                        for(DataSnapshot data : dataSnapshot.getChildren())
+                        {
+                            Teacher teacher = data.getValue(Teacher.class);
+                            myTeachers.add(teacher);
+
+                        }
+                        studentsAdapter = new StudentsAdapter(myTeachers,true);
+                        HorizontalLayout = new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false);
+                        recyclerView.setLayoutManager(HorizontalLayout);
+                        recyclerView.setAdapter(studentsAdapter);
+                        recyclerView.setHasFixedSize(true);
+
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError databaseError) {
+                        System.out.println("The read failed: " + databaseError.getCode());
+                    }
+                });
+
+
+            }
         }
         else{
             Log.d("TAG", "not logged ");
@@ -116,36 +203,42 @@ public class FirstFragment extends Fragment {
 //        source.add("سعيد");
 //        source.add("ياسر");
 
+//
+//
+//        recyclerView = (RecyclerView)mView.findViewById(R.id.recyclerview);
+//        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+//
+//
+//
+//        myPatients = new ArrayList<>();
+//        //AddItemsToRecyclerViewArrayList();
+//
+//        DatabaseReference reference = FirebaseDatabase.getInstance().getReference("Patients");
+//        reference.addListenerForSingleValueEvent(new ValueEventListener() {
+//            @Override
+//            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+//                for(DataSnapshot data : dataSnapshot.getChildren())
+//                {
+//                    Patient patient = data.getValue(Patient.class);
+//                    myPatients.add(patient);
+//
+//                }
+//                studentsAdapter = new StudentsAdapter(myPatients);
+//                HorizontalLayout = new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false);
+//                recyclerView.setLayoutManager(HorizontalLayout);
+//                recyclerView.setAdapter(studentsAdapter);
+//                recyclerView.setHasFixedSize(true);
+//
+//            }
+//
+//            @Override
+//            public void onCancelled(@NonNull DatabaseError databaseError) {
+//                System.out.println("The read failed: " + databaseError.getCode());
+//            }
+//        });
 
 
-        recyclerView = (RecyclerView)mView.findViewById(R.id.recyclerview);
-        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-        myPatients = new ArrayList<>();
-        //AddItemsToRecyclerViewArrayList();
 
-        DatabaseReference reference = FirebaseDatabase.getInstance().getReference("Patients");
-        reference.addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                for(DataSnapshot data : dataSnapshot.getChildren())
-                {
-                    Patient patient = data.getValue(Patient.class);
-                    myPatients.add(patient);
-
-                }
-                studentsAdapter = new StudentsAdapter(myPatients);
-                HorizontalLayout = new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false);
-                recyclerView.setLayoutManager(HorizontalLayout);
-                recyclerView.setAdapter(studentsAdapter);
-                recyclerView.setHasFixedSize(true);
-
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-                System.out.println("The read failed: " + databaseError.getCode());
-            }
-        });
 
 
 

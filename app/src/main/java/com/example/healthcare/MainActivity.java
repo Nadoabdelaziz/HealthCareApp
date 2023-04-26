@@ -48,7 +48,7 @@ public class MainActivity extends AppCompatActivity {
         rememberMe = findViewById(R.id.rememberMe);
         sp = getSharedPreferences("login", MODE_PRIVATE);
         if (sp.getBoolean("loggedPatient", false)) {
-            Intent intent = new Intent(MainActivity.this, AdminActivity.class);
+            Intent intent = new Intent(MainActivity.this, TheFragmnetsActivity.class);
             startActivity(intent);
         }
         if(sp.getBoolean("loggedDoctor", false))
@@ -97,7 +97,7 @@ public class MainActivity extends AppCompatActivity {
                                         sp.edit().putBoolean("loggedPatient", true).apply();
                                     } else
                                         sp.edit().putBoolean("loggedPatient", false).apply();
-                                    Intent intent = new Intent(MainActivity.this, AdminActivity.class);
+                                    Intent intent = new Intent(MainActivity.this, TheFragmnetsActivity.class);
                                     MainActivity.this.startActivity(intent);
                                 } else {
                                     Log.d("TAG", "here 2");
