@@ -57,6 +57,7 @@ public class FifthFragment extends Fragment {
     String fullNameRetrieved, specialityRetrieved, emailRetrieved, phoneNumberRetrieved, addressRetrieved, cityRetrieved, codeRetrieved;
     SharedPreferences sp;
 
+    Button btnhelp;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -64,6 +65,18 @@ public class FifthFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_fifth, container, false);
         this.mview = view;
+
+        btnhelp = (Button) mview.findViewById(R.id.help);
+
+
+        btnhelp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getContext(),HelpActivity.class);
+                startActivity(intent);
+            }
+        });
+
 
         sp = getActivity().getSharedPreferences("login",getActivity().MODE_PRIVATE);
 

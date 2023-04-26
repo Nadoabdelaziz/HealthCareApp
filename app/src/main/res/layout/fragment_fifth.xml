@@ -156,24 +156,103 @@
     </LinearLayout>
 
 
-    <ImageView
-        android:id="@+id/messageView"
-        android:layout_width="wrap_content"
+<!--    <ImageView-->
+<!--        android:id="@+id/messageView"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginRight="10dp"-->
+<!--        android:layout_gravity="center"-->
+<!--        app:srcCompat="@drawable/ic_email" />-->
+
+    <Button
+        android:id="@+id/language"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginRight="10dp"
-        android:layout_gravity="center"
-        app:srcCompat="@drawable/ic_email" />
+        android:layout_gravity="center|end"
+        android:layout_marginTop="60dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginLeft="15dp"
+        android:gravity="right|center"
+        android:drawableRight="@drawable/ic_lock_outline"
+        android:drawableLeft="@drawable/ic_arrow_back"
+
+        android:background="@color/float_transparent"
+        android:text="اللغة"
+        android:drawablePadding="10dp"
+        android:textColor="#000"
+        android:textSize="22dp" />
+
+
+    <Button
+        android:id="@+id/help"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center|end"
+        android:layout_marginTop="120dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginLeft="15dp"
+        android:gravity="right|center"
+        android:drawableRight="@drawable/ic_local_phone"
+        android:drawablePadding="10dp"
+        android:drawableLeft="@drawable/ic_arrow_back"
+
+        android:background="@color/float_transparent"
+        android:text="مساعدة و دعم"
+        android:textColor="#000"
+        android:textSize="22dp" />
+
+
+    <Button
+        android:id="@+id/settingsicon"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center|end"
+        android:layout_marginTop="180dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginLeft="15dp"
+        android:gravity="right|center"
+        android:drawableRight="@drawable/ic_assignment"
+        android:drawablePadding="10dp"
+        android:drawableLeft="@drawable/ic_arrow_back"
+
+        android:background="@color/float_transparent"
+        android:text="إعدادات"
+        android:textColor="#000"
+        android:textSize="22dp" />
+
+
 
     <Button
         android:id="@+id/logoutbtn"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="bottom"
-        android:text="تسجيل خروج"
-        android:textSize="28dp"
-        android:textColor="#000"
+        android:layout_gravity="center|end"
+        android:layout_marginTop="260dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginLeft="15dp"
+        android:gravity="right|center"
+        android:drawableRight="@drawable/ic_exit_to_app"
+        android:drawableTint="@color/red_btn_bg_pressed_color"
+        android:drawablePadding="10dp"
         android:background="@color/float_transparent"
-        android:layout_marginBottom="100dp"
-        android:layout_marginStart="225dp"/>
+        android:text="تسجيل خروج"
+        android:textColor="#000"
+        android:textSize="22dp" />
+
+
+<!--    <Button-->
+<!--        android:id="@+id/logoutbtn"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_gravity="bottom"-->
+<!--        android:text="تسجيل خروج"-->
+<!--        android:textSize="28dp"-->
+<!--        android:textColor="#000"-->
+<!--        android:background="@color/float_transparent"-->
+<!--        android:layout_marginBottom="100dp"-->
+<!--        android:layout_marginStart="225dp"/>-->
+
+
+
 
 </FrameLayout>
