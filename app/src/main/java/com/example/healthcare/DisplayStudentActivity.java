@@ -160,4 +160,11 @@ public class DisplayStudentActivity extends AppCompatActivity {
 //            }
 //        }
 
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        Intent intent = new Intent(DisplayStudentActivity.this,TheFragmnetsActivity.class);
+        startActivity(intent);
+    }
 }

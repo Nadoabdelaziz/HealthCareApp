@@ -117,58 +117,28 @@ public class RegisterOrdersActivity extends AppCompatActivity {
 
             }
         });
-
-
-//        database = FirebaseDatabase.getInstance();
-//        user = FirebaseAuth.getInstance().getCurrentUser();
-//        final String userUid = user.getUid();
-
-//        databaseReference = FirebaseDatabase.getInstance().getReference("Teachers");
-//        databaseReference.addValueEventListener(new ValueEventListener() {
-//            @Override
-//            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-//                String data = dataSnapshot.child(userUid).child("firstName").getValue(String.class);
-////                Log.d("TAG", data);
-////                fullName.setText(fullNameRetrieved);
-////                specialityRetrieved = dataSnapshot.child(uid).child("lastName").getValue(String.class);
-////                speciality.setText(specialityRetrieved);
-////                emailRetrieved = dataSnapshot.child(uid).child("email").getValue(String.class);
-////                email.setText(emailRetrieved);
-////                phoneNumberRetrieved = dataSnapshot.child(uid).child("phoneNumber").getValue(String.class);
-////                phoneNumber.setText(phoneNumberRetrieved);
-//
-////                addressRetrieved = dataSnapshot.child(uid).child("address").getValue(String.class);
-////                cityRetrieved = dataSnapshot.child(uid).child("city").getValue(String.class);
-////                address.setText(addressRetrieved + ", " + cityRetrieved);
-//
-////                codeRetrieved = dataSnapshot.child(uid).child("code").getValue(String.class);
-//
-//            }
-//
-//
-//            @Override
-//            public void onCancelled(@NonNull DatabaseError databaseError) {
-//
-//            }
-//        });
-
-//        database = FirebaseDatabase.getInstance();
-//        user = FirebaseAuth.getInstance().getCurrentUser();
-//        final String userUid = user.getUid();
-//        DatabaseReference dbRef = database.getReference("Teachers");
-//        //String[] fn = fullName.getText().toString().split(" ");
-//        final Teacher teacher = new Teacher();
-//        dbRef.child(userUid).addValueEventListener(new ValueEventListener() {
-//            @Override
-//            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-//                dataSnapshot.getRef().setValue(patient);
-//            }
-//
-//            @Override
-//            public void onCancelled(@NonNull DatabaseError databaseError) {
-//
-//            }
-//        });
-        //Log.d("TAG", "acceptR: "+myTeacherListview.getItemAtPosition(position));
     }
+
+    public void reject(View v){
+        final int position = myTeacherListview.getPositionForView((View) v.getParent());
+
+        database = FirebaseDatabase.getInstance();
+        Teacher teacher = (Teacher) adapter.getItem(position);
+
+
+        DatabaseReference dbRef = database.getReference("Teachers");
+        final Teacher teacher1 = new Teacher(teacher.getFirstName(),teacher.getLastName(),teacher.getBirthDate(),teacher.getPhoneNumber(),teacher.getEmail(),teacher.getCin(),"1");
+        dbRef.child(teacher1.getEmail().replaceAll("[-+.@:.]","")).addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                dataSnapshot.getRef().removeValue();
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+    }
+
 }
