@@ -27,6 +27,8 @@ import androidx.core.app.ActivityCompat;
 
 import java.io.IOException;
 
+import cn.pedant.SweetAlert.SweetAlertDialog;
+
 public class OCRActivity extends AppCompatActivity {
 
     SurfaceView cameraView;
@@ -137,6 +139,17 @@ public class OCRActivity extends AppCompatActivity {
                                     String CropID = stringBuilder.toString().split("Postgraduate FAM")[0];
                                     String newCropID = CropID.split("ID:")[1];
 
+                                    new SweetAlertDialog(OCRActivity.this, SweetAlertDialog.SUCCESS_TYPE)
+                                            .setTitleText("Congratulations")
+                                            .setContentText("Your Comment is Created successfully")
+                                            .setConfirmClickListener(new SweetAlertDialog.OnSweetClickListener() {
+                                                @Override
+                                                public void onClick(SweetAlertDialog sweetAlertDialog) {
+//                                                    Intent intent = new Intent(The.this, TheFragmnetsActivity.class);
+//                                                    startActivity(intent);
+                                                }
+                                            })
+                                            .show();
                                     textView.setText(newCropID);
 
 
