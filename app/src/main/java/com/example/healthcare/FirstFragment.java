@@ -98,55 +98,100 @@ public class FirstFragment extends Fragment {
             SecrecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
 
-            if(!fbAuth.getCurrentUser().getEmail().equals("admin@gmail.com")){
-
-                USRtype.setText("مدرس");
-                showall.setText("مشاهدة الكل");
-                // hi text
-                databaseReference = FirebaseDatabase.getInstance().getReference("Teachers");
-                databaseReference.addValueEventListener(new ValueEventListener() {
-                    @Override
-                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                    txt.setText(dataSnapshot.child(FirebaseAuth.getInstance().getCurrentUser().getEmail().replaceAll("[-+.@:.]","")).child("firstName").getValue(String.class));
-                }
-
-                    @Override
-                    public void onCancelled(@NonNull DatabaseError databaseError) {
-
-                    }
-                });
+            if(!fbAuth.getCurrentUser().getEmail().equals("admin@gmail.com")) {
 
 
+                if (fbAuth.getCurrentUser().getEmail().equals("health@live.com")) {
+                    USRtype.setText("أمين");
+                    showall.setText("مشاهدة الكل");
 
+                    databaseReference = FirebaseDatabase.getInstance().getReference("HealthPrompts");
+                    databaseReference.addValueEventListener(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                            txt.setText(dataSnapshot.child(FirebaseAuth.getInstance().getCurrentUser().getEmail().replaceAll("[-+.@:.]", "")).child("firstName").getValue(String.class));
+                        }
 
-                myStudents = new ArrayList<>();
-                //AddItemsToRecyclerViewArrayList();
-
-                DatabaseReference reference = FirebaseDatabase.getInstance().getReference("Students");
-                reference.addListenerForSingleValueEvent(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                        for(DataSnapshot data : dataSnapshot.getChildren())
-                        {
-                            Student student = data.getValue(Student.class);
-                            myStudents.add(student);
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError databaseError) {
 
                         }
-                        studentsAdapter = new StudentsAdapter(myStudents);
-                        HorizontalLayout = new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false);
-                        recyclerView.setLayoutManager(HorizontalLayout);
-                        recyclerView.setAdapter(studentsAdapter);
-                        recyclerView.setHasFixedSize(true);
-
-                    }
-
-                    @Override
-                    public void onCancelled(@NonNull DatabaseError databaseError) {
-                        System.out.println("The read failed: " + databaseError.getCode());
-                    }
-                });
+                    });
 
 
+                    myStudents = new ArrayList<>();
+                    //AddItemsToRecyclerViewArrayList();
+
+                    DatabaseReference reference = FirebaseDatabase.getInstance().getReference("Students");
+                    reference.addListenerForSingleValueEvent(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                            for (DataSnapshot data : dataSnapshot.getChildren()) {
+                                Student student = data.getValue(Student.class);
+                                myStudents.add(student);
+
+                            }
+                            studentsAdapter = new StudentsAdapter(myStudents);
+                            HorizontalLayout = new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false);
+                            recyclerView.setLayoutManager(HorizontalLayout);
+                            recyclerView.setAdapter(studentsAdapter);
+                            recyclerView.setHasFixedSize(true);
+
+                        }
+
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError databaseError) {
+                            System.out.println("The read failed: " + databaseError.getCode());
+                        }
+                    });
+
+                }
+
+                else {
+                    USRtype.setText("مدرس");
+                    showall.setText("مشاهدة الكل");
+                    // hi text
+                    databaseReference = FirebaseDatabase.getInstance().getReference("Teachers");
+                    databaseReference.addValueEventListener(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                            txt.setText(dataSnapshot.child(FirebaseAuth.getInstance().getCurrentUser().getEmail().replaceAll("[-+.@:.]", "")).child("firstName").getValue(String.class));
+                        }
+
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                        }
+                    });
+
+
+                    myStudents = new ArrayList<>();
+                    //AddItemsToRecyclerViewArrayList();
+
+                    DatabaseReference reference = FirebaseDatabase.getInstance().getReference("Students");
+                    reference.addListenerForSingleValueEvent(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                            for (DataSnapshot data : dataSnapshot.getChildren()) {
+                                Student student = data.getValue(Student.class);
+                                myStudents.add(student);
+
+                            }
+                            studentsAdapter = new StudentsAdapter(myStudents);
+                            HorizontalLayout = new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false);
+                            recyclerView.setLayoutManager(HorizontalLayout);
+                            recyclerView.setAdapter(studentsAdapter);
+                            recyclerView.setHasFixedSize(true);
+
+                        }
+
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError databaseError) {
+                            System.out.println("The read failed: " + databaseError.getCode());
+                        }
+                    });
+
+                }
             }
             else{
 

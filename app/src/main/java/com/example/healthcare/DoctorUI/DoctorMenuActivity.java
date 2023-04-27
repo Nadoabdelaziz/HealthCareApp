@@ -202,6 +202,9 @@ public class DoctorMenuActivity extends AppCompatActivity {
     }
     public void logOut(View view) {
         sp.edit().putBoolean("loggedDoctor",false).apply();
+        sp.edit().putBoolean("loggedHealth",false).apply();
+        sp.edit().putBoolean("loggedPatient",false).apply();
+
         FirebaseAuth.getInstance().signOut();
         finish();
         startActivity(new Intent(DoctorMenuActivity.this, MainActivity.class));
