@@ -26,6 +26,16 @@
         android:textColor="@android:color/holo_red_dark"
         android:visibility="gone"/>
 
+    <TextView
+        android:id="@+id/UnAuthMsg"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="Account not Authorized yet !"
+        android:textSize="16sp"
+        android:textColor="@android:color/holo_red_dark"
+        android:visibility="gone"/>
+
     <LinearLayout
         android:layout_width="310dp"
         android:layout_height="wrap_content"

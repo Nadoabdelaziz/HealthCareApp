@@ -10,6 +10,7 @@
         <entry key="..\:/Users/nado2/Downloads/HealthCare-master/HealthCare-master/app/src/main/res/layout/activity_create_account.xml" value="0.2" />
         <entry key="..\:/Users/nado2/Downloads/HealthCare-master/HealthCare-master/app/src/main/res/layout/activity_create_comment.xml" value="0.2064814814814815" />
         <entry key="..\:/Users/nado2/Downloads/HealthCare-master/HealthCare-master/app/src/main/res/layout/activity_create_student.xml" value="0.264" />
+        <entry key="..\:/Users/nado2/Downloads/HealthCare-master/HealthCare-master/app/src/main/res/layout/activity_create_teacher.xml" value="0.2203125" />
         <entry key="..\:/Users/nado2/Downloads/HealthCare-master/HealthCare-master/app/src/main/res/layout/activity_display_doctor_info.xml" value="0.2064814814814815" />
         <entry key="..\:/Users/nado2/Downloads/HealthCare-master/HealthCare-master/app/src/main/res/layout/activity_display_doctor_profile_info.xml" value="0.2064814814814815" />
         <entry key="..\:/Users/nado2/Downloads/HealthCare-master/HealthCare-master/app/src/main/res/layout/activity_doctor_appointments.xml" value="0.25" />
@@ -20,12 +21,14 @@
         <entry key="..\:/Users/nado2/Downloads/HealthCare-master/HealthCare-master/app/src/main/res/layout/activity_menu.xml" value="0.2064814814814815" />
         <entry key="..\:/Users/nado2/Downloads/HealthCare-master/HealthCare-master/app/src/main/res/layout/activity_my_doctors.xml" value="0.2064814814814815" />
         <entry key="..\:/Users/nado2/Downloads/HealthCare-master/HealthCare-master/app/src/main/res/layout/activity_pre_login.xml" value="0.2064814814814815" />
+        <entry key="..\:/Users/nado2/Downloads/HealthCare-master/HealthCare-master/app/src/main/res/layout/activity_register_orders.xml" value="0.1546875" />
         <entry key="..\:/Users/nado2/Downloads/HealthCare-master/HealthCare-master/app/src/main/res/layout/activity_schedule_appointment.xml" value="0.2064814814814815" />
         <entry key="..\:/Users/nado2/Downloads/HealthCare-master/HealthCare-master/app/src/main/res/layout/activity_search_doctor.xml" value="0.2064814814814815" />
         <entry key="..\:/Users/nado2/Downloads/HealthCare-master/HealthCare-master/app/src/main/res/layout/activity_search_patient.xml" value="0.2064814814814815" />
         <entry key="..\:/Users/nado2/Downloads/HealthCare-master/HealthCare-master/app/src/main/res/layout/activity_splash.xml" value="0.2064814814814815" />
         <entry key="..\:/Users/nado2/Downloads/HealthCare-master/HealthCare-master/app/src/main/res/layout/activity_teacher.xml" value="0.2064814814814815" />
         <entry key="..\:/Users/nado2/Downloads/HealthCare-master/HealthCare-master/app/src/main/res/layout/activity_the_fragmnets.xml" value="0.2064814814814815" />
+        <entry key="..\:/Users/nado2/Downloads/HealthCare-master/HealthCare-master/app/src/main/res/layout/authorder_row.xml" value="0.24895833333333334" />
         <entry key="..\:/Users/nado2/Downloads/HealthCare-master/HealthCare-master/app/src/main/res/layout/commentrow.xml" value="0.264" />
         <entry key="..\:/Users/nado2/Downloads/HealthCare-master/HealthCare-master/app/src/main/res/layout/contacts_list_item.xml" value="0.21614583333333334" />
         <entry key="..\:/Users/nado2/Downloads/HealthCare-master/HealthCare-master/app/src/main/res/layout/fragment_fifth.xml" value="0.2064814814814815" />
@@ -39,6 +42,7 @@
         <entry key="..\:/Users/nado2/Downloads/HealthCare-master/HealthCare-master/app/src/main/res/layout/mydoctor_row.xml" value="0.2064814814814815" />
         <entry key="..\:/Users/nado2/Downloads/HealthCare-master/HealthCare-master/app/src/main/res/layout/mypatient_row.xml" value="0.2064814814814815" />
         <entry key="..\:/Users/nado2/Downloads/HealthCare-master/HealthCare-master/app/src/main/res/layout/row.xml" value="0.2064814814814815" />
+        <entry key="..\:/Users/nado2/Downloads/HealthCare-master/HealthCare-master/app/src/main/res/layout/speciality_row.xml" value="0.25" />
         <entry key="..\:/Users/nado2/Downloads/HealthCare-master/HealthCare-master/app/src/main/res/layout/student_item.xml" value="0.2064814814814815" />
         <entry key="..\:/Users/nado2/Downloads/HealthCare-master/HealthCare-master/app/src/main/res/menu/bottom_nav_menu.xml" value="0.2064814814814815" />
         <entry key="..\:/Users/nado2/Downloads/HealthCare-master/HealthCare-master/app/src/main/res/menu/main_options_menu.xml" value="0.21614583333333334" />

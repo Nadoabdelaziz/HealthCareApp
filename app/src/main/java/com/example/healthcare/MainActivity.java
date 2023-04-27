@@ -16,6 +16,8 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.healthcare.DoctorUI.DoctorMenuActivity;
+import com.example.healthcare.models.Student;
+import com.example.healthcare.models.Teacher;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -33,6 +35,8 @@ public class MainActivity extends AppCompatActivity {
     private EditText login;
     private EditText password;
     private TextView errorMessage;
+    private TextView AutherrorMessage;
+
     CheckBox rememberMe;
     SharedPreferences sp;
     DatabaseReference ref;
@@ -46,6 +50,8 @@ public class MainActivity extends AppCompatActivity {
         login = findViewById(R.id.login);
         password = findViewById(R.id.password);
         errorMessage = findViewById(R.id.errorMessage);
+        AutherrorMessage = findViewById(R.id.UnAuthMsg);
+
         rememberMe = findViewById(R.id.rememberMe);
         sp = getSharedPreferences("login", MODE_PRIVATE);
 //        sp.edit().putBoolean("loggedDoctor",false).apply();
@@ -71,6 +77,8 @@ public class MainActivity extends AppCompatActivity {
 
     public void login(View view) {
         errorMessage.setVisibility(View.GONE);
+        AutherrorMessage.setVisibility(View.GONE);
+
         String tempLogin = login.getText().toString().trim();
         String tempPassword = password.getText().toString().trim();
         if (
@@ -93,7 +101,11 @@ public class MainActivity extends AppCompatActivity {
                         ref.addValueEventListener(new ValueEventListener() {
                             @Override
                             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                                String email = dataSnapshot.child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("email").getValue(String.class);
+
+                                String email = dataSnapshot.child(FirebaseAuth.getInstance().getCurrentUser().getEmail().replaceAll("[-+.@:.]","")).child("email").getValue(String.class);
+                               // Log.d("TAG", "onComplete: "+FirebaseAuth.getInstance().getCurrentUser().getEmail().replaceAll("[-+.@:.]",""));
+
+
                                 if (email == null) {
                                     Log.d("TAG", "here 1");
                                     pDialog.hide();
@@ -101,9 +113,31 @@ public class MainActivity extends AppCompatActivity {
                                         sp.edit().putBoolean("loggedPatient", true).apply();
                                     } else
                                         sp.edit().putBoolean("loggedPatient", false).apply();
+
+                                    //admin user
                                     Intent intent = new Intent(MainActivity.this, TheFragmnetsActivity.class);
                                     MainActivity.this.startActivity(intent);
-                                } else {
+                                }
+//                                else if(){
+//
+//                                }
+
+                                else {
+                                    for(DataSnapshot data : dataSnapshot.getChildren())
+                                    {
+                                        Teacher teacher = data.getValue(Teacher.class);
+                                        Log.d("TAG", "onDataChange1: "+teacher.getEmail());
+                                        Log.d("TAG", "onDataChange2: "+login.getText().toString());
+                                        if(teacher.getEmail().equals(login.getText().toString()) && teacher.getMaritalStatus().equals("0")){
+                                            Log.d("TAG", "onDataChange: "+teacher.getEmail());
+                                            AutherrorMessage.setVisibility(View.VISIBLE);
+                                            pDialog.hide();
+                                            return;
+                                        }
+                                        //Log.d("TAG", teacher.getFirstName());
+
+                                    }
+
                                     Log.d("TAG", "here 2");
                                     pDialog.hide();
                                     if (rememberMe.isChecked()) {

@@ -4,6 +4,7 @@ import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -334,9 +335,9 @@ public class CreateAccount extends AppCompatActivity {
                 @Override
                 public void onComplete(@NonNull Task<AuthResult> task) {
                     if(task.isSuccessful()){
-                        Teacher patient = new Teacher(firstName, lastName, "birthDate", phoneNumber, email, "CIN", "status");
+                        Teacher patient = new Teacher(firstName, lastName, "birthDate", phoneNumber, email, "CIN", "0");
                         FirebaseDatabase.getInstance().getReference("Teachers")
-                                .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
+                                .child(FirebaseAuth.getInstance().getCurrentUser().getEmail().replaceAll("[-+.@:.]",""))
                                 .setValue(patient).addOnCompleteListener(new OnCompleteListener<Void>() {
                                     @Override
                                     public void onComplete(@NonNull Task<Void> task) {

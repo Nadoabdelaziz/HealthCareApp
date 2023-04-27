@@ -16,7 +16,7 @@ import com.example.healthcare.models.Teacher;
 
 import java.util.List;
 
-public class StudentsAdapter extends RecyclerView.Adapter<StudentsAdapter.MyView> {
+public class StudentsAdapter extends RecyclerView.Adapter<StudentsAdapter.MyView>  {
 
     // List with String type
     List<Student> list;

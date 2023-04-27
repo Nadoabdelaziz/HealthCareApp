@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:descendantFocusability="blocksDescendants"
+    android:layout_height="wrap_content">
+
+<!--    <de.hdodenhof.circleimageview.CircleImageView-->
+<!--        xmlns:app="http://schemas.android.com/apk/res-auto"-->
+<!--        android:id="@+id/profile_image"-->
+<!--        android:layout_width="96dp"-->
+<!--        android:layout_height="96dp"-->
+<!--        app:civ_border_width="2dp"-->
+<!--        android:layout_marginRight="10dp"-->
+<!--        app:civ_border_color="#FFF"/>-->
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:layout_gravity="center">
+        <Button
+            android:id="@+id/acceptOrder"
+            android:layout_width="45dp"
+            android:layout_height="wrap_content"
+            android:drawableLeft="@drawable/ic_check"
+            android:fontFamily="@font/nunito_sans_bold"
+            android:paddingRight="20dp"
+            android:onClick="acceptR"
+            android:drawableTint="@color/main_green_stroke_color"/>
+        <Button
+            android:id="@+id/rejectOrder"
+            android:layout_width="45dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/nunito_sans_bold"
+            android:drawableLeft="@drawable/error_center_x" />
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginLeft="45dp"
+        android:layout_gravity="center">
+
+        <TextView
+            android:id="@+id/fullName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:text="hello world"
+            android:fontFamily="@font/montserrat_bold"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/speciality"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:text="hwllo world"
+            android:fontFamily="@font/montserrat"
+            android:textSize="18sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        >
+        <de.hdodenhof.circleimageview.CircleImageView
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/profile_image"
+            android:layout_width="96dp"
+            android:layout_height="96dp"
+            app:civ_border_width="2dp"
+            android:layout_gravity="right"
+            android:layout_marginLeft="20dp"
+            app:civ_border_color="#FFF"/>
+    </LinearLayout>
+
+
+</LinearLayout>

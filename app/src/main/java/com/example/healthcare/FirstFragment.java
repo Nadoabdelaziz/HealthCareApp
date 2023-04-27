@@ -95,7 +95,7 @@ public class FirstFragment extends Fragment {
             SecrecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
 
-            if(!fbAuth.getCurrentUser().getEmail().equals("admin@live.com")){
+            if(!fbAuth.getCurrentUser().getEmail().equals("admin@gmail.com")){
 
 
                 showall.setText("مشاهدة الكل");
@@ -104,7 +104,7 @@ public class FirstFragment extends Fragment {
                 databaseReference.addValueEventListener(new ValueEventListener() {
                     @Override
                 public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                    txt.setText(dataSnapshot.child(uid).child("firstName").getValue(String.class));
+                    txt.setText(dataSnapshot.child(FirebaseAuth.getInstance().getCurrentUser().getEmail().replaceAll("[-+.@:.]","")).child("firstName").getValue(String.class));
                 }
 
                     @Override
@@ -159,12 +159,13 @@ public class FirstFragment extends Fragment {
                     }
                 });
 
+
                 // hi text
                 databaseReference = FirebaseDatabase.getInstance().getReference("Admins");
                 databaseReference.addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                        txt.setText(dataSnapshot.child(uid).child("firstName").getValue(String.class));
+                        txt.setText(dataSnapshot.child(FirebaseAuth.getInstance().getCurrentUser().getEmail().replaceAll("[-+.@:.]","")).child("firstName").getValue(String.class));
                     }
 
                     @Override

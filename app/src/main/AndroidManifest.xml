@@ -17,6 +17,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
+            android:name=".RegisterOrdersActivity"
+            android:exported="false" />
+        <activity
             android:name=".CreateStudentActivity"
             android:exported="false" />
         <activity

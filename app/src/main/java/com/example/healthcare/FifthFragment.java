@@ -14,6 +14,7 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -47,7 +48,7 @@ public class FifthFragment extends Fragment {
 
     View mview;
 
-
+    Button RgOrders;
     TextView fullName, speciality, email, phoneNumber, address;
     CircleImageView circleImageView;
     FirebaseUser user;
@@ -78,6 +79,8 @@ public class FifthFragment extends Fragment {
         });
 
 
+        RgOrders = (Button) mview.findViewById(R.id.registerOrders);
+
         sp = getActivity().getSharedPreferences("login",getActivity().MODE_PRIVATE);
 
         fullName = mview.findViewById(R.id.fullName);
@@ -92,18 +95,19 @@ public class FifthFragment extends Fragment {
         Button logout = (Button) mview.findViewById(R.id.logoutbtn);
 
 
-        if(!user.getEmail().equals("admin@live.com")) {
+        if(!user.getEmail().equals("admin@gmail.com")) {
+            Log.d("TAG", "onCreateView: "+FirebaseAuth.getInstance().getCurrentUser().getEmail().replaceAll("[-+.@:.]",""));
             databaseReference = FirebaseDatabase.getInstance().getReference("Teachers");
             databaseReference.addValueEventListener(new ValueEventListener() {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                    fullNameRetrieved = dataSnapshot.child(uid).child("firstName").getValue(String.class);
+                    fullNameRetrieved = dataSnapshot.child(FirebaseAuth.getInstance().getCurrentUser().getEmail().replaceAll("[-+.@:.]","")).child("firstName").getValue(String.class);
                     fullName.setText(fullNameRetrieved);
-                    specialityRetrieved = dataSnapshot.child(uid).child("lastName").getValue(String.class);
+                    specialityRetrieved = dataSnapshot.child(FirebaseAuth.getInstance().getCurrentUser().getEmail().replaceAll("[-+.@:.]","")).child("lastName").getValue(String.class);
                     speciality.setText(specialityRetrieved);
-                    emailRetrieved = dataSnapshot.child(uid).child("email").getValue(String.class);
+                    emailRetrieved = dataSnapshot.child(FirebaseAuth.getInstance().getCurrentUser().getEmail().replaceAll("[-+.@:.]","")).child("email").getValue(String.class);
                     email.setText(emailRetrieved);
-                    phoneNumberRetrieved = dataSnapshot.child(uid).child("phoneNumber").getValue(String.class);
+                    phoneNumberRetrieved = dataSnapshot.child(FirebaseAuth.getInstance().getCurrentUser().getEmail().replaceAll("[-+.@:.]","")).child("phoneNumber").getValue(String.class);
                     phoneNumber.setText(phoneNumberRetrieved);
 
 //                addressRetrieved = dataSnapshot.child(uid).child("address").getValue(String.class);
@@ -133,17 +137,19 @@ public class FifthFragment extends Fragment {
             });
         }
         else{
+
+            RgOrders.setVisibility(View.VISIBLE);
             databaseReference = FirebaseDatabase.getInstance().getReference("Admins");
             databaseReference.addValueEventListener(new ValueEventListener() {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                    fullNameRetrieved = dataSnapshot.child(uid).child("firstName").getValue(String.class);
+                    fullNameRetrieved = dataSnapshot.child(FirebaseAuth.getInstance().getCurrentUser().getEmail().replaceAll("[-+.@:.]","")).child("firstName").getValue(String.class);
                     fullName.setText(fullNameRetrieved);
-                    specialityRetrieved = dataSnapshot.child(uid).child("lastName").getValue(String.class);
+                    specialityRetrieved = dataSnapshot.child(FirebaseAuth.getInstance().getCurrentUser().getEmail().replaceAll("[-+.@:.]","")).child("lastName").getValue(String.class);
                     speciality.setText(specialityRetrieved);
-                    emailRetrieved = dataSnapshot.child(uid).child("email").getValue(String.class);
+                    emailRetrieved = dataSnapshot.child(FirebaseAuth.getInstance().getCurrentUser().getEmail().replaceAll("[-+.@:.]","")).child("email").getValue(String.class);
                     email.setText(emailRetrieved);
-                    phoneNumberRetrieved = dataSnapshot.child(uid).child("phoneNumber").getValue(String.class);
+                    phoneNumberRetrieved = dataSnapshot.child(FirebaseAuth.getInstance().getCurrentUser().getEmail().replaceAll("[-+.@:.]","")).child("phoneNumber").getValue(String.class);
                     phoneNumber.setText(phoneNumberRetrieved);
 
 //                addressRetrieved = dataSnapshot.child(uid).child("address").getValue(String.class);
@@ -169,6 +175,15 @@ public class FifthFragment extends Fragment {
                 @Override
                 public void onCancelled(@NonNull DatabaseError databaseError) {
 
+                }
+            });
+
+
+            RgOrders.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(getContext(),RegisterOrdersActivity.class);
+                    startActivity(intent);
                 }
             });
 

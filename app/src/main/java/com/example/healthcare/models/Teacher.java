@@ -10,6 +10,7 @@ public class Teacher implements Comparable<Teacher> {
     private String cin;
     private String maritalStatus;
 
+
     public Teacher() {
     }
 

@@ -7,6 +7,7 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -60,6 +61,7 @@ public class SecondFragment extends Fragment {
                     Comment comment = data.getValue(Comment.class);
                     myComments.add(comment);
                     Collections.sort(myComments);
+                    Log.d("TAG", "onDataChange: "+getContext());
                     adapter = new SearchComentsAdapter(getContext(), myComments);
                     listView.setAdapter(adapter);
                 }
