@@ -9,6 +9,7 @@
         <item>Radiologist</item>
         <item>Dermatologist</item>
     </string-array>
+    <string name="file_provider_authority">You Are Authorized</string>
     <string name="title_activity_search_doctor_speciality">SearchDoctorSpecialityActivity</string>
     <string name="tab_text_1">Doctors</string>
     <string name="tab_text_2">Speciality</string>
