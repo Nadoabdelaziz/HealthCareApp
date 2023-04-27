@@ -26,6 +26,7 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 import cn.pedant.SweetAlert.SweetAlertDialog;
 
@@ -48,6 +49,7 @@ public class CreateStudentActivity extends AppCompatActivity {
 
 
         name = (EditText) findViewById(R.id.Stdname);
+        //id
         nickname = (EditText) findViewById(R.id.Stdnickname);
         PhoneNumber = (EditText) findViewById(R.id.StdPhoneNumber);
         schoolname = (EditText) findViewById(R.id.StdSchoolname);
@@ -68,10 +70,10 @@ public class CreateStudentActivity extends AppCompatActivity {
         });
         students = new ArrayList<>();
 
+        nickname.setVisibility(View.GONE);
 
         if (
                 TextUtils.isEmpty(name.toString())
-                        || TextUtils.isEmpty(nickname.toString())
                         || TextUtils.isEmpty(PhoneNumber.toString())
                         || TextUtils.isEmpty(schoolname.toString())
                         || TextUtils.isEmpty(gender.toString())
@@ -116,7 +118,6 @@ public class CreateStudentActivity extends AppCompatActivity {
 
     public void CreateStudent() {
         if (       TextUtils.isEmpty(name.toString())
-                || TextUtils.isEmpty(nickname.toString())
                 || TextUtils.isEmpty(PhoneNumber.toString())
                 || TextUtils.isEmpty(schoolname.toString())
                 || TextUtils.isEmpty(gender.toString())
@@ -137,7 +138,10 @@ public class CreateStudentActivity extends AppCompatActivity {
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                Student studentRecord = new Student(name.getText().toString(),nickname.getText().toString(),PhoneNumber.getText().toString(),schoolname.getText().toString(),gender.getText().toString(),nationality.getText().toString(),bloodtype.getText().toString(),disease.getText().toString(),precuations.getText().toString(),known_as.getText().toString());
+                Random r = new Random();
+                int i1 = r.nextInt(100 - 20) + 20;
+                String newID = "2203003"+String.valueOf(i1);
+                Student studentRecord = new Student(name.getText().toString(),newID,PhoneNumber.getText().toString(),schoolname.getText().toString(),gender.getText().toString(),nationality.getText().toString(),bloodtype.getText().toString(),disease.getText().toString(),precuations.getText().toString(),known_as.getText().toString());
                 DatabaseReference reference = FirebaseDatabase.getInstance().getReference("Students");
                 reference.push().setValue(studentRecord).addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override

@@ -25,6 +25,7 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.util.Random;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -335,7 +336,12 @@ public class CreateAccount extends AppCompatActivity {
                 @Override
                 public void onComplete(@NonNull Task<AuthResult> task) {
                     if(task.isSuccessful()){
-                        Teacher patient = new Teacher(firstName, lastName, "birthDate", phoneNumber, email, "CIN", "0");
+
+                        Random r = new Random();
+                        int i1 = r.nextInt(10000 - 1000) + 1000;
+                        String newID = "131480"+String.valueOf(i1);
+
+                        Teacher patient = new Teacher(firstName, lastName, "birthDate", phoneNumber, email, newID, "0");
                         FirebaseDatabase.getInstance().getReference("Teachers")
                                 .child(FirebaseAuth.getInstance().getCurrentUser().getEmail().replaceAll("[-+.@:.]",""))
                                 .setValue(patient).addOnCompleteListener(new OnCompleteListener<Void>() {

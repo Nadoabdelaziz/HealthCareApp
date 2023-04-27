@@ -18,12 +18,10 @@
             android:layout_width="187dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:drawableLeft="@drawable/doctor_ic"
-            android:drawablePadding="5dp"
             android:fontFamily="@font/montserrat_bold"
-            android:text="My Doctors"
+            android:text="طلبات جديدة"
             android:textColor="#FFF"
-            android:textSize="24sp" />
+            android:textSize="34sp" />
 
 
     </com.google.android.material.appbar.AppBarLayout>

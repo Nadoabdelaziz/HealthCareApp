@@ -39,7 +39,7 @@ public class StudentsAdapter extends RecyclerView.Adapter<StudentsAdapter.MyView
             // initialise TextView with id
             textView = (TextView)view
                     .findViewById(R.id.textview);
-            //id = (TextView) view.findViewById(R.id.textView2);
+            id = (TextView) view.findViewById(R.id.textview100);
         }
     }
 
@@ -94,9 +94,11 @@ public class StudentsAdapter extends RecyclerView.Adapter<StudentsAdapter.MyView
         // Recycler view with the list items
         if(!teacherslist_for_admin) {
             holder.textView.setText(list.get(position).getName());
+            holder.id.setText("ID: " + list.get(position).getNickname());
         }
         else{
             holder.textView.setText(teacherslist.get(position).getFirstName());
+            holder.id.setText("ID: "+ teacherslist.get(position).getCin());
         }
         //Log.d("UTAG", list.get(position).getPhoneNumber().toString());
         //holder.id.setText(list.get(position).getPhoneNumber().toString());
