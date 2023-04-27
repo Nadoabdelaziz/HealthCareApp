@@ -68,6 +68,7 @@ public class FirstFragment extends Fragment {
     View ChildView;
     int RecyclerViewItemPosition;
     private FirebaseAuth fbAuth;
+
     DatabaseReference databaseReference;
 
 
@@ -78,6 +79,8 @@ public class FirstFragment extends Fragment {
         this.mView = view;
 
         final TextView txt = (TextView) mView.findViewById(R.id.user_name);
+
+        final TextView USRtype = (TextView) mView.findViewById(R.id.user_name2);
 
         final TextView lefttxt = (TextView) mView.findViewById(R.id.watchallforadmin);
         final TextView righttxt = (TextView) mView.findViewById(R.id.trendingforadmin);
@@ -97,7 +100,7 @@ public class FirstFragment extends Fragment {
 
             if(!fbAuth.getCurrentUser().getEmail().equals("admin@gmail.com")){
 
-
+                USRtype.setText("مدرس");
                 showall.setText("مشاهدة الكل");
                 // hi text
                 databaseReference = FirebaseDatabase.getInstance().getReference("Teachers");
@@ -146,6 +149,8 @@ public class FirstFragment extends Fragment {
 
             }
             else{
+
+                USRtype.setText("مشرف");
 
                 lefttxt.setVisibility(View.VISIBLE);
                 righttxt.setVisibility(View.VISIBLE);
