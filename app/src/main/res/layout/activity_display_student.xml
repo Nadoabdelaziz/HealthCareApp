@@ -1,130 +1,165 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/myFrameLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:isScrollContainer="true"
     tools:context=".DisplayStudentActivity">
+
 
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/profile_image"
         android:layout_width="124dp"
         android:layout_height="124dp"
+        android:layout_centerHorizontal="true"
         app:civ_border_color="#FFFFFF"
         app:civ_border_width="2dp"
-        android:layout_gravity="center|top"
         android:layout_marginTop="60dp" />
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:background="@color/blue_btn_bg_color"
-        android:layout_gravity="center|top"
-        android:padding="25dp"
-        android:layout_marginTop="180dp">
-
-        <ImageView
-            android:layout_width="wrap_content"
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:src="@drawable/barcode_mini"
-            android:layout_gravity="right"
-            android:padding="15dp"/>
+            android:layout_gravity="center|top"
+            android:layout_marginTop="180dp"
+            android:background="@color/blue_btn_bg_color"
+            android:isScrollContainer="true"
+            android:orientation="vertical"
+            android:padding="25dp">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="30sp"
-            android:layout_gravity="right"
-            android:padding="20dp"
-            android:fontFamily="@font/montserrat_bold"
-            android:text="معلومات شخصية"
-            android:layout_marginBottom="10dp"/>
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:padding="15dp"
+                android:src="@drawable/barcode_mini" />
 
-        <TextView
-            android:id="@+id/fullName"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="20sp"
-            android:layout_gravity="right"
-            android:paddingRight="20dp"
-            android:text=""
-            android:layout_marginBottom="10dp"/>
-        <TextView
-            android:id="@+id/ID"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="20sp"
-            android:layout_gravity="right"
-            android:paddingRight="20dp"
-            android:fontFamily="@font/montserrat"
-            android:layout_marginBottom="10dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:layout_marginBottom="10dp"
+                android:fontFamily="@font/montserrat_bold"
+                android:padding="20dp"
+                android:text="معلومات شخصية"
+                android:textSize="30sp" />
 
-        <TextView
-            android:id="@+id/Scname"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="20sp"
-            android:layout_gravity="right"
-            android:paddingRight="20dp"
-            android:fontFamily="@font/montserrat"
-            android:layout_marginBottom="10dp"/>
+            <TextView
+                android:id="@+id/fullName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:layout_marginBottom="10dp"
+                android:paddingRight="20dp"
+                android:text=""
+                android:textSize="20sp" />
 
-        <TextView
-            android:id="@+id/Gendern"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="20sp"
-            android:layout_gravity="right"
-            android:paddingRight="20dp"
-            android:fontFamily="@font/montserrat"
-            android:layout_marginBottom="10dp"/>
+            <TextView
+                android:id="@+id/ID"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:layout_marginBottom="10dp"
+                android:fontFamily="@font/montserrat"
+                android:paddingRight="20dp"
+                android:textSize="20sp" />
 
-        <TextView
-            android:id="@+id/BloodN"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="20sp"
-            android:layout_gravity="right"
-            android:paddingRight="20dp"
-            android:fontFamily="@font/montserrat"
-            android:layout_marginBottom="10dp"/>
+            <TextView
+                android:id="@+id/Scname"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:layout_marginBottom="10dp"
+                android:fontFamily="@font/montserrat"
+                android:paddingRight="20dp"
+                android:textSize="20sp" />
 
-        <TextView
-            android:id="@+id/DateN"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="20sp"
-            android:layout_gravity="right"
-            android:paddingRight="20dp"
-            android:fontFamily="@font/montserrat"
-            android:layout_marginBottom="10dp"/>
+            <TextView
+                android:id="@+id/Gendern"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:layout_marginBottom="10dp"
+                android:fontFamily="@font/montserrat"
+                android:paddingRight="20dp"
+                android:textSize="20sp" />
 
-        <TextView
-            android:id="@+id/NatN"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="20sp"
-            android:layout_gravity="right"
-            android:paddingRight="20dp"
-            android:fontFamily="@font/montserrat"
-            android:layout_marginBottom="10dp"/>
+            <TextView
+                android:id="@+id/BloodN"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:layout_marginBottom="10dp"
+                android:fontFamily="@font/montserrat"
+                android:paddingRight="20dp"
+                android:textSize="20sp" />
 
-        <TextView
-            android:id="@+id/PhoneN"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="20sp"
-            android:layout_gravity="right"
-            android:paddingRight="20dp"
-            android:fontFamily="@font/montserrat"
-            android:layout_marginBottom="10dp"/>
-    </LinearLayout>
+            <TextView
+                android:id="@+id/DateN"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:layout_marginBottom="10dp"
+                android:fontFamily="@font/montserrat"
+                android:paddingRight="20dp"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/NatN"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:layout_marginBottom="10dp"
+                android:fontFamily="@font/montserrat"
+                android:paddingRight="20dp"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/PhoneN"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:layout_marginBottom="10dp"
+                android:fontFamily="@font/montserrat"
+                android:paddingRight="20dp"
+                android:textSize="20sp" />
+
+<!--            <Space-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="25dp" />-->
+
+
+<!--            <TextView-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_gravity="right"-->
+<!--                android:layout_marginBottom="10dp"-->
+<!--                android:fontFamily="@font/montserrat_bold"-->
+<!--                android:padding="20dp"-->
+<!--                android:text="السجل الصحي"-->
+<!--                android:textSize="30sp" />-->
+
+<!--            <TextView-->
+<!--                android:id="@+id/diseases"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_gravity="right"-->
+<!--                android:layout_marginBottom="10dp"-->
+<!--                android:fontFamily="@font/montserrat"-->
+<!--                android:paddingRight="20dp"-->
+<!--                android:text="hello world"-->
+<!--                android:textSize="20sp" />-->
+
+
+        </LinearLayout>
+
+    </ScrollView>
 
 
 
-
-
-</FrameLayout>
+</RelativeLayout>

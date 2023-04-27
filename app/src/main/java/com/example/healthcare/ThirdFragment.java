@@ -138,8 +138,8 @@ public class ThirdFragment extends Fragment {
                                     final String newCropID = CropID.split("ID:")[1];
 
                                     new SweetAlertDialog(getActivity(), SweetAlertDialog.SUCCESS_TYPE)
-                                            .setTitleText("Congratulations")
-                                            .setContentText("Your Comment is Created successfully")
+                                            .setTitleText("Done")
+                                            .setContentText("ID Captured Succesfully")
                                             .setConfirmClickListener(new SweetAlertDialog.OnSweetClickListener() {
                                                 @Override
                                                 public void onClick(SweetAlertDialog sweetAlertDialog) {
@@ -165,6 +165,9 @@ public class ThirdFragment extends Fragment {
                                                                             intent.putExtra("nation",SearchedStd.getNationality());
                                                                             intent.putExtra("phoneNumber",SearchedStd.getPhoneNumber());
 
+                                                                            intent.putExtra("diseases",SearchedStd.getDisease());
+
+
                                                                     startActivity(intent);
 
                                                                 }
@@ -185,7 +188,7 @@ public class ThirdFragment extends Fragment {
                                                 }
                                             })
                                             .show();
-                                    textView.setText(newCropID);
+                                   // textView.setText(newCropID);
 
 
 

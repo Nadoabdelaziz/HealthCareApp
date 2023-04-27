@@ -13,6 +13,7 @@ import android.view.animation.AnimationUtils;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -30,11 +31,11 @@ import de.hdodenhof.circleimageview.CircleImageView;
 public class DisplayStudentActivity extends AppCompatActivity {
 
         public int REQUEST_CALL = 1;
-        FrameLayout frameLayout;
+        RelativeLayout frameLayout;
         ImageView imageView;
         CircleImageView circleImageView;
-        TextView fullName, speciality,SchoolName,Gender,BloodT,DateC,Nation,PhNo;
-        String name,id,school,gender,blood,datee,nation,phno;
+        TextView fullName, speciality,SchoolName,Gender,BloodT,DateC,Nation,PhNo,Diseases;
+        String name,id,school,gender,blood,datee,nation,phno,diseases;
         ProgressBar progressBar;
 
         @Override
@@ -50,6 +51,7 @@ public class DisplayStudentActivity extends AppCompatActivity {
             DateC = findViewById(R.id.DateN);
             Nation = findViewById(R.id.NatN);
             PhNo = findViewById(R.id.PhoneN);
+            //Diseases = findViewById(R.id.diseases);
 
             frameLayout = findViewById(R.id.myFrameLayout);
 //            imageView = findViewById(R.id.profile_image);
@@ -71,6 +73,8 @@ public class DisplayStudentActivity extends AppCompatActivity {
             nation = intent.getStringExtra("nation");
             phno = intent.getStringExtra("phoneNumber");
 
+            diseases = intent.getStringExtra("diseases");
+
 
             fullName.setText(" الأسم :  " + name);
             speciality.setText("ID: "+id+" : رقم تعريفي ");
@@ -80,6 +84,8 @@ public class DisplayStudentActivity extends AppCompatActivity {
             Nation.setText("الجنسية :  "+nation);
             DateC.setText("تاريخ:   غير متاح");
             PhNo.setText("رقم الهاتف :  "+phno);
+            //Diseases.setText(diseases);
+
 
             StorageReference storageReference = FirebaseStorage.getInstance().getReference();
             StorageReference profileRef = storageReference.child("Profile pictures").child("" + ".jpg");
