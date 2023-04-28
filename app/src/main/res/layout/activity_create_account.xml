@@ -3,19 +3,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     tools:context=".CreateAccount">
 
-    <TextView
-        android:id="@+id/textView4"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:fontFamily="@font/montserrat_bold"
-        android:gravity="center"
-        android:text="اشتراك"
-        android:textColor="#33aeb6"
-        android:textSize="30sp" />
+
     <RadioGroup
         android:layout_width="232dp"
         android:layout_height="wrap_content"
@@ -52,6 +44,49 @@
 
 
 
+    <ImageView
+        android:id="@+id/backbtn"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="25dp"
+        android:src="@drawable/backbtn"/>
+
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="match_parent"
+        android:layout_height="103dp"
+        android:layout_gravity="center"
+        app:srcCompat="@drawable/login_logo" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:fontFamily="@font/montserrat_bold"
+        android:gravity="right"
+        android:layout_marginRight="30dp"
+        android:text="اشتراك"
+        android:textColor="#000"
+        android:textSize="30sp" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/montserrat"
+        android:gravity="right"
+        android:layout_marginRight="30dp"
+        android:text="سجل كمعلم لمتابعة حالت الطلبة"
+        android:textColor="#000"
+        android:textSize="20sp" />
+
+
+
+
+
     <LinearLayout
         android:id="@+id/patientLinearLayout"
         android:layout_width="match_parent"
@@ -61,47 +96,60 @@
         android:layout_marginRight="30dp"
         android:orientation="vertical"
         >
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/profile_image2"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_gravity="center_horizontal"
+            app:civ_border_color="@color/gray_btn_bg_color"
+            app:civ_circle_background_color="@color/gray_btn_bg_color"
+            android:onClick="editProfilePicture"
+            android:src="@drawable/ic_photo_camera" />
 
         <EditText
             android:id="@+id/patientFirstName"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="40dp"
             android:ems="10"
             android:hint="الاسم"
-            android:inputType="textCapSentences"
-            android:backgroundTint="#33aeb6"/>
+            android:layout_marginTop="10dp"
+            android:background="@drawable/edit_text_background"
+            android:inputType="textCapSentences" />
 
         <EditText
             android:id="@+id/patientEmail"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="40dp"
             android:ems="10"
             android:hint="عنوان البريد الالكتروني"
             android:inputType="textEmailAddress"
-            android:backgroundTint="#33aeb6"/>
+            android:layout_marginTop="10dp"
+            android:background="@drawable/edit_text_background"/>
 
         <EditText
             android:id="@+id/patientPhoneNumber"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="40dp"
             android:ems="10"
             android:hint="+96"
             android:inputType="phone"
-            android:backgroundTint="#33aeb6"/>
+            android:layout_marginTop="10dp"
+            android:background="@drawable/edit_text_background"/>
 
         <EditText
             android:id="@+id/patientLastName"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="40dp"
             android:ems="10"
             android:hint="ادخل اسم المدرسة"
             android:inputType="textCapSentences"
-            android:backgroundTint="#33aeb6"/>
+            android:layout_marginTop="10dp"
+            android:background="@drawable/edit_text_background"/>
 
         <EditText
             android:id="@+id/patientBirthDate"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="40dp"
             android:ems="10"
             android:hint="Birth Date (YYYY-MM-DD)"
             android:backgroundTint="#33aeb6"
@@ -120,7 +168,8 @@
             android:hint="CIN"
             android:visibility="gone"
             android:inputType="textCapSentences"
-            android:backgroundTint="#33aeb6"/>
+            android:layout_marginTop="10dp"
+            android:background="@drawable/edit_text_background"/>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -149,19 +198,36 @@
         <EditText
             android:id="@+id/patientPassword1"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="40dp"
             android:ems="10"
             android:hint="كلمة المرور"
             android:inputType="textPassword"
-            />
+            android:gravity="right"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/edit_text_background"/>
 
         <EditText
             android:id="@+id/patientPassword2"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="40dp"
             android:ems="10"
+            android:gravity="right"
             android:hint="اعادة كلمة المرور "
-            android:inputType="textPassword" />
+            android:inputType="textPassword"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/edit_text_background"/>
+
+        <CheckBox
+            android:id="@+id/policyaccept"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="8dp"
+            android:buttonTint="#A0A0A0"
+            android:gravity="center"
+            android:text="أوافق على الشروط والأحكام وأقرأ سياسة الخصوصية"
+            android:textColor="#A0A0A0" />
+
 
         <Button
             android:id="@+id/patientButton"
@@ -176,6 +242,31 @@
             android:onClick="signUpPatient"
             android:textColor="#FFFFFF"
             android:textSize="20sp" />
+
+
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/montserrat"
+            android:gravity="right"
+            android:text="سياسة الخصوصية"
+            android:textColor="#000"
+            android:layout_marginTop="15dp"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/montserrat"
+            android:gravity="left"
+            android:layout_marginTop="-25dp"
+            android:text="البنود و تطبق الشروط"
+            android:textColor="#000"
+            android:textSize="15sp" />
+
 
 
     </LinearLayout>

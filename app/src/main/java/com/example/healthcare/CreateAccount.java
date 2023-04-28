@@ -1,30 +1,43 @@
 package com.example.healthcare;
 
 import android.app.DatePickerDialog;
+import android.content.ContentResolver;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.Uri;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
+import android.webkit.MimeTypeMap;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.Spinner;
+import de.hdodenhof.circleimageview.CircleImageView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.healthcare.DoctorUI.DoctorEditProfileInfo;
 import com.example.healthcare.models.Patient;
 import com.example.healthcare.models.Teacher;
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
+import com.squareup.picasso.Picasso;
 
 import java.util.Random;
 import java.util.regex.Matcher;
@@ -41,11 +54,22 @@ public class CreateAccount extends AppCompatActivity {
     RadioButton patientRadioButton;
     EditText patientFirstName, patientLastName, patientBirthDate, patientPhoneNumber, patientEmail, patientCIN, patientPassword1, patientPassword2;
     Spinner maritalStatus;
+    ImageView backbtn;
+
+    StorageReference mStorageReference;
+    private static final int Pick_Image_Request = 1;
+    private Uri mImageUri;
+    CircleImageView circleImageView;
+
+
     Button patientButton;
     //Loading screen
     loadingDialog ld;
     //Date picker
     DatePickerDialog.OnDateSetListener DateSetListener;
+
+    CheckBox policyaccept;
+
 
     private FirebaseAuth fbAuth;
 
@@ -57,8 +81,17 @@ public class CreateAccount extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_account);
 
+        circleImageView = findViewById(R.id.profile_image2);
+
         //Loading dialog
          ld = new loadingDialog(CreateAccount.this);
+
+        backbtn = (ImageView) findViewById(R.id.backbtn);
+
+        policyaccept = findViewById(R.id.policyaccept);
+
+
+        mStorageReference = FirebaseStorage.getInstance().getReference("Profile pictures");
 
         // Patient fields
         patientFirstName = findViewById(R.id.patientFirstName);
@@ -95,6 +128,59 @@ public class CreateAccount extends AppCompatActivity {
 
         // Initializing the firstbase object
         fbAuth = FirebaseAuth.getInstance();
+        backbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
+    }
+
+    public void editProfilePicture(View view) {
+        openFileChooser();
+    }
+
+    private void openFileChooser() {
+        Intent intent = new Intent();
+        intent.setType("image/*");
+        intent.setAction(Intent.ACTION_GET_CONTENT);
+        startActivityForResult(intent, Pick_Image_Request);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == Pick_Image_Request && resultCode == RESULT_OK && data != null && data.getData() != null) {
+            mImageUri = data.getData();
+            Picasso.get().load(mImageUri).into(circleImageView);
+            uploadImage();
+        }
+
+    }
+
+    private String getExtension(Uri uri) {
+        ContentResolver cr = getContentResolver();
+        MimeTypeMap mimeTypeMap = MimeTypeMap.getSingleton();
+        return mimeTypeMap.getExtensionFromMimeType(cr.getType(uri));
+    }
+
+    private void uploadImage() {
+        String useremail = patientEmail.getText().toString();
+        StorageReference ref = mStorageReference.child(useremail + "." + getExtension(mImageUri));
+        ref.putFile(mImageUri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+            @Override
+            public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                Toast.makeText(CreateAccount.this, "Image uploaded successfully", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+
+    }
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        Intent intent = new Intent(CreateAccount.this,Pre_Login_Activity.class);
+        startActivity(intent);
     }
 
     @Override
@@ -148,6 +234,11 @@ public class CreateAccount extends AppCompatActivity {
         }
         else
         {
+            if(!policyaccept.isChecked()){
+                policyaccept.setError("You must accept policy !");
+                return;
+            }
+
             if(!isEmailValid(email)) {
                 patientEmail.setError("Invalid email format !");
                 return;
@@ -310,6 +401,11 @@ public class CreateAccount extends AppCompatActivity {
         }
         else
         {
+            if(!policyaccept.isChecked()){
+                policyaccept.setError("You must accept policy !");
+                return;
+            }
+
             if(!isEmailValid(email)) {
                 patientEmail.setError("Invalid email format !");
                 return;
