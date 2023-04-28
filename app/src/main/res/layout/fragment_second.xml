@@ -32,6 +32,7 @@
         android:textSize="28dp"
         android:padding="10dp"
         android:layout_marginTop="50dp"
+        android:fontFamily="@font/montserrat_bold"
         android:textColor="#000"
         android:gravity="center_horizontal"
         android:layout_height="wrap_content"/>
@@ -39,6 +40,8 @@
     <ListView
         android:id="@+id/Comment_list"
         android:layout_width="match_parent"
+        android:divider="@color/float_transparent"
+        android:dividerHeight="30dp"
         android:layout_height="464dp" />
 
     <Button
