@@ -109,6 +109,7 @@
             android:background="@drawable/custombutton"
             android:fontFamily="@font/montserrat"
             android:onClick="createAccount"
+            android:visibility="gone"
             android:padding="10dp"
             android:text="الاشتراك"
             android:textAllCaps="false"

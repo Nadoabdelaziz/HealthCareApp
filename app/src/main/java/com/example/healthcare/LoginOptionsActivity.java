@@ -53,6 +53,7 @@ public class LoginOptionsActivity extends AppCompatActivity {
                 }.start();
 
                 Intent intent = new Intent(LoginOptionsActivity.this,MainActivity.class);
+                intent.putExtra("usertype","tech");
                 startActivity(intent);
             }
         });
@@ -81,6 +82,7 @@ public class LoginOptionsActivity extends AppCompatActivity {
 
 
                 Intent intent = new Intent(LoginOptionsActivity.this,MainActivity.class);
+                intent.putExtra("usertype","health");
                 startActivity(intent);
 
             }
@@ -110,6 +112,7 @@ public class LoginOptionsActivity extends AppCompatActivity {
 
 
                 Intent intent = new Intent(LoginOptionsActivity.this,MainActivity.class);
+                intent.putExtra("usertype","admin");
                 startActivity(intent);
             }
         });

@@ -4,7 +4,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
@@ -16,6 +18,7 @@ public class Pre_Login_Activity extends AppCompatActivity {
 
 
     // images array
+    SharedPreferences sp;
     int[] images = {R.drawable.loginkids, R.drawable.logindoc,R.drawable.loginfam};
 
     // Creating Object of ViewPagerAdapter
@@ -30,12 +33,34 @@ public class Pre_Login_Activity extends AppCompatActivity {
         Button btnLog = (Button) findViewById(R.id.loginnew);
         Button btnReg = (Button) findViewById(R.id.registernew);
 
+        sp = getSharedPreferences("login", MODE_PRIVATE);
+
         btnLog.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent homeIntent = new Intent(Pre_Login_Activity.this, LoginOptionsActivity.class);
-                startActivity(homeIntent);
-                finish();
+                if (sp.getBoolean("loggedPatient", false)) {
+                    Log.d("TAGG", "onCreate: logged in 12");
+                    Intent intent = new Intent(Pre_Login_Activity.this, TheFragmnetsActivity.class);
+                    startActivity(intent);
+                }
+                else if(sp.getBoolean("loggedDoctor", false))
+                {
+                    Log.d("TAGG", "onCreate: logged in 13");
+                    Intent intent = new Intent(Pre_Login_Activity.this, TheFragmnetsActivity.class);
+                    startActivity(intent);
+                }
+                else if(sp.getBoolean("loggedHealth", false))
+                {
+                    Log.d("TAGG", "onCreate: logged in 1");
+                    Intent intent = new Intent(Pre_Login_Activity.this, HealthFragmentsActivity.class);
+                    startActivity(intent);
+                }
+                else {
+
+                    Intent homeIntent = new Intent(Pre_Login_Activity.this, LoginOptionsActivity.class);
+                    startActivity(homeIntent);
+                    finish();
+                }
             }
         });
 
