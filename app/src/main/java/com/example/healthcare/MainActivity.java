@@ -67,23 +67,23 @@ public class MainActivity extends AppCompatActivity {
 //        sp.edit().putBoolean("loggedDoctor",false).apply();
 //        sp.edit().putBoolean("loggedPatient",false).apply();
 
-        if (sp.getBoolean("loggedPatient", false)) {
-            Log.d("TAGG", "onCreate: logged in 12");
-            Intent intent = new Intent(MainActivity.this, TheFragmnetsActivity.class);
-            startActivity(intent);
-        }
-        if(sp.getBoolean("loggedDoctor", false))
-        {
-            Log.d("TAGG", "onCreate: logged in 13");
-            Intent intent = new Intent(MainActivity.this, TheFragmnetsActivity.class);
-            startActivity(intent);
-        }
-        if(sp.getBoolean("loggedHealth", false))
-        {
-            Log.d("TAGG", "onCreate: logged in 1");
-            Intent intent = new Intent(MainActivity.this, HealthFragmentsActivity.class);
-            startActivity(intent);
-        }
+//        if (sp.getBoolean("loggedPatient", false)) {
+//            Log.d("TAGG", "onCreate: logged in 12");
+//            Intent intent = new Intent(MainActivity.this, TheFragmnetsActivity.class);
+//            startActivity(intent);
+//        }
+//        if(sp.getBoolean("loggedDoctor", false))
+//        {
+//            Log.d("TAGG", "onCreate: logged in 13");
+//            Intent intent = new Intent(MainActivity.this, TheFragmnetsActivity.class);
+//            startActivity(intent);
+//        }
+//        if(sp.getBoolean("loggedHealth", false))
+//        {
+//            Log.d("TAGG", "onCreate: logged in 1");
+//            Intent intent = new Intent(MainActivity.this, HealthFragmentsActivity.class);
+//            startActivity(intent);
+//        }
 
     }
 

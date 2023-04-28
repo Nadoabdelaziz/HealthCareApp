@@ -2,6 +2,7 @@ package com.example.healthcare;
 
 import android.app.DatePickerDialog;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
@@ -49,7 +50,7 @@ public class CreateAccount extends AppCompatActivity {
     private FirebaseAuth fbAuth;
 
 
-
+    SharedPreferences sp;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -349,8 +350,13 @@ public class CreateAccount extends AppCompatActivity {
                                     public void onComplete(@NonNull Task<Void> task) {
                                         if(task.isSuccessful()) {
                                             Toast.makeText(CreateAccount.this, "User created successfully", Toast.LENGTH_LONG).show();
+                                            sp = getSharedPreferences("login", MODE_PRIVATE);
+                                            sp.edit().putBoolean("loggedDoctor", false).apply();
+                                            sp.edit().putBoolean("loggedPatient", false).apply();
+                                            sp.edit().putBoolean("loggedHealth", false).apply();
+
                                             ld.dismissDialog();
-                                            Intent intent = new Intent(CreateAccount.this,MainActivity.class);
+                                            Intent intent = new Intent(CreateAccount.this,LoginOptionsActivity.class);
                                             startActivity(intent);
                                         }
                                         else {
