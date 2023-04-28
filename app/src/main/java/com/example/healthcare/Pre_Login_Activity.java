@@ -14,6 +14,7 @@ public class Pre_Login_Activity extends AppCompatActivity {
 
     ViewPager mViewPager;
 
+
     // images array
     int[] images = {R.drawable.loginkids, R.drawable.logindoc,R.drawable.loginfam};
 
@@ -32,7 +33,7 @@ public class Pre_Login_Activity extends AppCompatActivity {
         btnLog.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent homeIntent = new Intent(Pre_Login_Activity.this, MainActivity.class);
+                Intent homeIntent = new Intent(Pre_Login_Activity.this, LoginOptionsActivity.class);
                 startActivity(homeIntent);
                 finish();
             }
@@ -54,7 +55,7 @@ public class Pre_Login_Activity extends AppCompatActivity {
 
         // Adding the Adapter to the ViewPager
         mViewPager.setAdapter(mViewPagerAdapter);
-        TabLayout tabLayout = (TabLayout) findViewById(R.id.tabdots);
+        TabLayout tabLayout = (TabLayout) findViewById(R.id.dots);
         tabLayout.setupWithViewPager(mViewPager, true);
     }
 

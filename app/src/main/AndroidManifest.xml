@@ -18,6 +18,12 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
+            android:name=".LoginOptionsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".EditAdminsActivity"
+            android:exported="false" />
+        <activity
             android:name=".HealthFragmentsActivity"
             android:exported="false" />
         <activity

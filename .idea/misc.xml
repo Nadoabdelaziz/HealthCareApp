@@ -3,6 +3,12 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/nado2/Downloads/HealthCare-master/HealthCare-master/app/src/main/res/drawable/button_border.xml" value="0.152" />
+        <entry key="..\:/Users/nado2/Downloads/HealthCare-master/HealthCare-master/app/src/main/res/drawable/custom_button.xml" value="0.152" />
+        <entry key="..\:/Users/nado2/Downloads/HealthCare-master/HealthCare-master/app/src/main/res/drawable/custombutton.xml" value="0.152" />
+        <entry key="..\:/Users/nado2/Downloads/HealthCare-master/HealthCare-master/app/src/main/res/drawable/custombuttonunpressed.xml" value="0.152" />
+        <entry key="..\:/Users/nado2/Downloads/HealthCare-master/HealthCare-master/app/src/main/res/drawable/custombuttonx.xml" value="0.152" />
+        <entry key="..\:/Users/nado2/Downloads/HealthCare-master/HealthCare-master/app/src/main/res/drawable/custombuttonxx.xml" value="0.152" />
         <entry key="..\:/Users/nado2/Downloads/HealthCare-master/HealthCare-master/app/src/main/res/layout/Commentrow.xml" value="0.16822916666666668" />
         <entry key="..\:/Users/nado2/Downloads/HealthCare-master/HealthCare-master/app/src/main/res/layout/activity_admin.xml" value="0.234375" />
         <entry key="..\:/Users/nado2/Downloads/HealthCare-master/HealthCare-master/app/src/main/res/layout/activity_appointments.xml" value="0.25" />
@@ -16,8 +22,11 @@
         <entry key="..\:/Users/nado2/Downloads/HealthCare-master/HealthCare-master/app/src/main/res/layout/activity_display_student.xml" value="0.2" />
         <entry key="..\:/Users/nado2/Downloads/HealthCare-master/HealthCare-master/app/src/main/res/layout/activity_doctor_appointments.xml" value="0.25" />
         <entry key="..\:/Users/nado2/Downloads/HealthCare-master/HealthCare-master/app/src/main/res/layout/activity_doctor_menu.xml" value="0.2064814814814815" />
+        <entry key="..\:/Users/nado2/Downloads/HealthCare-master/HealthCare-master/app/src/main/res/layout/activity_edit_admins.xml" value="0.234375" />
+        <entry key="..\:/Users/nado2/Downloads/HealthCare-master/HealthCare-master/app/src/main/res/layout/activity_edit_profile.xml" value="0.234375" />
         <entry key="..\:/Users/nado2/Downloads/HealthCare-master/HealthCare-master/app/src/main/res/layout/activity_health_fragments.xml" value="0.2125" />
         <entry key="..\:/Users/nado2/Downloads/HealthCare-master/HealthCare-master/app/src/main/res/layout/activity_help.xml" value="0.25" />
+        <entry key="..\:/Users/nado2/Downloads/HealthCare-master/HealthCare-master/app/src/main/res/layout/activity_login_options.xml" value="0.176" />
         <entry key="..\:/Users/nado2/Downloads/HealthCare-master/HealthCare-master/app/src/main/res/layout/activity_main.xml" value="0.2064814814814815" />
         <entry key="..\:/Users/nado2/Downloads/HealthCare-master/HealthCare-master/app/src/main/res/layout/activity_meeting.xml" value="0.2171875" />
         <entry key="..\:/Users/nado2/Downloads/HealthCare-master/HealthCare-master/app/src/main/res/layout/activity_menu.xml" value="0.2064814814814815" />
@@ -34,7 +43,7 @@
         <entry key="..\:/Users/nado2/Downloads/HealthCare-master/HealthCare-master/app/src/main/res/layout/authorder_row.xml" value="0.24895833333333334" />
         <entry key="..\:/Users/nado2/Downloads/HealthCare-master/HealthCare-master/app/src/main/res/layout/commentrow.xml" value="0.264" />
         <entry key="..\:/Users/nado2/Downloads/HealthCare-master/HealthCare-master/app/src/main/res/layout/contacts_list_item.xml" value="0.21614583333333334" />
-        <entry key="..\:/Users/nado2/Downloads/HealthCare-master/HealthCare-master/app/src/main/res/layout/fragment_fifth.xml" value="0.2064814814814815" />
+        <entry key="..\:/Users/nado2/Downloads/HealthCare-master/HealthCare-master/app/src/main/res/layout/fragment_fifth.xml" value="0.25" />
         <entry key="..\:/Users/nado2/Downloads/HealthCare-master/HealthCare-master/app/src/main/res/layout/fragment_first.xml" value="0.2064814814814815" />
         <entry key="..\:/Users/nado2/Downloads/HealthCare-master/HealthCare-master/app/src/main/res/layout/fragment_fourth.xml" value="0.2171875" />
         <entry key="..\:/Users/nado2/Downloads/HealthCare-master/HealthCare-master/app/src/main/res/layout/fragment_second.xml" value="0.176" />

@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity"
+    android:background="#FFF">
+
+    <ImageView
+        android:id="@+id/backbtn"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="25dp"
+        android:src="@drawable/backbtn"/>
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="match_parent"
+        android:layout_height="123dp"
+        android:layout_marginTop="15dp"
+        app:srcCompat="@drawable/login_logo" />
+
+    <TextView
+        android:id="@+id/errorMessage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="Login or password are incorrect"
+        android:textSize="16sp"
+        android:textColor="@android:color/holo_red_dark"
+        android:visibility="gone"/>
+
+    <TextView
+        android:id="@+id/UnAuthMsg"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="Account not Authorized yet !"
+        android:textSize="16sp"
+        android:textColor="@android:color/holo_red_dark"
+        android:visibility="gone"/>
+
+
+    <LinearLayout
+        android:layout_width="335dp"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:orientation="vertical"
+        >
+
+
+
+        <TextView
+            android:text="سجل دخول"
+            android:layout_width="wrap_content"
+            android:layout_gravity="right"
+            android:layout_marginBottom="10dp"
+            android:layout_marginRight="10dp"
+            android:fontFamily="@font/montserrat_bold"
+            android:textSize="30dp"
+            android:textColor="#000"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:text="تسجيل الدخول إلى حسابك الحالي كمدرس أو مشرف"
+            android:layout_width="wrap_content"
+            android:layout_gravity="right"
+            android:layout_marginBottom="25dp"
+            android:layout_marginRight="10dp"
+            android:fontFamily="@font/montserrat"
+            android:textSize="15dp"
+            android:textColor="#000"
+            android:layout_height="wrap_content"/>
+
+        <Button
+            android:id="@+id/buttonTech"
+            android:layout_width="343dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="@drawable/custombuttonunpressed"
+            android:fontFamily="@font/montserrat_bold"
+            android:onClick="login"
+            android:drawableRight="@drawable/tech_icon"
+            android:drawableTint="#000"
+            android:paddingBottom="10dp"
+            android:drawablePadding="15dp"
+            android:paddingRight="20dp"
+            android:paddingTop="10dp"
+            android:gravity="right"
+            android:text="معلم / ـة"
+            android:textAllCaps="false"
+            android:textColor="#000"
+            android:textSize="24sp" />
+
+        <Button
+            android:id="@+id/buttonAdmin"
+            android:layout_width="343dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/custombuttonunpressed"
+            android:fontFamily="@font/montserrat_bold"
+            android:onClick="createAccount"
+            android:drawableRight="@drawable/admin_icon"
+            android:paddingBottom="10dp"
+            android:drawablePadding="15dp"
+            android:drawableTint="#000"
+            android:paddingRight="20dp"
+            android:paddingTop="10dp"
+            android:gravity="right"
+            android:text="موجه/ـة صحي/ـة"
+            android:textAllCaps="false"
+            android:textColor="#000"
+            android:textSize="20sp" />
+
+        <Button
+            android:id="@+id/buttonHealth"
+            android:layout_width="343dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/custombuttonunpressed"
+            android:fontFamily="@font/montserrat_bold"
+            android:onClick="createAccount"
+            android:drawableRight="@drawable/health_icon"
+            android:paddingBottom="10dp"
+            android:drawableTint="#000"
+            android:drawablePadding="15dp"
+            android:paddingRight="20dp"
+            android:paddingTop="10dp"
+            android:gravity="right"
+            android:text="مسوؤل/ـة المقصف"
+            android:textAllCaps="false"
+            android:textColor="#000"
+            android:textSize="20sp" />
+
+        <Button
+            android:id="@+id/buttonDone"
+            android:layout_width="343dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="70dp"
+            android:background="@drawable/custombutton"
+            android:fontFamily="@font/montserrat_bold"
+            android:onClick="createAccount"
+            android:paddingBottom="10dp"
+            android:paddingTop="10dp"
+            android:gravity="center"
+            android:text="التالي"
+            android:textAllCaps="false"
+            android:textColor="#fff"
+            android:textSize="24sp" />
+
+    </LinearLayout>
+
+</LinearLayout>
