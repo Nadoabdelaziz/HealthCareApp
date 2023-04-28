@@ -269,8 +269,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void passwordForgotten(View view) {
-        ResetPasswordDialog resetPasswordDialog = new ResetPasswordDialog();
-        resetPasswordDialog.show(getSupportFragmentManager(), "reset password dialog");
+        Intent intent =  new Intent(MainActivity.this,ForgetPasswordActivity.class);
+        startActivity(intent);
+//        ResetPasswordDialog resetPasswordDialog = new ResetPasswordDialog();
+//        resetPasswordDialog.show(getSupportFragmentManager(), "reset password dialog");
 
     }
 }
