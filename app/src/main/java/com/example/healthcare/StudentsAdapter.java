@@ -153,6 +153,56 @@ public class StudentsAdapter extends RecyclerView.Adapter<StudentsAdapter.MyView
             });
 
         }
+        else{
+            holder.view.setOnClickListener(new View.OnClickListener() {  // <--- here
+                @Override
+                public void onClick(View v) {
+                    final View newV = v;
+
+                    Log.i("W4K", "Click-" + position);
+                    final List<Teacher> TeacherZ = new ArrayList<>();
+                    DatabaseReference reference = FirebaseDatabase.getInstance().getReference("Teachers");
+                    reference.addValueEventListener(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                            TeacherZ.clear();
+                            for (DataSnapshot data : dataSnapshot.getChildren()) {
+                                Teacher teacher = data.getValue(Teacher.class);
+                                TeacherZ.add(teacher);
+                            }
+                            Teacher std = (Teacher) TeacherZ.get(position);
+                            //        Log.d("TAG", "DisplayStdInfo: Student Clicked");
+
+                            Intent intent = new Intent(newV.getContext(), DisplayStudentActivity.class);
+                            intent.putExtra("fullName", std.getFirstName());
+                            intent.putExtra("nickname", std.getCin());
+                            intent.putExtra("schoolname", std.getLastName());
+                            intent.putExtra("gender", "male");
+                            intent.putExtra("bloodtype", "A+");
+                            intent.putExtra("nation", "Egypt");
+                            intent.putExtra("phoneNumber", std.getPhoneNumber());
+                            intent.putExtra("diseases", "NO");
+                            newV.getContext().startActivity(intent);
+
+
+                        }
+
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError databaseError) {
+                            System.out.println("The read failed: " + databaseError.getCode());
+                        }
+                    });
+
+                    Log.d("TAG", "onClick: " + TeacherZ.isEmpty());
+                    Log.d("TAG", "onClick: " + position);
+                    //Log.d("TAG", "onClick: "+Stds.get(position));
+//                Student std = (Student) Stds.get(position);
+//                Log.d("TAG", "onClick: "+std.getName());
+
+                    //v.getContext().startActivity(new Intent(v.getContext(),MainActivity.class));  // <--- here
+                }
+            });
+        }
         // Set the text of each item of
         // Recycler view with the list items
         if(!teacherslist_for_admin) {

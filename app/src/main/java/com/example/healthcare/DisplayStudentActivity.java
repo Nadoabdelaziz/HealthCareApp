@@ -7,6 +7,7 @@ import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
@@ -32,11 +33,12 @@ public class DisplayStudentActivity extends AppCompatActivity {
 
         public int REQUEST_CALL = 1;
         RelativeLayout frameLayout;
-        ImageView imageView;
+        ImageView imageView,backbtn;
         CircleImageView circleImageView;
         TextView fullName, speciality,SchoolName,Gender,BloodT,DateC,Nation,PhNo,Diseases;
         String name,id,school,gender,blood,datee,nation,phno,diseases;
         ProgressBar progressBar;
+
 
         @Override
         protected void onCreate(Bundle savedInstanceState) {
@@ -52,6 +54,9 @@ public class DisplayStudentActivity extends AppCompatActivity {
             Nation = findViewById(R.id.NatN);
             PhNo = findViewById(R.id.PhoneN);
             //Diseases = findViewById(R.id.diseases);
+
+            backbtn = findViewById(R.id.backbtn);
+            backbtn.bringToFront();
 
             frameLayout = findViewById(R.id.myFrameLayout);
 //            imageView = findViewById(R.id.profile_image);
@@ -87,6 +92,14 @@ public class DisplayStudentActivity extends AppCompatActivity {
             //Diseases.setText(diseases);
 
 
+            backbtn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Log.d("TAG", "onClick: pressed");
+                    onBackPressed();
+                }
+            });
+
             StorageReference storageReference = FirebaseStorage.getInstance().getReference();
             StorageReference profileRef = storageReference.child("Profile pictures").child("" + ".jpg");
             profileRef.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
@@ -97,6 +110,7 @@ public class DisplayStudentActivity extends AppCompatActivity {
                 }
             });
         }
+
 
 //        public void phoneCall(View view) {
 //            ImageView phoneCallImage = findViewById(R.id.phoneCall);
