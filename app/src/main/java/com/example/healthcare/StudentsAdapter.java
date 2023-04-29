@@ -1,5 +1,6 @@
 package com.example.healthcare;
 
+import android.content.Intent;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,7 +14,13 @@ import com.example.healthcare.models.Admin;
 import com.example.healthcare.models.Patient;
 import com.example.healthcare.models.Student;
 import com.example.healthcare.models.Teacher;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class StudentsAdapter extends RecyclerView.Adapter<StudentsAdapter.MyView>  {
@@ -23,6 +30,7 @@ public class StudentsAdapter extends RecyclerView.Adapter<StudentsAdapter.MyView
     List<Teacher> teacherslist;
     boolean teacherslist_for_admin;
 
+
     // View Holder class which
     // extends RecyclerView.ViewHolder
     public class MyView extends RecyclerView.ViewHolder {
@@ -30,18 +38,23 @@ public class StudentsAdapter extends RecyclerView.Adapter<StudentsAdapter.MyView
         // Text View
         TextView textView;
         TextView id;
+        View view;
 
         // parameterised constructor for View Holder class
         // which takes the view as a parameter
         public MyView(View view)
         {
             super(view);
+            this.view=view;
             // initialise TextView with id
             textView = (TextView)view
                     .findViewById(R.id.textview);
             id = (TextView) view.findViewById(R.id.textview100);
         }
+
+
     }
+
 
     // Constructor for adapter class
     // which takes a list of String type
@@ -86,10 +99,60 @@ public class StudentsAdapter extends RecyclerView.Adapter<StudentsAdapter.MyView
     // and methods related to clicks on
     // particular items of the RecyclerView.
     @Override
-    public void onBindViewHolder(final MyView holder,
-                                 final int position)
-    {
+    public void onBindViewHolder(MyView holder,
+                                 final int position) {
 
+        if (!teacherslist_for_admin){
+            holder.view.setOnClickListener(new View.OnClickListener() {  // <--- here
+                @Override
+                public void onClick(View v) {
+                    final View newV = v;
+
+                    Log.i("W4K", "Click-" + position);
+                    final List<Student> Stds = new ArrayList<>();
+                    DatabaseReference reference = FirebaseDatabase.getInstance().getReference("Students");
+                    reference.addValueEventListener(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                            Stds.clear();
+                            for (DataSnapshot data : dataSnapshot.getChildren()) {
+                                Student student = data.getValue(Student.class);
+                                Stds.add(student);
+                            }
+                            Student std = (Student) Stds.get(position);
+                            //        Log.d("TAG", "DisplayStdInfo: Student Clicked");
+
+                            Intent intent = new Intent(newV.getContext(), DisplayStudentActivity.class);
+                            intent.putExtra("fullName", std.getName());
+                            intent.putExtra("nickname", std.getNickname());
+                            intent.putExtra("schoolname", std.getSchoolname());
+                            intent.putExtra("gender", std.getGender());
+                            intent.putExtra("bloodtype", std.getBloodtype());
+                            intent.putExtra("nation", std.getNationality());
+                            intent.putExtra("phoneNumber", std.getPhoneNumber());
+                            intent.putExtra("diseases", std.getDisease());
+                            newV.getContext().startActivity(intent);
+
+
+                        }
+
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError databaseError) {
+                            System.out.println("The read failed: " + databaseError.getCode());
+                        }
+                    });
+
+                    Log.d("TAG", "onClick: " + Stds.isEmpty());
+                    Log.d("TAG", "onClick: " + position);
+                    //Log.d("TAG", "onClick: "+Stds.get(position));
+//                Student std = (Student) Stds.get(position);
+//                Log.d("TAG", "onClick: "+std.getName());
+
+                    //v.getContext().startActivity(new Intent(v.getContext(),MainActivity.class));  // <--- here
+                }
+            });
+
+        }
         // Set the text of each item of
         // Recycler view with the list items
         if(!teacherslist_for_admin) {

@@ -6,6 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:descendantFocusability="blocksDescendants"
     tools:context=".FirstFragment"
     android:id="@+id/relativelayout">
 
@@ -107,6 +108,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="220dp"
         android:layout_marginBottom="20dp"
+        android:descendantFocusability="blocksDescendants"
         android:scrollbars="horizontal" />
 
     <TextView

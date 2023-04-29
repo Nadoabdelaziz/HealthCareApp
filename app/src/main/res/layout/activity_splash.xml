@@ -13,8 +13,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="25dp"
-        android:scaleType="fitXY"
-        app:srcCompat="@drawable/nlogo" />
+        app:srcCompat="@drawable/appmainscreen" />
 
     <TextView
         android:id="@+id/textView"

@@ -12,9 +12,9 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@drawable/healthcare"
+        android:icon="@drawable/appnewlogo"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@drawable/appnewlogo"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity

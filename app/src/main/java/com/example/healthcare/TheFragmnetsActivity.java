@@ -6,11 +6,23 @@ import androidx.viewpager.widget.ViewPager;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
+import android.view.View;
 
+import com.example.healthcare.models.Student;
+import com.example.healthcare.models.Teacher;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class TheFragmnetsActivity extends AppCompatActivity {
 
@@ -147,5 +159,45 @@ public class TheFragmnetsActivity extends AppCompatActivity {
             viewPager.setAdapter(adapter);
         }
 
+//    public void DisplayStdInfo(View v){
+//
+//        final List<Student> Stds = new ArrayList<>();
+//        DatabaseReference reference = FirebaseDatabase.getInstance().getReference("Students");
+//        reference.addValueEventListener(new ValueEventListener() {
+//            @Override
+//            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+//                Stds.clear();
+//                for(DataSnapshot data : dataSnapshot.getChildren())
+//                {
+//                    Student student = data.getValue(Student.class);
+//                    Stds.add(student);
+//                }
+//            }
+//
+//            @Override
+//            public void onCancelled(@NonNull DatabaseError databaseError) {
+//                System.out.println("The read failed: " + databaseError.getCode());
+//            }
+//        });
+//
+//        final int position = Stds.getPositionForView((View) v.getParent());
+//
+//
+//        Log.d("TAG", "DisplayStdInfo: Student Clicked");
+//
+//        Intent intent = new Intent(TheFragmnetsActivity.this, DisplayStudentActivity.class);
+//        intent.putExtra("fullName",SearchedStd.getName());
+//        intent.putExtra("nickname",SearchedStd.getNickname());
+//        intent.putExtra("schoolname",SearchedStd.getSchoolname());
+//        intent.putExtra("gender",SearchedStd.getGender());
+//        intent.putExtra("bloodtype", SearchedStd.getBloodtype());
+//        intent.putExtra("nation",SearchedStd.getNationality());
+//        intent.putExtra("phoneNumber",SearchedStd.getPhoneNumber());
+//
+//        intent.putExtra("diseases",SearchedStd.getDisease());
+//
+//
+//        startActivity(intent);
+//    }
 
     }
