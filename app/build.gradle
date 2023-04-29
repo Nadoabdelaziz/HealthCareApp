@@ -5,9 +5,10 @@ android {
     compileSdkVersion 29
     buildToolsVersion "29.0.3"
 
+
     defaultConfig {
         applicationId "com.example.healthcare"
-        minSdkVersion 16
+        minSdkVersion 19
         targetSdkVersion 29
         versionCode 1
         versionName "1.0"
@@ -20,6 +21,10 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
     }
 
 }
@@ -45,6 +50,8 @@ dependencies {
     implementation 'com.github.f0ris.sweetalert:library:1.5.6'
     implementation 'com.github.bumptech.glide:glide:4.9.0'
     annotationProcessor 'com.github.bumptech.glide:compiler:4.9.0'
+    implementation 'com.journeyapps:zxing-android-embedded:4.3.0'
+
 
     implementation 'com.google.android.gms:play-services-vision:16.2.0'
 

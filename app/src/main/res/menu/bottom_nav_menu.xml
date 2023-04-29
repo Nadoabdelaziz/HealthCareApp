@@ -3,7 +3,7 @@
     <item
         android:id="@+id/person"
         android:icon="@drawable/home"
-        android:title="بيت" />
+        android:title="الرئيسية" />
     <item
         android:id="@+id/home"
         android:icon="@drawable/comment"
