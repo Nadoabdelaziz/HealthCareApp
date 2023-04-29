@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
@@ -28,9 +29,12 @@ public class AllStudentsActivity extends AppCompatActivity {
 
     List<Student> myStudents,studentsSearch;
 
+    List<Teacher> myteachers,teachersearch;
+
     //    SearchView searchView;
 
     ImageView back;
+    Button addstd;
     // Recycler View object
     RecyclerView recyclerView;
     DatabaseReference databaseReference;
@@ -44,13 +48,26 @@ public class AllStudentsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_all_students);
 
-        recyclerView = (RecyclerView)findViewById(R.id.recyclerview);
+        recyclerView = (RecyclerView) findViewById(R.id.recyclerview);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         myStudents = new ArrayList<>();
         studentsSearch = new ArrayList<>();
 
+        myteachers = new ArrayList<>();
+        teachersearch = new ArrayList<>();
+
         back = (ImageView) findViewById(R.id.backbtn);
+        addstd = (Button) findViewById(R.id.addnewstd);
+
+
+        addstd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(AllStudentsActivity.this, CreateStudentActivity.class);
+                startActivity(intent);
+            }
+        });
 
         back.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -60,71 +77,147 @@ public class AllStudentsActivity extends AppCompatActivity {
         });
 
         searchView = findViewById(R.id.mySearchView);
-        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
-            @Override
-            public boolean onQueryTextSubmit(final String query) {
-                Log.d("TAG", "dkhlt ");
-                DatabaseReference reference = FirebaseDatabase.getInstance().getReference("Students");
-                reference.addListenerForSingleValueEvent(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                        for (DataSnapshot data : dataSnapshot.getChildren()) {
-                            Student student = data.getValue(Student.class);
-                            Log.d("TAG", "Change++++: "+student.getName());
-                            if(student.getName().equals(query)){
-                                Log.d("TAG", "onDataChange: added here 1");
-                                studentsSearch.add(student);
+
+
+        boolean teacherspage = getIntent().getBooleanExtra("teachers_for_admin", false);
+
+        if (teacherspage) {
+
+            addstd.setVisibility(View.GONE);
+
+            searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+                @Override
+                public boolean onQueryTextSubmit(final String query) {
+                    DatabaseReference reference = FirebaseDatabase.getInstance().getReference("Teachers");
+                    reference.addListenerForSingleValueEvent(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                            for (DataSnapshot data : dataSnapshot.getChildren()) {
+                                Teacher teacher = data.getValue(Teacher.class);
+//                                Log.d("TAG", "Change++++: "+student.getName());
+                                if(teacher.getFirstName().equals(query)){
+//                                    Log.d("TAG", "onDataChange: added here 1");
+                                    teachersearch.add(teacher);
+                                }
+
                             }
+                            adapterSearch = new StudentsAdapter(teachersearch,true);
+                            HorizontalLayout = new LinearLayoutManager(getApplicationContext(), LinearLayoutManager.HORIZONTAL, false);
+                            recyclerView.setLayoutManager(HorizontalLayout);
+                            recyclerView.setAdapter(adapterSearch);
+                            recyclerView.setHasFixedSize(true);
 
                         }
-                        adapterSearch = new StudentsAdapter(studentsSearch);
-                        HorizontalLayout = new LinearLayoutManager(getApplicationContext(), LinearLayoutManager.HORIZONTAL, false);
-                        recyclerView.setLayoutManager(HorizontalLayout);
-                        recyclerView.setAdapter(adapterSearch);
-                        recyclerView.setHasFixedSize(true);
+
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError databaseError) {
+                            System.out.println("The read failed: " + databaseError.getCode());
+                        }
+                    });
+                    searchView.clearFocus();
+                    teachersearch.clear();
+                    return true;
+                }
+
+                @Override
+                public boolean onQueryTextChange(String s) {
+                    return true;
+                }
+            });
+
+
+
+            DatabaseReference reference = FirebaseDatabase.getInstance().getReference("Teachers");
+            reference.addListenerForSingleValueEvent(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                    for (DataSnapshot data : dataSnapshot.getChildren()) {
+//                        Log.d("TAG", "onDataChange: added here 2");
+                        Teacher teacher = data.getValue(Teacher.class);
+                        myteachers.add(teacher);
 
                     }
-
-                    @Override
-                    public void onCancelled(@NonNull DatabaseError databaseError) {
-                        System.out.println("The read failed: " + databaseError.getCode());
-                    }
-                });
-                searchView.clearFocus();
-                studentsSearch.clear();
-                return true;
-            }
-
-            @Override
-            public boolean onQueryTextChange(String s) {
-                return true;
-            }
-        });
-
-
-
-        DatabaseReference reference = FirebaseDatabase.getInstance().getReference("Students");
-        reference.addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                for (DataSnapshot data : dataSnapshot.getChildren()) {
-                    Log.d("TAG", "onDataChange: added here 2");
-                    Student student = data.getValue(Student.class);
-                    myStudents.add(student);
+                    studentsAdapter = new StudentsAdapter(myteachers,true);
+                    HorizontalLayout = new LinearLayoutManager(getApplicationContext(), LinearLayoutManager.HORIZONTAL, false);
+                    recyclerView.setLayoutManager(HorizontalLayout);
+                    recyclerView.setAdapter(studentsAdapter);
+                    recyclerView.setHasFixedSize(true);
 
                 }
-                studentsAdapter = new StudentsAdapter(myStudents);
-                HorizontalLayout = new LinearLayoutManager(getApplicationContext(), LinearLayoutManager.HORIZONTAL, false);
-                recyclerView.setLayoutManager(HorizontalLayout);
-                recyclerView.setAdapter(studentsAdapter);
-                recyclerView.setHasFixedSize(true);
 
-            }
+                @Override
+                public void onCancelled(@NonNull DatabaseError databaseError) {
+                    System.out.println("The read failed: " + databaseError.getCode());
+                }
+            });
 
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-                System.out.println("The read failed: " + databaseError.getCode());
-            }
-        });
+        } else {
+
+            searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+                @Override
+                public boolean onQueryTextSubmit(final String query) {
+                    Log.d("TAG", "dkhlt ");
+                    DatabaseReference reference = FirebaseDatabase.getInstance().getReference("Students");
+                    reference.addListenerForSingleValueEvent(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                            for (DataSnapshot data : dataSnapshot.getChildren()) {
+                                Student student = data.getValue(Student.class);
+                                Log.d("TAG", "Change++++: " + student.getName());
+                                if (student.getName().equals(query)) {
+                                    Log.d("TAG", "onDataChange: added here 1");
+                                    studentsSearch.add(student);
+                                }
+
+                            }
+                            adapterSearch = new StudentsAdapter(studentsSearch);
+                            HorizontalLayout = new LinearLayoutManager(getApplicationContext(), LinearLayoutManager.HORIZONTAL, false);
+                            recyclerView.setLayoutManager(HorizontalLayout);
+                            recyclerView.setAdapter(adapterSearch);
+                            recyclerView.setHasFixedSize(true);
+
+                        }
+
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError databaseError) {
+                            System.out.println("The read failed: " + databaseError.getCode());
+                        }
+                    });
+                    searchView.clearFocus();
+                    studentsSearch.clear();
+                    return true;
+                }
+
+                @Override
+                public boolean onQueryTextChange(String s) {
+                    return true;
+                }
+            });
+
+
+            DatabaseReference reference = FirebaseDatabase.getInstance().getReference("Students");
+            reference.addListenerForSingleValueEvent(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                    for (DataSnapshot data : dataSnapshot.getChildren()) {
+                        Log.d("TAG", "onDataChange: added here 2");
+                        Student student = data.getValue(Student.class);
+                        myStudents.add(student);
+
+                    }
+                    studentsAdapter = new StudentsAdapter(myStudents);
+                    HorizontalLayout = new LinearLayoutManager(getApplicationContext(), LinearLayoutManager.HORIZONTAL, false);
+                    recyclerView.setLayoutManager(HorizontalLayout);
+                    recyclerView.setAdapter(studentsAdapter);
+                    recyclerView.setHasFixedSize(true);
+
+                }
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError databaseError) {
+                    System.out.println("The read failed: " + databaseError.getCode());
+                }
+            });
+        }
     }
 }

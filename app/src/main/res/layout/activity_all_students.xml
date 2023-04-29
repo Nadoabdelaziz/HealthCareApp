@@ -57,5 +57,19 @@
         android:descendantFocusability="blocksDescendants"
         android:scrollbars="horizontal" />
 
+    <Button
+        android:id="@+id/addnewstd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/recyclerview"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/custombutton"
+        android:textColor="#fff"
+        android:fontFamily="@font/montserrat_bold"
+        android:paddingRight="20dp"
+        android:paddingLeft="20dp"
+        android:textSize="25dp"
+        android:text="إضافة طالب جديد"
+        android:layout_marginTop="70dp"/>
 
 </RelativeLayout>

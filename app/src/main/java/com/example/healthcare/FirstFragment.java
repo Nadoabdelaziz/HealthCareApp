@@ -86,6 +86,27 @@ public class FirstFragment extends Fragment {
         final TextView righttxt = (TextView) mView.findViewById(R.id.trendingforadmin);
 
         final TextView showall = (TextView) mView.findViewById(R.id.showall);
+        final TextView showallforadmin = (TextView) mView.findViewById(R.id.watchallforadmin);
+
+        showall.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getContext(),AllStudentsActivity.class);
+                intent.putExtra("teachers_for_admin",false);
+                startActivity(intent);
+//                        Intent intent = new Intent(getContext(),CreateStudentActivity.class);
+//                        startActivity(intent);
+            }
+        });
+
+        showallforadmin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getContext(),AllStudentsActivity.class);
+                intent.putExtra("teachers_for_admin",true);
+                startActivity(intent);
+            }
+        });
 
         fbAuth = FirebaseAuth.getInstance();
         if(fbAuth.getCurrentUser() != null){
@@ -201,15 +222,7 @@ public class FirstFragment extends Fragment {
                 righttxt.setVisibility(View.VISIBLE);
                 SecrecyclerView.setVisibility(View.VISIBLE);
 
-                showall.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        Intent intent = new Intent(getContext(),AllStudentsActivity.class);
-                        startActivity(intent);
-//                        Intent intent = new Intent(getContext(),CreateStudentActivity.class);
-//                        startActivity(intent);
-                    }
-                });
+
 
 
                 // hi text
