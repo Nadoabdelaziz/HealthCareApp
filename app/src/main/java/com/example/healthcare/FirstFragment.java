@@ -204,8 +204,10 @@ public class FirstFragment extends Fragment {
                 showall.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        Intent intent = new Intent(getContext(),CreateStudentActivity.class);
+                        Intent intent = new Intent(getContext(),AllStudentsActivity.class);
                         startActivity(intent);
+//                        Intent intent = new Intent(getContext(),CreateStudentActivity.class);
+//                        startActivity(intent);
                     }
                 });
 

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AllStudentsActivity">
+
+    <ImageView
+        android:id="@+id/backbtn"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="35dp"
+        android:src="@drawable/backbtn" />
+
+    <TextView
+        android:id="@+id/txtt2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/mySearchView"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="25dp"
+        android:fontFamily="@font/montserrat_bold"
+        android:text="طلاب"
+        android:textColor="#000"
+        android:textSize="28dp" />
+
+
+    <SearchView
+        android:id="@+id/mySearchView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_rounded"
+        android:layout_marginBottom="35dp"
+        android:layout_above="@id/txtt" />
+
+    <TextView
+        android:id="@+id/txtt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/recyclerview"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="25dp"
+        android:layout_marginBottom="25dp"
+        android:textColor="#000"
+        android:fontFamily="@font/montserrat_bold"
+        android:textSize="18dp"
+        android:text="الملفات الشخصية لطلابي" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:descendantFocusability="blocksDescendants"
+        android:scrollbars="horizontal" />
+
+
+</RelativeLayout>
