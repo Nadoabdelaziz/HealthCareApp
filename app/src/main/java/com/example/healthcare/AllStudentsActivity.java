@@ -13,6 +13,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.SearchView;
+import android.widget.TextView;
 
 import com.example.healthcare.models.Student;
 import com.example.healthcare.models.Teacher;
@@ -41,12 +42,17 @@ public class AllStudentsActivity extends AppCompatActivity {
     StudentsAdapter studentsAdapter,adapterSearch;
     LinearLayoutManager HorizontalLayout;
     SearchView searchView;
+    TextView titleType;
+    TextView titleType2;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_all_students);
+
+        titleType = (TextView) findViewById(R.id.txtt2);
+        titleType2 = (TextView) findViewById(R.id.txtt);
 
         recyclerView = (RecyclerView) findViewById(R.id.recyclerview);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
@@ -83,7 +89,10 @@ public class AllStudentsActivity extends AppCompatActivity {
 
         if (teacherspage) {
 
+            titleType.setText("المعلمون");
+            titleType2.setText("الملفات الشخصية للمعلمين");
             addstd.setVisibility(View.GONE);
+
 
             searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
                 @Override

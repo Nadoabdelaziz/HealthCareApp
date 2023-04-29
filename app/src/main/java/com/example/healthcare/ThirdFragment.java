@@ -175,7 +175,7 @@ public class ThirdFragment extends Fragment {
                                                 if (!exist){
                                                     new SweetAlertDialog(getContext(), SweetAlertDialog.ERROR_TYPE)
                                                             .setTitleText("Not Found")
-                                                            .setContentText("No Student exists with this id")
+                                                            .setContentText("No Student exists with this code !")
                                                             .setConfirmClickListener(new SweetAlertDialog.OnSweetClickListener() {
                                                                 @Override
                                                                 public void onClick(SweetAlertDialog sweetAlertDialog) {

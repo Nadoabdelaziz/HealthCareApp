@@ -1,5 +1,6 @@
 package com.example.healthcare;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 
@@ -36,6 +37,7 @@ public class SecondFragment extends Fragment {
     SearchComentsAdapter adapter;
     List<Comment> myComments;
     //SearchView searchView;
+    Context con;
 
     View mview;
     @Override
@@ -61,8 +63,9 @@ public class SecondFragment extends Fragment {
                     Comment comment = data.getValue(Comment.class);
                     myComments.add(comment);
                     Collections.sort(myComments);
-                    Log.d("TAG", "onDataChange: "+getContext());
-                    adapter = new SearchComentsAdapter(getContext(), myComments);
+                    Log.d("TAG", "onDataChange: "+con);
+                    Log.d("TAG", "Context is ?? : "+con);
+                    adapter = new SearchComentsAdapter(con, myComments);
                     listView.setAdapter(adapter);
                 }
             }
@@ -115,5 +118,11 @@ public class SecondFragment extends Fragment {
 //            }
 //        });
         return view;
+    }
+
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        con = context;
     }
 }

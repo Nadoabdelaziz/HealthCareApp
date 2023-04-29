@@ -44,10 +44,10 @@
         android:layout_alignParentRight="true"
         android:layout_marginRight="25dp"
         android:layout_marginBottom="25dp"
-        android:textColor="#000"
         android:fontFamily="@font/montserrat_bold"
-        android:textSize="18dp"
-        android:text="الملفات الشخصية لطلابي" />
+        android:text="الملفات الشخصية لطلابي"
+        android:textColor="#000"
+        android:textSize="18dp" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerview"

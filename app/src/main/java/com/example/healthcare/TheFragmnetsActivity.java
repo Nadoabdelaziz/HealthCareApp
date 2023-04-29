@@ -1,20 +1,27 @@
 package com.example.healthcare;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
 
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.os.Build;
 import android.os.Bundle;
+import android.os.CountDownTimer;
+import android.preference.PreferenceManager;
 import android.util.Log;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
 import com.example.healthcare.models.Student;
 import com.example.healthcare.models.Teacher;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -67,8 +74,33 @@ public class TheFragmnetsActivity extends AppCompatActivity {
             bottomNavigationView = (BottomNavigationView)findViewById(R.id.bottomNavigationView);
 
 
+            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this); // getActivity() for Fragment
+            prefs.getBoolean("has_new_comment", false);
+            if(prefs.getBoolean("has_new_comment", false)){
+                Menu menu = bottomNavigationView.getMenu();
+                MenuItem item = menu.findItem(R.id.home);
+                item.setIcon(R.drawable.comment_notify);
 
-            bottomNavigationView.setOnNavigationItemSelectedListener(
+
+                new CountDownTimer(5000, 50) {
+
+                    @Override
+                    public void onTick(long arg0) {
+                        // TODO Auto-generated method stub
+
+                    }
+
+                    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
+                    @Override
+                    public void onFinish() {
+                        item.setIcon(R.drawable.comment);
+                    }
+                }.start();
+                prefs.edit().putBoolean("has_new_comment", false).commit();
+            }
+
+
+        bottomNavigationView.setOnNavigationItemSelectedListener(
 
                     new BottomNavigationView.OnNavigationItemSelectedListener() {
                         @Override
