@@ -97,32 +97,38 @@ public class MeetingActivity extends AppCompatActivity {
         startDate = findViewById(R.id.startDate);
         endDate = findViewById(R.id.endDate);
         titleEditText = findViewById(R.id.meeting_title);
-        editMeetingBtn = findViewById(R.id.edit_meeting_title_btn);
+        //editMeetingBtn = findViewById(R.id.edit_meeting_title_btn);
 //        contactName = findViewById(R.id.meeting_contact_name);
 //        contactPhone = findViewById(R.id.meeting_contact_number);
         doneBtn = findViewById(R.id.done_btn);
 
-        editMeetingBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                meeting.setTitle(titleEditText.getText().toString());
-                titleEditText.setEnabled(!titleEditText.isEnabled());
-                if (titleEditText.isEnabled()) {
-                    titleEditText.requestFocus();
-                    titleEditText.setFocusableInTouchMode(true);
-                    editMeetingBtn.setText("احفظ");
-                    InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
-                    imm.showSoftInput(titleEditText, InputMethodManager.SHOW_FORCED);
-                } else {
-                    editMeetingBtn.setText("تعديل");
-                }
-            }
-        });
+
+//        titleEditText.edit
+//        meeting.setTitle(titleEditText.getText().toString());
+//        titleEditText.requestFocus();
+//        titleEditText.setFocusableInTouchMode(true);
+        //editMeetingBtn.setText("احفظ");
+//        InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+//        imm.showSoftInput(titleEditText, InputMethodManager.SHOW_FORCED);
+
+//        editMeetingBtn.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                    Log.d("TAG", "onCreate: pre addition : "+titleEditText.getText().toString());
+//                    meeting.setTitle(titleEditText.getText().toString());
+//                    Log.d("TAG", "onCreate: "+titleEditText.getText().toString());
+//                    titleEditText.requestFocus();
+//                    titleEditText.setFocusableInTouchMode(true);
+//                    InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+//                    imm.showSoftInput(titleEditText, InputMethodManager.SHOW_FORCED);
+//            }
+//        });
 
 
         doneBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Log.d("TAG", "onCreate: "+titleEditText.getText().toString());
                 data.addOrUpdateMeeting(meeting);
                 Log.e("MEETINGS", "Add meeting: " + meeting);
                 Log.e("MEETINGS", data.getMeetingList().toString());
@@ -175,6 +181,12 @@ public class MeetingActivity extends AppCompatActivity {
      */
     void promptDate(final int type) {
 
+        Log.d("TAG", "onCreate: pre addition : "+titleEditText.getText().toString());
+        meeting.setTitle(titleEditText.getText().toString());
+        Log.d("TAG", "onCreate: "+titleEditText.getText().toString());
+
+        //Log.d("TAG", "promptDate: "+titleEditText.getText().toString());
+
         DatePickerDialog datePickerDialog = new DatePickerDialog(this) {
             int yearOfCentury = 0;
             int monthOfDay = 0;
@@ -189,24 +201,26 @@ public class MeetingActivity extends AppCompatActivity {
 
             @Override
             public void onClick(@NonNull DialogInterface dialog, int which) {
+                Log.d("TAG", "promptDate2 : "+titleEditText.getText().toString());
+
                 if (which == DialogInterface.BUTTON_POSITIVE) {
                     super.onClick(dialog, which);
                     final int year = yearOfCentury;
                     final int month = monthOfDay;
                     final int day = dayOfMonth;
-                    new TimePickerDialog(MeetingActivity.this, new TimePickerDialog.OnTimeSetListener() {
-                        @Override
-                        public void onTimeSet(TimePicker timePicker, int hourOfDay, int minuteOfHOur) {
-                            Calendar cal = new GregorianCalendar(year, month, day, hourOfDay, minuteOfHOur);
-
-                            Date date = new Date(cal.getTimeInMillis());
-                            if (type == SET_START)
-                                meeting.setStart(date);
-                            if (type == SET_END)
-                                meeting.setEnd(date);
-                            updateMeetingViews();
-                        }
-                    }, 0, 0, true).show();
+//                    new TimePickerDialog(MeetingActivity.this, new TimePickerDialog.OnTimeSetListener() {
+//                        @Override
+//                        public void onTimeSet(TimePicker timePicker, int hourOfDay, int minuteOfHOur) {
+//                            Calendar cal = new GregorianCalendar(year, month, day, hourOfDay, minuteOfHOur);
+//
+//                            Date date = new Date(cal.getTimeInMillis());
+//                            if (type == SET_START)
+//                                meeting.setStart(date);
+//                            if (type == SET_END)
+//                                meeting.setEnd(date);
+//                            updateMeetingViews();
+//                        }
+//                    }, 0, 0, true).show();
                 } else if (which == DialogInterface.BUTTON_NEGATIVE) {
                 }
                 updateMeetingViews();
@@ -214,20 +228,23 @@ public class MeetingActivity extends AppCompatActivity {
         };
         Calendar cal = Calendar.getInstance();
 
-        if (type == SET_START) {
-            cal.setTime(meeting.getStart());
-        } else if (type == SET_END) {
-            cal.setTime(meeting.getEnd());
-        }
+//        if (type == SET_START) {
+//            cal.setTime(meeting.getStart());
+//        } else if (type == SET_END) {
+//            cal.setTime(meeting.getEnd());
+//        }
         datePickerDialog.updateDate(cal.get(Calendar.YEAR), cal.get(Calendar.MONTH), cal.get(Calendar.DAY_OF_MONTH));
 
         datePickerDialog.show();
     }
 
     void updateMeetingViews() {
+        Log.d("TAG", "updateMeetingViews: final " +titleEditText.getText().toString() + "meeting " + meeting.getTitle());
+
         startDate.setText(meeting.getStart().toString());
         endDate.setText(meeting.getEnd().toString());
-        titleEditText.setText(meeting.getTitle());
+//        meeting.setTitle(titleEditText.getText().toString());
+//        titleEditText.setText(meeting.getTitle());
     }
 
     void updateContactViews() {
@@ -284,7 +301,9 @@ public class MeetingActivity extends AppCompatActivity {
     public void deleteMeeting(View v) {
         data.deleteMeeting(meeting);
         finishActivity(EDIT_MEETING);
-        finish();
+//        finish();
+        Intent intent = new Intent(MeetingActivity.this,TheFragmnetsActivity.class);
+        startActivity(intent);
     }
 
     public void cancelEditMeeting(View v) {

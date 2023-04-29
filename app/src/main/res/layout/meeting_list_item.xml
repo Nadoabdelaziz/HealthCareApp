@@ -12,7 +12,7 @@
     android:clickable="true"
     android:elevation="20dp"
     android:focusable="false"
-    android:foreground="?android:attr/selectableItemBackground"
+    app:cardBackgroundColor="@color/main_blue_color"
     android:onClick="setStartDate"
     app:cardCornerRadius="8dip"
     app:contentPadding="20dp"
@@ -32,13 +32,15 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Title"
-            android:textColor="#000"
-            android:textSize="15dp" />
+            android:textColor="#fff"
+            android:fontFamily="@font/montserrat_bold"
+            android:textSize="18dp" />
 
 
         <TextView
             android:id="@+id/meeting_start"
             android:layout_width="match_parent"
+            android:visibility="gone"
             android:layout_height="wrap_content"
             android:text="start"
             android:textColor="#000" />
@@ -53,6 +55,7 @@
             android:id="@+id/meeting_end"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:visibility="gone"
             android:text="end"
             android:textColor="#000" />
 

@@ -38,25 +38,23 @@
                 android:layout_height="wrap_content"
                 android:layout_marginRight="20dp"
                 android:layout_weight="1"
-                android:enabled="false"
-                android:inputType="none"
                 android:textSize="18dp"
                 android:textColor="#000"
                 android:hint="أدخل عنوان الحدث هنا"
                 />
 
-            <Button
-                android:id="@+id/edit_meeting_title_btn"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="top"
-                android:layout_weight="0"
-                android:textColor="#fff"
-                android:text="تعديل"
-                android:textSize="20dp"
-                android:backgroundTint="@color/blue_btn_bg_pressed_color"
+<!--            <Button-->
+<!--                android:id="@+id/edit_meeting_title_btn"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_gravity="top"-->
+<!--                android:layout_weight="0"-->
+<!--                android:textColor="#fff"-->
+<!--                android:text="تعديل"-->
+<!--                android:textSize="20dp"-->
+<!--                android:backgroundTint="@color/blue_btn_bg_pressed_color"-->
 
-                />
+<!--                />-->
         </LinearLayout>
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
