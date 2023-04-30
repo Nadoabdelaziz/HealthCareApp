@@ -4,15 +4,16 @@
     android:layout_height="wrap_content"
     android:paddingTop="20dp"
     android:paddingRight="20dp"
-    android:paddingBottom="20dp"
+
+    android:paddingBottom="10dp"
     android:paddingLeft="20dp"
-    android:background="#F6F2F2"
+    android:background="@drawable/image_border"
     android:orientation="vertical">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="85dp"
-        android:gravity="center"
+        android:gravity="right"
         android:orientation="vertical">
 
 
@@ -21,8 +22,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:layout_marginTop="5dp"
+            android:textColor="#000"
             android:fontFamily="@font/montserrat"
-            android:gravity="start"
+            android:gravity="right"
             android:text="TextView"
             android:textSize="16sp" />
 
@@ -30,9 +33,11 @@
             android:id="@+id/stdname"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="start"
+            android:gravity="right"
+            android:textColor="#000"
             android:layout_weight="1"
             android:fontFamily="@font/montserrat"
+            android:layout_marginTop="5dp"
             android:text="TextView"
             android:textSize="16sp" />
 
@@ -40,19 +45,27 @@
             android:id="@+id/comment"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="start"
+            android:gravity="right"
             android:layout_weight="1"
+            android:layout_marginTop="5dp"
+
+            android:textColor="#000"
             android:fontFamily="@font/montserrat"
             android:text="TextView"
             android:textSize="16sp" />
 
     </LinearLayout>
 
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_marginTop="20dp"
+        android:background="#c0c0c0"/>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="right"
-        android:layout_marginTop="25dp"
+        android:layout_marginTop="15dp"
         android:orientation="horizontal">
 
         <de.hdodenhof.circleimageview.CircleImageView

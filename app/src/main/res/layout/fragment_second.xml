@@ -32,7 +32,7 @@
         android:textSize="28dp"
         android:padding="10dp"
         android:layout_marginTop="50dp"
-        android:fontFamily="@font/montserrat_bold"
+        android:fontFamily="@font/nunito_sans_bold"
         android:textColor="#000"
         android:gravity="center_horizontal"
         android:layout_height="wrap_content"/>
@@ -41,17 +41,19 @@
         android:id="@+id/Comment_list"
         android:layout_width="match_parent"
         android:divider="@color/float_transparent"
-        android:dividerHeight="30dp"
-        android:layout_height="464dp" />
+        android:dividerHeight="42dp"
+        android:padding="10dp"
+        android:layout_height="500dp" />
 
     <Button
         android:id="@+id/createcommmentbtn"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="25dp"
+        android:layout_marginRight="25dp"
         android:layout_gravity="center"
         android:layout_marginTop="20dp"
         android:background="@color/main_blue_color"
-        android:padding="15dp"
         android:text=" + كتابة ملاحظة جديدة"
         android:textColor="#FFFF"
         android:textSize="22dp" />

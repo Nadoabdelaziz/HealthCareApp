@@ -11,6 +11,7 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.example.healthcare.models.Appointment;
@@ -41,6 +42,7 @@ public class CreateCommentActivity extends AppCompatActivity {
     List<Comment> comments;
     DatabaseReference databaseReference;
     FirebaseUser user;
+    ImageView back;
 
 
     @Override
@@ -50,7 +52,15 @@ public class CreateCommentActivity extends AppCompatActivity {
 
         Button btn = (Button) findViewById(R.id.sendComment);
 
+        back = (ImageView) findViewById(R.id.backbtn);
         //fbAuth = FirebaseAuth.getInstance();
+
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
 
 
         btn.setOnClickListener(new View.OnClickListener() {
