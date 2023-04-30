@@ -11,10 +11,10 @@
     <ImageView
         android:id="@+id/imageView2"
         android:layout_width="match_parent"
-        android:layout_height="113dp"
+        android:layout_height="155dp"
         android:layout_marginTop="60dp"
         android:layout_marginBottom="20dp"
-        app:srcCompat="@drawable/login_logo" />
+        app:srcCompat="@drawable/appnewlogo" />
 
     <TextView
         android:id="@+id/errorMessage"

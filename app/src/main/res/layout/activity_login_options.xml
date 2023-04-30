@@ -19,9 +19,8 @@
     <ImageView
         android:id="@+id/imageView2"
         android:layout_width="match_parent"
-        android:layout_height="123dp"
-        android:layout_marginTop="15dp"
-        app:srcCompat="@drawable/login_logo" />
+        android:layout_height="150dp"
+        app:srcCompat="@drawable/appnewlogo" />
 
     <TextView
         android:id="@+id/errorMessage"

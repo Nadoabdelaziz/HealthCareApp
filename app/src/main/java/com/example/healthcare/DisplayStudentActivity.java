@@ -61,6 +61,7 @@ public class DisplayStudentActivity extends AppCompatActivity {
             frameLayout = findViewById(R.id.myFrameLayout);
 //            imageView = findViewById(R.id.profile_image);
             circleImageView = findViewById(R.id.profile_image);
+            circleImageView.bringToFront();
 //            progressBar = findViewById(R.id.myProgressBar);
             circleImageView.setImageBitmap(ImageResizer.decodeSampledBitmapFromResource(getResources(), R.drawable.aliluchloutfi, 250, 500));
             Bitmap bMap = ImageResizer.decodeSampledBitmapFromResource(getResources(), R.drawable.background, 100, 100);
@@ -82,7 +83,8 @@ public class DisplayStudentActivity extends AppCompatActivity {
 
 
             fullName.setText(" الأسم :  " + name);
-            speciality.setText("ID: "+id+" : رقم تعريفي ");
+            //speciality.setText("ID: "+id+" : رقم تعريفي ");
+            speciality.setText("رقم تعريفي: "+"ID:"+phno);
             SchoolName.setText("اسم المدرسة:  " + school);
             Gender.setText("الجنس :  "+gender);
             BloodT.setText(blood + "  : فصيلة الدم");
