@@ -1,24 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
         android:id="@+id/person"
         android:icon="@drawable/home"
+        app:itemIconSize="20dp"
         android:title="الرئيسية" />
     <item
         android:id="@+id/home"
+        app:itemIconSize="20dp"
         android:icon="@drawable/comment"
         android:title="ملحوظة" />
     <item
         android:id="@+id/settings"
+        app:itemIconSize="20dp"
         android:icon="@drawable/scan"
         android:title="مسح" />
     <item
         android:id="@+id/settings2"
         android:icon="@drawable/calender"
+        app:itemIconSize="20dp"
         android:title="تقويم" />
 
     <item
         android:id="@+id/settings3"
         android:icon="@drawable/myprofile"
+        app:itemIconSize="20dp"
         android:title="حسابي" />
 </menu>

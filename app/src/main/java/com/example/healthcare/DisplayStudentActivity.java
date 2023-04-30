@@ -5,6 +5,8 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
+import com.example.healthcare.models.Code128;
+
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
@@ -23,6 +25,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
+import com.example.healthcare.models.Code128;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
@@ -44,6 +47,8 @@ public class DisplayStudentActivity extends AppCompatActivity {
         protected void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
             setContentView(R.layout.activity_display_student);
+
+
             fullName = findViewById(R.id.fullName);
             speciality = findViewById(R.id.ID);
 
@@ -82,9 +87,13 @@ public class DisplayStudentActivity extends AppCompatActivity {
             diseases = intent.getStringExtra("diseases");
 
 
+            drawBarcode(id);
+
+
+
             fullName.setText(" الأسم :  " + name);
             //speciality.setText("ID: "+id+" : رقم تعريفي ");
-            speciality.setText("رقم تعريفي: "+"ID:"+phno);
+            speciality.setText("رقم تعريفي: "+id);
             SchoolName.setText("اسم المدرسة:  " + school);
             Gender.setText("الجنس :  "+gender);
             BloodT.setText(blood + "  : فصيلة الدم");
@@ -111,6 +120,14 @@ public class DisplayStudentActivity extends AppCompatActivity {
                     progressBar.setVisibility(View.GONE);
                 }
             });
+        }
+        private void drawBarcode(String id) {
+            String barcode = id;
+            Code128 code = new Code128(DisplayStudentActivity.this);
+            code.setData(barcode);
+            Bitmap bitmap = code.getBitmap(680, 300);
+            ImageView ivBarcode = (ImageView)findViewById(R.id.code128_barcode);
+            ivBarcode.setImageBitmap(bitmap);
         }
 
 

@@ -47,10 +47,10 @@
             android:layout_height="match_parent"
             android:layout_gravity="center|top"
             android:layout_marginTop="190dp"
-            android:background="#000099"
+            android:background="#3A3A83"
             android:isScrollContainer="true"
             android:orientation="horizontal"
-            android:padding="15dp">
+            android:padding="17dp">
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -96,17 +96,21 @@
                 android:orientation="vertical">
 
                 <ImageView
-                    android:layout_width="wrap_content"
+                    android:id="@+id/code128_barcode"
+                    android:layout_width="200dp"
                     android:layout_height="wrap_content"
+                    android:background="@color/float_transparent"
                     android:layout_gravity="right"
-                    android:padding="15dp"
-                    android:src="@drawable/barcode_mini" />
+                    android:paddingBottom="15dp"
+                    android:paddingTop="15dp"
+                    android:paddingRight="10dp"
+                    tools:ignore="ContentDescription" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="right"
-                    android:layout_marginTop="20dp"
+                    android:layout_marginTop="10dp"
                     android:layout_marginBottom="10dp"
                     android:fontFamily="@font/montserrat_bold"
                     android:padding="10dp"
@@ -119,7 +123,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="right"
-                    android:layout_marginBottom="20dp"
+                    android:layout_marginBottom="10dp"
                     android:paddingRight="20dp"
                     android:text=""
 
@@ -131,7 +135,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="right"
-                    android:layout_marginBottom="20dp"
+                    android:layout_marginBottom="10dp"
                     android:fontFamily="@font/montserrat"
                     android:paddingRight="20dp"
                     android:textColor="#fff"
@@ -143,7 +147,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="right"
-                    android:layout_marginBottom="20dp"
+                    android:layout_marginBottom="10dp"
                     android:fontFamily="@font/montserrat"
                     android:paddingRight="20dp"
                     android:textColor="#fff"
@@ -155,7 +159,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="right"
-                    android:layout_marginBottom="20dp"
+                    android:layout_marginBottom="10dp"
                     android:fontFamily="@font/montserrat"
                     android:paddingRight="20dp"
 
@@ -167,7 +171,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="right"
-                    android:layout_marginBottom="20dp"
+                    android:layout_marginBottom="10dp"
                     android:fontFamily="@font/montserrat"
                     android:paddingRight="20dp"
 
@@ -179,7 +183,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="right"
-                    android:layout_marginBottom="20dp"
+                    android:layout_marginBottom="10dp"
                     android:fontFamily="@font/montserrat"
                     android:paddingRight="20dp"
 
@@ -191,7 +195,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="right"
-                    android:layout_marginBottom="20dp"
+                    android:layout_marginBottom="10dp"
                     android:fontFamily="@font/montserrat"
                     android:paddingRight="20dp"
 
@@ -203,7 +207,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="right"
-                    android:layout_marginBottom="50dp"
+                    android:layout_marginBottom="40dp"
                     android:fontFamily="@font/montserrat"
                     android:paddingRight="20dp"
 
