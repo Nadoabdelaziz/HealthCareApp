@@ -34,18 +34,20 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
+    <ImageButton
         android:id="@+id/button"
-        android:layout_width="54dp"
-        android:layout_height="51dp"
+        android:layout_width="41dp"
+        android:layout_height="47dp"
         android:layout_gravity="bottom|end"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintRight_toLeftOf="@+id/calName"
-        app:layout_constraintHorizontal_bias="0.0"
         android:layout_marginLeft="15dp"
+        android:layout_marginBottom="8dp"
+        android:background="@color/float_transparent"
         app:layout_constraintBottom_toTopOf="@+id/calendarView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.043"
+        app:layout_constraintRight_toLeftOf="@+id/calName"
         app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/ic_plus_sign" />
+        app:srcCompat="@drawable/plus_calender" />
 
     <LinearLayout
         android:id="@+id/layout"

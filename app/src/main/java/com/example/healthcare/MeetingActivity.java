@@ -18,6 +18,7 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
@@ -37,6 +38,8 @@ public class MeetingActivity extends AppCompatActivity {
     TextView contactPhone;
     Button doneBtn;
     Data data;
+
+    ImageView back;
 
     public static final int EDIT_MEETING = 235;
 
@@ -64,6 +67,17 @@ public class MeetingActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_meeting);
         data = new Data(this);
+
+        back = (ImageView) findViewById(R.id.backbtn);
+
+
+
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
 
         String meetingId = null;
         Intent intent = getIntent();
@@ -208,6 +222,7 @@ public class MeetingActivity extends AppCompatActivity {
                     final int year = yearOfCentury;
                     final int month = monthOfDay;
                     final int day = dayOfMonth;
+                    Log.d("TAG", "onClick: "+day+month+year);
 //                    new TimePickerDialog(MeetingActivity.this, new TimePickerDialog.OnTimeSetListener() {
 //                        @Override
 //                        public void onTimeSet(TimePicker timePicker, int hourOfDay, int minuteOfHOur) {
@@ -221,6 +236,13 @@ public class MeetingActivity extends AppCompatActivity {
 //                            updateMeetingViews();
 //                        }
 //                    }, 0, 0, true).show();
+
+                    if (startDate.getText().equals("من")){
+                        startDate.setText(day + "/"+month+"/"+year);
+                    }
+                    else {
+                        endDate.setText(day + "/"+month+"/"+year);
+                    }
                 } else if (which == DialogInterface.BUTTON_NEGATIVE) {
                 }
                 updateMeetingViews();
@@ -239,10 +261,10 @@ public class MeetingActivity extends AppCompatActivity {
     }
 
     void updateMeetingViews() {
-        Log.d("TAG", "updateMeetingViews: final " +titleEditText.getText().toString() + "meeting " + meeting.getTitle());
-
-        startDate.setText(meeting.getStart().toString());
-        endDate.setText(meeting.getEnd().toString());
+//        Log.d("TAG", "updateMeetingViews: final " +titleEditText.getText().toString() + "meeting " + meeting.getTitle());
+//
+//        startDate.setText(meeting.getStart().toString());
+//        endDate.setText(meeting.getEnd().toString());
 //        meeting.setTitle(titleEditText.getText().toString());
 //        titleEditText.setText(meeting.getTitle());
     }

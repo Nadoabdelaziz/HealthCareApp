@@ -12,7 +12,7 @@
     android:clickable="true"
     android:elevation="20dp"
     android:focusable="false"
-    app:cardBackgroundColor="@color/main_blue_color"
+    app:cardBackgroundColor="#FF00FF"
     android:onClick="setStartDate"
     app:cardCornerRadius="8dip"
     app:contentPadding="20dp"
@@ -43,6 +43,7 @@
             android:visibility="gone"
             android:layout_height="wrap_content"
             android:text="start"
+            android:textSize="14dp"
             android:textColor="#000" />
 
         <!--        <TextView-->
@@ -57,6 +58,7 @@
             android:layout_height="wrap_content"
             android:visibility="gone"
             android:text="end"
+            android:textSize="14dp"
             android:textColor="#000" />
 
     </LinearLayout>

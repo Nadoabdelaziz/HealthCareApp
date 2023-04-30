@@ -44,12 +44,8 @@ public class MeetingsAdapter extends RecyclerView.Adapter {
 
         Log.e("disable", today + " " + currMeeting.getStart());
 
-        if(currMeeting.getStart().getTime() < today.getTime()) {
-            ((CardView)mHolder.parent).setCardBackgroundColor(mHolder.parent.getResources().getColor(R.color.blue_btn_bg_color));
 
-        } else {
-            ((CardView)mHolder.parent).setCardBackgroundColor(mHolder.parent.getResources().getColor(R.color.red_btn_bg_color));
-        }
+
 
         mHolder.updateView(currMeeting.getMeetingId());
 
@@ -92,7 +88,7 @@ public class MeetingsAdapter extends RecyclerView.Adapter {
             if(meetingId != null) {
                 Meeting meeting = data.getMeetingById(meetingId);
                 titleTextView.setText(meeting.getTitle());
-                startTextView.setText(meeting.getStart().toString() + " to");
+                startTextView.setText(meeting.getStart().toString() + " الي");
                 endTextView.setText(meeting.getEnd().toString());
             }
         }
