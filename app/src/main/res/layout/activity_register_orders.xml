@@ -8,9 +8,9 @@
     tools:context=".RegisterOrdersActivity">
 
     <com.google.android.material.appbar.AppBarLayout
+        android:background="#fff"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#00a2b1"
         android:padding="20dp"
         android:theme="@style/AppTheme">
 
@@ -20,7 +20,7 @@
             android:layout_gravity="center"
             android:fontFamily="@font/montserrat_bold"
             android:text="طلبات جديدة"
-            android:textColor="#FFF"
+            android:textColor="#000"
             android:textSize="34sp" />
 
 
@@ -29,6 +29,7 @@
     <ListView
         android:id="@+id/myOrders"
         android:layout_width="match_parent"
+        android:padding="20dp"
         android:layout_height="match_parent" />
 
 

@@ -132,7 +132,7 @@
         android:layout_marginLeft="80dp"
         android:layout_marginTop="604dp"
         android:fontFamily="@font/nunito_sans_bold"
-        android:background="@color/main_blue_color"
+        android:background="@drawable/custombutton"
         android:gravity="center_horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
         android:padding="10dp"

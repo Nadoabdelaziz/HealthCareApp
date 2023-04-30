@@ -109,9 +109,9 @@ public class FifthFragment extends Fragment {
                         fullNameRetrieved = dataSnapshot.child(FirebaseAuth.getInstance().getCurrentUser().getEmail().replaceAll("[-+.@:.]", "")).child("firstName").getValue(String.class);
                         fullName.setText(fullNameRetrieved);
                         specialityRetrieved = dataSnapshot.child(FirebaseAuth.getInstance().getCurrentUser().getEmail().replaceAll("[-+.@:.]", "")).child("lastName").getValue(String.class);
-                        speciality.setText(specialityRetrieved);
                         emailRetrieved = dataSnapshot.child(FirebaseAuth.getInstance().getCurrentUser().getEmail().replaceAll("[-+.@:.]", "")).child("email").getValue(String.class);
                         email.setText(emailRetrieved);
+                        speciality.setText(emailRetrieved);
                         phoneNumberRetrieved = dataSnapshot.child(FirebaseAuth.getInstance().getCurrentUser().getEmail().replaceAll("[-+.@:.]", "")).child("phoneNumber").getValue(String.class);
                         phoneNumber.setText(phoneNumberRetrieved);
 
@@ -150,9 +150,10 @@ public class FifthFragment extends Fragment {
                         fullNameRetrieved = dataSnapshot.child(FirebaseAuth.getInstance().getCurrentUser().getEmail().replaceAll("[-+.@:.]", "")).child("firstName").getValue(String.class);
                         fullName.setText(fullNameRetrieved);
                         specialityRetrieved = dataSnapshot.child(FirebaseAuth.getInstance().getCurrentUser().getEmail().replaceAll("[-+.@:.]", "")).child("lastName").getValue(String.class);
-                        speciality.setText(specialityRetrieved);
+                        //speciality.setText(specialityRetrieved);
                         emailRetrieved = dataSnapshot.child(FirebaseAuth.getInstance().getCurrentUser().getEmail().replaceAll("[-+.@:.]", "")).child("email").getValue(String.class);
                         email.setText(emailRetrieved);
+                        speciality.setText(emailRetrieved);
                         phoneNumberRetrieved = dataSnapshot.child(FirebaseAuth.getInstance().getCurrentUser().getEmail().replaceAll("[-+.@:.]", "")).child("phoneNumber").getValue(String.class);
                         phoneNumber.setText(phoneNumberRetrieved);
 
@@ -184,7 +185,7 @@ public class FifthFragment extends Fragment {
             }
         } else {
 
-            RgOrders.setVisibility(View.VISIBLE);
+            //RgOrders.setVisibility(View.VISIBLE);
             databaseReference = FirebaseDatabase.getInstance().getReference("Admins");
             databaseReference.addValueEventListener(new ValueEventListener() {
                 @Override
@@ -192,8 +193,9 @@ public class FifthFragment extends Fragment {
                     fullNameRetrieved = dataSnapshot.child(FirebaseAuth.getInstance().getCurrentUser().getEmail().replaceAll("[-+.@:.]", "")).child("firstName").getValue(String.class);
                     fullName.setText(fullNameRetrieved);
                     specialityRetrieved = dataSnapshot.child(FirebaseAuth.getInstance().getCurrentUser().getEmail().replaceAll("[-+.@:.]", "")).child("lastName").getValue(String.class);
-                    speciality.setText(specialityRetrieved);
+                    //speciality.setText(specialityRetrieved);
                     emailRetrieved = dataSnapshot.child(FirebaseAuth.getInstance().getCurrentUser().getEmail().replaceAll("[-+.@:.]", "")).child("email").getValue(String.class);
+                    speciality.setText(emailRetrieved);
                     email.setText(emailRetrieved);
                     phoneNumberRetrieved = dataSnapshot.child(FirebaseAuth.getInstance().getCurrentUser().getEmail().replaceAll("[-+.@:.]", "")).child("phoneNumber").getValue(String.class);
                     phoneNumber.setText(phoneNumberRetrieved);
@@ -228,7 +230,7 @@ public class FifthFragment extends Fragment {
             RgOrders.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Intent intent = new Intent(getContext(), RegisterOrdersActivity.class);
+                    Intent intent = new Intent(getContext(), AdminOrdersActivity.class);
                     startActivity(intent);
                 }
             });

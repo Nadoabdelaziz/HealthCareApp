@@ -30,66 +30,83 @@
         android:textSize="38sp" />
 
 
-    <Button
-        android:id="@+id/registerOrders"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="top|center_horizontal"
-        android:layout_marginTop="100dp"
-        android:background="@color/main_green_color"
-        android:text="الطلبات"
-        android:textColor="#000"
-        android:paddingRight="25dp"
-        android:visibility="gone"
-        android:paddingLeft="25dp"
-        android:fontFamily="@font/nunito_sans_bold"
-        android:textSize="22dp" />
+<!--    <Button-->
+<!--        android:id="@+id/registerOrders"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_gravity="top|center_horizontal"-->
+<!--        android:layout_marginTop="100dp"-->
+<!--        android:background="@color/main_green_color"-->
+<!--        android:text="الطلبات"-->
+<!--        android:textColor="#000"-->
+<!--        android:paddingRight="25dp"-->
+<!--        android:visibility="gone"-->
+<!--        android:paddingLeft="25dp"-->
+<!--        android:fontFamily="@font/nunito_sans_bold"-->
+<!--        android:textSize="22dp" />-->
 
-    <de.hdodenhof.circleimageview.CircleImageView
-        android:id="@+id/profile_image"
-        android:layout_width="170dp"
-        android:layout_height="170dp"
-        android:layout_gravity="right|center_vertical"
-        android:layout_marginBottom="100dp"
-        android:layout_marginLeft="100dp"
-        app:civ_border_color="#FFFFFF"
-        app:civ_border_width="2dp"
-        android:src="@drawable/aliluchloutfi"/>
+
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="left|center_vertical"
-        android:gravity="left"
-        android:layout_marginBottom="130dp"
-        android:layout_marginLeft="15dp"
-        android:orientation="vertical">
+        android:orientation="horizontal"
+        android:layout_marginTop="130dp"
+        android:layout_gravity="center_horizontal"
+        android:paddingLeft="25dp"
+        android:layout_height="wrap_content">
 
-        <TextView
-            android:id="@+id/fullName"
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
-            android:fontFamily="@font/montserrat_bold"
-            android:text="Aliluch Loutfi"
-            android:textSize="28sp" />
+            android:layout_gravity="center_horizontal"
+            android:layout_marginRight="20dp"
+            android:gravity="right"
+            android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/speciality"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
-            android:fontFamily="@font/nunito_sans_bold"
-            android:text="Dermathologue"
-            android:textSize="20sp" />
+            <TextView
+                android:id="@+id/fullName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#000"
+                android:fontFamily="@font/montserrat_bold"
+                android:textSize="24sp" />
 
-    </LinearLayout>
+            <TextView
+                android:id="@+id/speciality"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:fontFamily="@font/nunito_sans_bold"
+                android:textSize="16sp" />
+
+            <Button
+                android:layout_width="175dp"
+                android:layout_height="wrap_content"
+                android:text="تعديل"
+                android:background="@drawable/custombutton"
+                android:textColor="#fff"
+                android:layout_gravity="right"
+                android:layout_marginTop="15dp"
+                android:textSize="18dp"
+                android:fontFamily="@font/nunito_sans_bold"/>
+
+        </LinearLayout>
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/profile_image"
+            android:layout_width="140dp"
+            android:layout_height="140dp"
+            android:layout_gravity="center"
+            app:civ_border_color="#FFFFFF"
+            app:civ_border_width="2dp"
+            android:src="@drawable/aliluchloutfi"/>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:gravity="left"
+        android:visibility="gone"
         android:layout_marginRight="30dp"
         android:layout_marginBottom="30dp"
         android:orientation="vertical"
@@ -173,6 +190,7 @@
 
     </LinearLayout>
 
+    </LinearLayout>
 
 <!--    <ImageView-->
 <!--        android:id="@+id/messageView"-->
@@ -182,22 +200,23 @@
 <!--        android:layout_gravity="center"-->
 <!--        app:srcCompat="@drawable/ic_email" />-->
 
+
+
     <Button
-        android:id="@+id/language"
+        android:id="@+id/registerOrders"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center|end"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="10dp"
         android:layout_marginRight="15dp"
         android:layout_marginLeft="15dp"
-        android:visibility="gone"
         android:gravity="right|center"
         android:drawableRight="@drawable/ic_lock_outline"
+        android:drawablePadding="10dp"
         android:drawableLeft="@drawable/ic_arrow_back"
 
         android:background="@color/float_transparent"
-        android:text="اللغة"
-        android:drawablePadding="10dp"
+        android:text="الطلبات"
         android:textColor="#000"
         android:textSize="22dp" />
 
@@ -226,7 +245,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center|end"
-        android:layout_marginTop="120dp"
+        android:layout_marginTop="110dp"
         android:layout_marginRight="15dp"
         android:layout_marginLeft="15dp"
         android:gravity="right|center"
@@ -270,6 +289,7 @@
 <!--        android:background="@color/float_transparent"-->
 <!--        android:layout_marginBottom="100dp"-->
 <!--        android:layout_marginStart="225dp"/>-->
+
 
 
 

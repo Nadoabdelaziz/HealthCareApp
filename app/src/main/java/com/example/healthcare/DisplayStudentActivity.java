@@ -13,6 +13,7 @@ import android.util.Log;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
@@ -37,6 +38,7 @@ public class DisplayStudentActivity extends AppCompatActivity {
         public int REQUEST_CALL = 1;
         RelativeLayout frameLayout;
         ImageView imageView,backbtn;
+        Button health;
         CircleImageView circleImageView;
         TextView fullName, speciality,SchoolName,Gender,BloodT,DateC,Nation,PhNo,Diseases;
         String name,id,school,gender,blood,datee,nation,phno,diseases;
@@ -59,6 +61,16 @@ public class DisplayStudentActivity extends AppCompatActivity {
             Nation = findViewById(R.id.NatN);
             PhNo = findViewById(R.id.PhoneN);
             //Diseases = findViewById(R.id.diseases);
+
+            health = (Button)findViewById(R.id.health);
+
+            health.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(DisplayStudentActivity.this,HealthActivity.class);
+                    startActivity(intent);
+                }
+            });
 
             backbtn = findViewById(R.id.backbtn);
             backbtn.bringToFront();

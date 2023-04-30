@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    tools:context=".AdminOrdersActivity"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <ImageView
+        android:id="@+id/backbtn"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="45dp"
+        android:src="@drawable/backbtn"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="طلبات جديدة"
+        android:layout_gravity="top|center"
+        android:fontFamily="@font/montserrat_bold"
+        android:textSize="25dp"
+        android:layout_marginTop="45dp"/>
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_marginTop="175dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_height="match_parent">
+    <TextView
+        android:id="@+id/neworders"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top|left"
+        android:gravity="center"
+        android:fontFamily="@font/montserrat_bold"
+        android:textSize="25dp"
+        android:paddingRight="25dp"
+        android:paddingLeft="25dp"
+        android:paddingTop="35dp"
+        android:paddingBottom="35dp"
+        android:textColor="#fff"
+        android:background="@drawable/custombutton"
+        android:text="0 \n طلبات جديدة"/>
+
+    <TextView
+        android:id="@+id/doneorders"
+        android:layout_width="170dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top|right"
+        android:gravity="center"
+        android:fontFamily="@font/montserrat_bold"
+        android:textSize="25dp"
+        android:paddingRight="25dp"
+        android:paddingLeft="25dp"
+        android:paddingTop="35dp"
+        android:paddingBottom="35dp"
+        android:background="@drawable/custombuttongreen"
+        android:textColor="#fff"
+        android:text="0 \n موافقة"/>
+    </FrameLayout>
+
+</FrameLayout>
