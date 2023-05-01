@@ -16,6 +16,27 @@
         android:layout_marginBottom="20dp"
         app:srcCompat="@drawable/appnewlogo" />
 
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_marginRight="40dp"
+        android:layout_height="wrap_content"
+        android:src="@drawable/reallogintxt1"
+        android:layout_marginTop="20dp"
+        android:layout_gravity="right"
+        android:padding="10dp"/>
+
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_marginRight="40dp"
+        android:layout_height="wrap_content"
+        android:src="@drawable/reallogintxt2"
+        android:layout_gravity="right"
+        android:layout_marginBottom="20dp"
+        android:padding="10dp"/>
+
+
     <TextView
         android:id="@+id/errorMessage"
         android:layout_width="match_parent"
@@ -47,10 +68,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
-            android:backgroundTint="#33aeb6"
-            android:drawableLeft="@drawable/ic_person_outline"
+            android:background="@drawable/edit_text_background"
             android:ems="10"
             android:hint="البريد الاكتروني"
+            android:gravity="left"
             android:inputType="textPersonName"
             android:textSize="22sp" />
 
@@ -59,10 +80,10 @@
             android:id="@+id/password"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:backgroundTint="#33aeb6"
-            android:drawableLeft="@drawable/ic_lock_outline"
+            android:background="@drawable/edit_text_background"
             android:ems="10"
             android:hint="كلمة المرور"
+            android:layout_marginTop="5dp"
             android:inputType="textPassword"
             android:textSize="22sp" />
 
@@ -86,19 +107,26 @@
         android:layout_marginTop="20dp"
         >
 
-        <Button
+        <ImageView
             android:id="@+id/button"
             android:layout_width="303dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:background="@drawable/custombutton"
-            android:fontFamily="@font/montserrat"
-            android:onClick="login"
-            android:padding="10dp"
-            android:text="تسجيل الدخول"
-            android:textAllCaps="false"
-            android:textColor="#ffffff"
-            android:textSize="24sp" />
+            android:src="@drawable/loginbtn"
+            android:onClick="login" />
+<!--        <Button-->
+<!--            android:id="@+id/button"-->
+<!--            android:layout_width="303dp"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_gravity="center"-->
+<!--            android:background="@drawable/custombutton"-->
+<!--            android:fontFamily="@font/montserrat"-->
+<!--            android:onClick="login"-->
+<!--            android:padding="10dp"-->
+<!--            android:text="تسجيل الدخول"-->
+<!--            android:textAllCaps="false"-->
+<!--            android:textColor="#ffffff"-->
+<!--            android:textSize="24sp" />-->
 
         <Button
             android:id="@+id/button2"
@@ -116,14 +144,40 @@
             android:textColor="#ffffff"
             android:textSize="24sp" />
 
-        <TextView
+        <ImageView
             android:id="@+id/forgotPassword"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
-            android:gravity="center"
-            android:onClick="passwordForgotten"
-            android:text="نسيت كلمة المرور" />
+            android:src="@drawable/forpassbtn"
+            android:layout_marginRight="20dp"
+            android:layout_gravity="right"
+            android:onClick="passwordForgotten" />
+
+        <ImageView
+            android:id="@+id/privbtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="105dp"
+            android:layout_gravity="left"
+            android:src="@drawable/privbtn"
+            android:gravity="left" />
+
+        <ImageView
+            android:id="@+id/secbtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="-15dp"
+            android:layout_gravity="right"
+            android:src="@drawable/secbtn" />
+<!--        <TextView-->
+<!--            android:id="@+id/forgotPassword"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginTop="5dp"-->
+<!--            android:gravity="right"-->
+<!--            android:onClick="passwordForgotten"-->
+<!--            android:text="نسيت كلمة المرور" />-->
     </LinearLayout>
 
 </LinearLayout>

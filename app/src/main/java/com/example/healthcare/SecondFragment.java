@@ -14,6 +14,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.SearchView;
 
@@ -52,7 +53,7 @@ public class SecondFragment extends Fragment {
         //searchView = mview.findViewById(R.id.mySearchViewComment);
         myComments = new ArrayList<>();
 
-        Button createComment = (Button) mview.findViewById(R.id.createcommmentbtn);
+        ImageView createComment = (ImageView) mview.findViewById(R.id.createcommmentbtn);
         DatabaseReference reference = FirebaseDatabase.getInstance().getReference("Comments");
         reference.addValueEventListener(new ValueEventListener() {
             @Override

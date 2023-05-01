@@ -83,7 +83,7 @@ public class DisplayStudentActivity extends AppCompatActivity {
             circleImageView.setImageBitmap(ImageResizer.decodeSampledBitmapFromResource(getResources(), R.drawable.aliluchloutfi, 250, 500));
             Bitmap bMap = ImageResizer.decodeSampledBitmapFromResource(getResources(), R.drawable.background, 100, 100);
             BitmapDrawable dr = new BitmapDrawable(bMap);
-            frameLayout.setBackground(dr);
+//            frameLayout.setBackground(dr);
 
 
             Intent intent = getIntent();
@@ -103,15 +103,15 @@ public class DisplayStudentActivity extends AppCompatActivity {
 
 
 
-            fullName.setText(" الأسم :  " + name);
+            fullName.setText(name);
             //speciality.setText("ID: "+id+" : رقم تعريفي ");
-            speciality.setText("رقم تعريفي: "+id);
-            SchoolName.setText("اسم المدرسة:  " + school);
-            Gender.setText("الجنس :  "+gender);
-            BloodT.setText(blood + "  : فصيلة الدم");
-            Nation.setText("الجنسية :  "+nation);
-            DateC.setText("تاريخ:   غير متاح");
-            PhNo.setText("رقم الهاتف :  "+phno);
+            speciality.setText(id);
+            SchoolName.setText(school);
+            Gender.setText(gender);
+            BloodT.setText(blood);
+            Nation.setText(nation);
+            DateC.setText("غير متاح");
+            PhNo.setText(phno);
             //Diseases.setText(diseases);
 
 

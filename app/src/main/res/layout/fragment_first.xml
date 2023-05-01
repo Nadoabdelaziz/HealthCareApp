@@ -13,7 +13,7 @@
     <!--Recycler View widget-->
 
     <ImageView
-        android:layout_width="180dp"
+        android:layout_width="140dp"
         android:layout_height="120dp"
         android:layout_above="@id/showall"
         android:layout_marginBottom="18dp"
@@ -25,7 +25,7 @@
         android:layout_width="70dp"
         android:layout_height="70dp"
         android:layout_above="@id/showall"
-        android:layout_marginLeft="95dp"
+        android:layout_marginLeft="55dp"
         android:layout_marginBottom="55dp"
         android:src="@drawable/aliluchloutfi"
         app:civ_border_color="#FFFFFF"
@@ -36,7 +36,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_above="@id/showall"
-        android:layout_marginLeft="105dp"
+        android:layout_marginLeft="70dp"
         android:layout_marginBottom="25dp"
         android:fontFamily="@font/montserrat_bold"
         android:src="@drawable/rectimg"
@@ -48,6 +48,7 @@
         android:layout_height="40dp"
         android:layout_above="@+id/user_name"
         android:layout_marginRight="15dp"
+        android:layout_marginBottom="25dp"
         android:layout_toLeftOf="@id/hi"
         android:src="@drawable/hand" />
 
@@ -59,6 +60,7 @@
         android:layout_above="@+id/user_name"
         android:layout_alignParentRight="true"
         android:layout_marginRight="25dp"
+        android:layout_marginBottom="25dp"
         android:text="أهلا"
         android:textColor="@color/gray_btn_bg_pressed_color"
         android:textSize="30dp" />
@@ -70,7 +72,8 @@
         android:layout_above="@+id/trending"
         android:layout_alignParentRight="true"
         android:layout_marginRight="25dp"
-        android:layout_marginBottom="18dp"
+        android:layout_marginTop="-20dp"
+        android:layout_marginBottom="50dp"
         android:textColor="#000"
         android:textSize="30dp" />
 
@@ -82,23 +85,33 @@
         android:layout_above="@+id/recyclerview"
         android:layout_alignParentRight="true"
         android:layout_marginRight="20dp"
-        android:layout_marginBottom="-200dp"
+        android:layout_marginBottom="-210dp"
         android:text="طلاب"
         android:textColor="#000"
         android:textSize="20dp" />
 
 
-    <TextView
+    <ImageView
         android:id="@+id/showall"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_above="@+id/recyclerview"
         android:layout_alignParentLeft="true"
         android:layout_marginLeft="20dp"
-        android:layout_marginBottom="-200dp"
-        android:text="عرض الكل وإضافة جديد"
-        android:textColor="@color/main_blue_color"
-        android:textSize="18dp" />
+        android:layout_marginBottom="-210dp"
+        android:layout_marginTop="10dp"
+        android:src="@drawable/showallbtnadmin" />
+<!--    <TextView-->
+<!--        android:id="@+id/showall"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_above="@+id/recyclerview"-->
+<!--        android:layout_alignParentLeft="true"-->
+<!--        android:layout_marginLeft="20dp"-->
+<!--        android:layout_marginBottom="-200dp"-->
+<!--        android:text="عرض الكل وإضافة جديد"-->
+<!--        android:textColor="@color/main_blue_color"-->
+<!--        android:textSize="18dp" />-->
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerview"
@@ -126,18 +139,30 @@
         android:textColor="#000"
         android:textSize="20dp" />
 
-    <TextView
+
+    <ImageView
         android:id="@+id/watchallforadmin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_above="@+id/secondrecyclerviewforadmin"
         android:layout_alignParentLeft="true"
         android:layout_marginLeft="20dp"
+        android:layout_marginTop="10dp"
+        android:src="@drawable/showallbtnadmin"
         android:layout_marginBottom="-20dp"
-        android:text="عرض الكل وإضافة جديد"
-        android:visibility="gone"
-        android:textColor="@color/main_blue_color"
-        android:textSize="18dp" />
+        android:visibility="gone" />
+<!--    <TextView-->
+<!--        android:id="@+id/watchallforadmin"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_above="@+id/secondrecyclerviewforadmin"-->
+<!--        android:layout_alignParentLeft="true"-->
+<!--        android:layout_marginLeft="20dp"-->
+<!--        android:layout_marginBottom="-20dp"-->
+<!--        android:text="عرض الكل وإضافة جديد"-->
+<!--        android:visibility="gone"-->
+<!--        android:textColor="@color/main_blue_color"-->
+<!--        android:textSize="18dp" />-->
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/secondrecyclerviewforadmin"

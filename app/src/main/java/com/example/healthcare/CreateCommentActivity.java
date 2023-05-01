@@ -50,7 +50,7 @@ public class CreateCommentActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_comment);
 
-        Button btn = (Button) findViewById(R.id.sendComment);
+        ImageView btn = (ImageView) findViewById(R.id.sendComment);
 
         back = (ImageView) findViewById(R.id.backbtn);
         //fbAuth = FirebaseAuth.getInstance();

@@ -48,55 +48,102 @@
         app:layout_constraintTop_toBottomOf="@+id/textView17"
         app:layout_constraintVertical_bias="1.0" />
 
-    <TextView
+    <ImageView
         android:id="@+id/textView17"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:src="@drawable/texthere"
         android:layout_marginStart="176dp"
         android:layout_marginLeft="176dp"
         android:layout_marginTop="40dp"
         android:layout_marginEnd="32dp"
         android:layout_marginRight="32dp"
-        android:fontFamily="@font/montserrat_bold"
-        android:text="نص تفاصيل هنا"
-        android:textColor="#000"
-        android:textSize="35dp"
         app:layout_constraintBottom_toTopOf="@+id/viewmainpager"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+<!--    <TextView-->
+<!--        android:id="@+id/textView17"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginStart="176dp"-->
+<!--        android:layout_marginLeft="176dp"-->
+<!--        android:layout_marginTop="40dp"-->
+<!--        android:layout_marginEnd="32dp"-->
+<!--        android:layout_marginRight="32dp"-->
+<!--        android:fontFamily="@font/montserrat_bold"-->
+<!--        android:text="نص تفاصيل هنا"-->
+<!--        android:textColor="#000"-->
+<!--        android:textSize="35dp"-->
+<!--        app:layout_constraintBottom_toTopOf="@+id/viewmainpager"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent" />-->
 
-    <Button
+    <!--    <Button-->
+<!--        android:id="@+id/loginnew"-->
+<!--        android:layout_width="305dp"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginStart="52dp"-->
+<!--        android:layout_marginLeft="52dp"-->
+<!--        android:background="@drawable/custombutton"-->
+<!--        android:fontFamily="@font/montserrat_bold"-->
+<!--        android:text="تسجيل الدخول"-->
+<!--        android:textColor="#FFFF"-->
+<!--        android:textSize="22dp"-->
+<!--        android:visibility="gone"-->
+<!--        app:layout_constraintBottom_toTopOf="@+id/registernew"-->
+<!--        app:layout_constraintLeft_toRightOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/viewmainpager"-->
+<!--        app:layout_constraintVertical_bias="0.577" />-->
+
+
+    <ImageButton
         android:id="@+id/loginnew"
-        android:layout_width="305dp"
+        android:layout_width="335dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="52dp"
-        android:layout_marginLeft="52dp"
-        android:background="@drawable/custombutton"
+        android:layout_marginStart="36dp"
         android:fontFamily="@font/montserrat_bold"
+        android:src="@drawable/loginbtn"
         android:text="تسجيل الدخول"
         android:textColor="#FFFF"
         android:textSize="22dp"
-        app:layout_constraintBottom_toTopOf="@+id/registernew"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toRightOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/viewmainpager"
-        app:layout_constraintVertical_bias="0.577" />
+        app:layout_constraintVertical_bias="0.321" />
 
-    <Button
+    <ImageButton
         android:id="@+id/registernew"
-        android:layout_width="305dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="52dp"
-        android:layout_marginLeft="52dp"
-        android:layout_marginBottom="17dp"
-        android:background="@drawable/button_border"
+        android:layout_marginStart="36dp"
+        android:background="#fff"
         android:fontFamily="@font/montserrat_bold"
+        android:src="@drawable/registerfirstbtn"
         android:text="اشتراك"
         android:textColor="@color/main_blue_color"
         android:textSize="22dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/loginnew"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintTop_toBottomOf="@+id/viewmainpager"
+        app:layout_constraintVertical_bias="0.791" />
+    <!--    <Button-->
+<!--        android:id="@+id/registernew"-->
+<!--        android:layout_width="305dp"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginStart="52dp"-->
+<!--        android:layout_marginLeft="52dp"-->
+<!--        android:layout_marginBottom="17dp"-->
+<!--        android:background="@drawable/button_border"-->
+<!--        android:fontFamily="@font/montserrat_bold"-->
+<!--        android:text="اشتراك"-->
+<!--        android:textColor="@color/main_blue_color"-->
+<!--        android:textSize="22dp"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/loginnew"-->
+<!--        app:layout_constraintVertical_bias="1.0" />-->
 </androidx.constraintlayout.widget.ConstraintLayout>

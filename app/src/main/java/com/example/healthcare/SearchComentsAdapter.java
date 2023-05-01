@@ -57,9 +57,9 @@ public class SearchComentsAdapter extends BaseAdapter {
 
         Comment comment = commentList.get(position);
 
-        fullName.setText(" " + "  الحالة المرضية :  "+ comment.getSickness().trim()  );
-        commenttxt.setText( "  " + "   ملحوظة : " + comment.getComment() );
-        ID.setText( "   " + "  اسم الطالب : "+ comment.getStdName());
+        fullName.setText(comment.getSickness().trim()  );
+        commenttxt.setText(comment.getComment() );
+        ID.setText(comment.getStdName());
         return convertView;
     }
 

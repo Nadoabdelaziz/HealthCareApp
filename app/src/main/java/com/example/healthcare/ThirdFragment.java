@@ -20,6 +20,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -47,7 +48,7 @@ public class ThirdFragment extends Fragment {
     TextView textView;
     CameraSource cameraSource;
     View mview;
-    ImageButton scandone;
+    ImageView scandone;
     final int RequestCameraPermissionID = 1001;
 
     Student SearchedStd;
@@ -59,7 +60,7 @@ public class ThirdFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_third, container, false);
         this.mview = view;
 
-        scandone = (ImageButton) mview.findViewById(R.id.sendqrcode);
+        scandone = (ImageView) mview.findViewById(R.id.sendqrcode);
 
 
         cameraView = (SurfaceView) mview.findViewById(R.id.surface_view);

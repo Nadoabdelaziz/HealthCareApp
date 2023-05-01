@@ -16,6 +16,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.SearchView;
 import android.widget.TextView;
@@ -82,11 +83,11 @@ public class FirstFragment extends Fragment {
 
         final TextView USRtype = (TextView) mView.findViewById(R.id.user_name2);
 
-        final TextView lefttxt = (TextView) mView.findViewById(R.id.watchallforadmin);
+        final ImageView lefttxt = (ImageView) mView.findViewById(R.id.watchallforadmin);
         final TextView righttxt = (TextView) mView.findViewById(R.id.trendingforadmin);
 
-        final TextView showall = (TextView) mView.findViewById(R.id.showall);
-        final TextView showallforadmin = (TextView) mView.findViewById(R.id.watchallforadmin);
+        final ImageView showall = (ImageView) mView.findViewById(R.id.showall);
+        final ImageView showallforadmin = (ImageView) mView.findViewById(R.id.watchallforadmin);
 
         showall.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -124,7 +125,7 @@ public class FirstFragment extends Fragment {
 
                 if (fbAuth.getCurrentUser().getEmail().equals("health@live.com")) {
                     USRtype.setText("أمين");
-                    showall.setText("مشاهدة الكل");
+                    //showall.setText("مشاهدة الكل");
 
                     databaseReference = FirebaseDatabase.getInstance().getReference("HealthPrompts");
                     databaseReference.addValueEventListener(new ValueEventListener() {
@@ -170,7 +171,7 @@ public class FirstFragment extends Fragment {
 
                 else {
                     USRtype.setText("مدرس");
-                    showall.setText("مشاهدة الكل");
+                    //showall.setText("مشاهدة الكل");
                     // hi text
                     databaseReference = FirebaseDatabase.getInstance().getReference("Teachers");
                     databaseReference.addValueEventListener(new ValueEventListener() {

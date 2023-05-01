@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 
 import com.google.android.material.tabs.TabLayout;
 
@@ -30,8 +31,8 @@ public class Pre_Login_Activity extends AppCompatActivity {
         setContentView(R.layout.activity_pre_login);
 
 
-        Button btnLog = (Button) findViewById(R.id.loginnew);
-        Button btnReg = (Button) findViewById(R.id.registernew);
+        ImageButton btnLog = (ImageButton) findViewById(R.id.loginnew);
+        ImageButton btnReg = (ImageButton) findViewById(R.id.registernew);
 
         sp = getSharedPreferences("login", MODE_PRIVATE);
 

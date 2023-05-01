@@ -14,8 +14,7 @@ import android.widget.ImageView;
 
 public class LoginOptionsActivity extends AppCompatActivity {
 
-    ImageView backbtn;
-    Button tech,health,admin;
+    ImageView backbtn,tech,health,admin;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,33 +23,33 @@ public class LoginOptionsActivity extends AppCompatActivity {
 
         backbtn = (ImageView) findViewById(R.id.backbtn);
 
-        tech = (Button) findViewById(R.id.buttonTech);
-        health = (Button) findViewById(R.id.buttonHealth);
-        admin = (Button) findViewById(R.id.buttonAdmin);
+        tech = (ImageView) findViewById(R.id.buttonTech);
+        health = (ImageView) findViewById(R.id.buttonHealth);
+        admin = (ImageView) findViewById(R.id.buttonAdmin);
 
 
         tech.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                tech.setBackgroundColor(Color.parseColor("#0080FF"));
-                tech.setTextColor(Color.WHITE);
-
-                new CountDownTimer(300, 50) {
-
-                    @Override
-                    public void onTick(long arg0) {
-                        // TODO Auto-generated method stub
-
-                    }
-
-                    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
-                    @Override
-                    public void onFinish() {
-                        tech.setBackground(getDrawable(R.drawable.custombuttonunpressed));
-                        tech.setTextColor(Color.BLACK);
-                    }
-                }.start();
+//
+//                tech.setBackgroundColor(Color.parseColor("#0080FF"));
+//                tech.setTextColor(Color.WHITE);
+//
+//                new CountDownTimer(300, 50) {
+//
+//                    @Override
+//                    public void onTick(long arg0) {
+//                        // TODO Auto-generated method stub
+//
+//                    }
+//
+//                    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
+//                    @Override
+//                    public void onFinish() {
+//                        tech.setBackground(getDrawable(R.drawable.custombuttonunpressed));
+//                        tech.setTextColor(Color.BLACK);
+//                    }
+//                }.start();
 
                 Intent intent = new Intent(LoginOptionsActivity.this,MainActivity.class);
                 intent.putExtra("usertype","tech");
@@ -61,24 +60,24 @@ public class LoginOptionsActivity extends AppCompatActivity {
         health.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                health.setBackgroundColor(Color.parseColor("#0080FF"));
-                health.setTextColor(Color.WHITE);
-
-                new CountDownTimer(300, 50) {
-
-                    @Override
-                    public void onTick(long arg0) {
-                        // TODO Auto-generated method stub
-
-                    }
-
-                    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
-                    @Override
-                    public void onFinish() {
-                        health.setBackground(getDrawable(R.drawable.custombuttonunpressed));
-                        health.setTextColor(Color.BLACK);
-                    }
-                }.start();
+//                health.setBackgroundColor(Color.parseColor("#0080FF"));
+//                health.setTextColor(Color.WHITE);
+//
+//                new CountDownTimer(300, 50) {
+//
+//                    @Override
+//                    public void onTick(long arg0) {
+//                        // TODO Auto-generated method stub
+//
+//                    }
+//
+//                    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
+//                    @Override
+//                    public void onFinish() {
+//                        health.setBackground(getDrawable(R.drawable.custombuttonunpressed));
+//                        health.setTextColor(Color.BLACK);
+//                    }
+//                }.start();
 
 
                 Intent intent = new Intent(LoginOptionsActivity.this,MainActivity.class);
@@ -91,24 +90,24 @@ public class LoginOptionsActivity extends AppCompatActivity {
         admin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                admin.setBackgroundColor(Color.parseColor("#0080FF"));
-                admin.setTextColor(Color.WHITE);
-
-                new CountDownTimer(300, 50) {
-
-                    @Override
-                    public void onTick(long arg0) {
-                        // TODO Auto-generated method stub
-
-                    }
-
-                    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
-                    @Override
-                    public void onFinish() {
-                        admin.setBackground(getDrawable(R.drawable.custombuttonunpressed));
-                        admin.setTextColor(Color.BLACK);
-                    }
-                }.start();
+//                admin.setBackgroundColor(Color.parseColor("#0080FF"));
+//                admin.setTextColor(Color.WHITE);
+//
+//                new CountDownTimer(300, 50) {
+//
+//                    @Override
+//                    public void onTick(long arg0) {
+//                        // TODO Auto-generated method stub
+//
+//                    }
+//
+//                    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
+//                    @Override
+//                    public void onFinish() {
+//                        admin.setBackground(getDrawable(R.drawable.custombuttonunpressed));
+//                        admin.setTextColor(Color.BLACK);
+//                    }
+//                }.start();
 
 
                 Intent intent = new Intent(LoginOptionsActivity.this,MainActivity.class);
