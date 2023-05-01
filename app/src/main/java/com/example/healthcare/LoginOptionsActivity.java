@@ -14,7 +14,8 @@ import android.widget.ImageView;
 
 public class LoginOptionsActivity extends AppCompatActivity {
 
-    ImageView backbtn,tech,health,admin;
+    Button tech,health,admin;
+    ImageView backbtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,9 +24,9 @@ public class LoginOptionsActivity extends AppCompatActivity {
 
         backbtn = (ImageView) findViewById(R.id.backbtn);
 
-        tech = (ImageView) findViewById(R.id.buttonTech);
-        health = (ImageView) findViewById(R.id.buttonHealth);
-        admin = (ImageView) findViewById(R.id.buttonAdmin);
+        tech = (Button) findViewById(R.id.buttonTech);
+        health = (Button) findViewById(R.id.buttonHealth);
+        admin = (Button) findViewById(R.id.buttonAdmin);
 
 
         tech.setOnClickListener(new View.OnClickListener() {

@@ -12,10 +12,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:fontFamily="@font/montserrat_bold"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="50dp"
         android:gravity="center"
         android:text="أضف طالبًا"
-        android:textColor="#33aeb6"
+        android:textColor="#000"
         android:textSize="30sp" />
     <RadioGroup
         android:layout_width="232dp"
@@ -230,6 +230,15 @@
             android:ems="10"
             android:hint="يُعرِّف" />
 
+
+
+<!--        <ImageView-->
+<!--            android:id="@+id/createStdButton"-->
+<!--            android:layout_width="294dp"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_gravity="center"-->
+<!--            android:layout_marginTop="10dp"-->
+<!--            android:src="@drawable/savebtn2modified" />-->
         <Button
             android:id="@+id/createStdButton"
             android:layout_width="294dp"
@@ -323,6 +332,7 @@
             android:ems="10"
             android:inputType="textPassword"
             android:hint="Confirm password" />
+
         <Button
             android:id="@+id/doctorButton"
             android:layout_width="294dp"

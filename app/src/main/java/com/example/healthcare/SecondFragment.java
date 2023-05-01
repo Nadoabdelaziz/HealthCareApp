@@ -53,7 +53,7 @@ public class SecondFragment extends Fragment {
         //searchView = mview.findViewById(R.id.mySearchViewComment);
         myComments = new ArrayList<>();
 
-        ImageView createComment = (ImageView) mview.findViewById(R.id.createcommmentbtn);
+        Button createComment = (Button) mview.findViewById(R.id.createcommmentbtn);
         DatabaseReference reference = FirebaseDatabase.getInstance().getReference("Comments");
         reference.addValueEventListener(new ValueEventListener() {
             @Override

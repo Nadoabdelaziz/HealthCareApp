@@ -108,7 +108,7 @@ public class CreateAccount extends AppCompatActivity {
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,R.array.marital_status, android.R.layout.simple_spinner_dropdown_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         maritalStatus.setAdapter(adapter);
-        patientButton = findViewById(R.id.patientButton);
+        patientButton = (Button) findViewById(R.id.patientButton);
 
         // Doctor fields
         doctorRadioButton=(RadioButton)findViewById(R.id.doctorRadioButton);

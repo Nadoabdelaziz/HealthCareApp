@@ -17,24 +17,48 @@
         app:srcCompat="@drawable/appnewlogo" />
 
 
-    <ImageView
+<!--    <ImageView-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_marginRight="40dp"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:src="@drawable/reallogintxt1modified"-->
+<!--        android:layout_marginTop="20dp"-->
+<!--        android:layout_gravity="right"-->
+<!--        android:padding="10dp"/>-->
+
+    <TextView
         android:layout_width="wrap_content"
         android:layout_marginRight="40dp"
         android:layout_height="wrap_content"
-        android:src="@drawable/reallogintxt1"
         android:layout_marginTop="20dp"
         android:layout_gravity="right"
-        android:padding="10dp"/>
+        android:text="تسجيل الدخول"
+        android:textSize="35dp"
+        android:textColor="#222222"
+        android:fontFamily="@font/montserrat_bold"
+        android:padding="5dp"/>
 
 
-    <ImageView
+
+    <TextView
         android:layout_width="wrap_content"
         android:layout_marginRight="40dp"
         android:layout_height="wrap_content"
-        android:src="@drawable/reallogintxt2"
         android:layout_gravity="right"
+        android:text="تسجيل الدخول إلى حسابك الحالي"
+        android:textColor="#2F2E41"
+        android:fontFamily="@font/montserrat_bold"
+        android:textSize="15dp"
         android:layout_marginBottom="20dp"
-        android:padding="10dp"/>
+        android:padding="5dp"/>
+<!--    <ImageView-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_marginRight="40dp"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:src="@drawable/reallogintxt2modified"-->
+<!--        android:layout_gravity="right"-->
+<!--        android:layout_marginBottom="20dp"-->
+<!--        android:padding="10dp"/>-->
 
 
     <TextView
@@ -70,7 +94,7 @@
             android:layout_marginBottom="10dp"
             android:background="@drawable/edit_text_background"
             android:ems="10"
-            android:hint="البريد الاكتروني"
+            android:hint="البريد الالكترونى"
             android:gravity="left"
             android:inputType="textPersonName"
             android:textSize="22sp" />
@@ -107,26 +131,26 @@
         android:layout_marginTop="20dp"
         >
 
-        <ImageView
-            android:id="@+id/button"
-            android:layout_width="303dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:src="@drawable/loginbtn"
-            android:onClick="login" />
-<!--        <Button-->
+<!--        <ImageView-->
 <!--            android:id="@+id/button"-->
 <!--            android:layout_width="303dp"-->
 <!--            android:layout_height="wrap_content"-->
 <!--            android:layout_gravity="center"-->
-<!--            android:background="@drawable/custombutton"-->
-<!--            android:fontFamily="@font/montserrat"-->
-<!--            android:onClick="login"-->
-<!--            android:padding="10dp"-->
-<!--            android:text="تسجيل الدخول"-->
-<!--            android:textAllCaps="false"-->
-<!--            android:textColor="#ffffff"-->
-<!--            android:textSize="24sp" />-->
+<!--            android:src="@drawable/loginbtnmodified"-->
+<!--            android:onClick="login" />-->
+        <Button
+            android:id="@+id/button"
+            android:layout_width="303dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="@drawable/custombutton"
+            android:fontFamily="@font/montserrat_bold"
+            android:onClick="login"
+            android:padding="10dp"
+            android:text="تسجيل الدخول"
+            android:textAllCaps="false"
+            android:textColor="#ffffff"
+            android:textSize="24sp" />
 
         <Button
             android:id="@+id/button2"
@@ -144,32 +168,68 @@
             android:textColor="#ffffff"
             android:textSize="24sp" />
 
-        <ImageView
+<!--        <ImageView-->
+<!--            android:id="@+id/forgotPassword"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginTop="5dp"-->
+<!--            android:src="@drawable/forpassbtn"-->
+<!--            android:layout_marginRight="20dp"-->
+<!--            android:layout_gravity="right"-->
+<!--            android:onClick="passwordForgotten" />-->
+
+        <TextView
             android:id="@+id/forgotPassword"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
-            android:src="@drawable/forpassbtn"
             android:layout_marginRight="20dp"
             android:layout_gravity="right"
+            android:text="هل نسيت كلمة السر ؟"
+            android:fontFamily="@font/montserrat_bold"
+            android:textSize="18dp"
+            android:textColor="#067FBF"
             android:onClick="passwordForgotten" />
 
-        <ImageView
+<!--        <ImageView-->
+<!--            android:id="@+id/privbtn"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginTop="105dp"-->
+<!--            android:layout_gravity="left"-->
+<!--            android:src="@drawable/privbtn"-->
+<!--            android:gravity="left" />-->
+
+        <TextView
             android:id="@+id/privbtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="105dp"
             android:layout_gravity="left"
-            android:src="@drawable/privbtn"
+            android:text="سياسة الخصوصية"
+            android:fontFamily="@font/montserrat_bold"
+            android:textSize="18dp"
+            android:textColor="#067FBF"
             android:gravity="left" />
 
-        <ImageView
+<!--        <ImageView-->
+<!--            android:id="@+id/secbtn"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginTop="-15dp"-->
+<!--            android:layout_gravity="right"-->
+<!--            android:src="@drawable/secbtn" />-->
+
+        <TextView
             android:id="@+id/secbtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="-15dp"
-            android:layout_gravity="right"
-            android:src="@drawable/secbtn" />
+            android:text="الشروط والأحكام"
+            android:fontFamily="@font/montserrat_bold"
+            android:textSize="18dp"
+            android:textColor="#067FBF"
+            android:layout_gravity="right" />
 <!--        <TextView-->
 <!--            android:id="@+id/forgotPassword"-->
 <!--            android:layout_width="match_parent"-->

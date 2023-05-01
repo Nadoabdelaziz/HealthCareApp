@@ -20,6 +20,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="45dp"
+            android:layout_marginTop="20dp"
             android:orientation="horizontal">
         <ImageView
             android:id="@+id/backbtn"
@@ -42,7 +43,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:layout_marginTop="-25dp"
+            android:layout_marginTop="-10dp"
             android:gravity="right"
             android:weightSum="1">
 
@@ -326,19 +327,20 @@
         android:layout_margin="10dp"
         android:layout_weight="0">
 
-        <ImageView
-            android:id="@+id/done_btn"
-            android:layout_width="match_parent"
-            android:layout_height="45dp"
-            android:src="@drawable/savebtn2"/>
-<!--        <Button-->
+<!--        <ImageView-->
 <!--            android:id="@+id/done_btn"-->
 <!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:text="حفظ"-->
-<!--            android:textColor="#fff"-->
-<!--            android:textSize="25dp"-->
-<!--            android:background="@drawable/custombutton"/>-->
+<!--            android:layout_height="45dp"-->
+<!--            android:src="@drawable/savebtn2modified"/>-->
+        <Button
+            android:id="@+id/done_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="حفظ"
+            android:fontFamily="@font/montserrat_bold"
+            android:textColor="#fff"
+            android:textSize="25dp"
+            android:background="@drawable/custombutton"/>
 
         <Button
             android:id="@+id/delete_meeting_btn"

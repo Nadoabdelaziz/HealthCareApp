@@ -36,7 +36,7 @@ public class MeetingActivity extends AppCompatActivity {
     Button editMeetingBtn;
     TextView contactName;
     TextView contactPhone;
-    ImageView doneBtn;
+    Button doneBtn;
     Data data;
 
     ImageView back;
@@ -114,7 +114,7 @@ public class MeetingActivity extends AppCompatActivity {
         //editMeetingBtn = findViewById(R.id.edit_meeting_title_btn);
 //        contactName = findViewById(R.id.meeting_contact_name);
 //        contactPhone = findViewById(R.id.meeting_contact_number);
-        doneBtn = (ImageView) findViewById(R.id.done_btn);
+        doneBtn = (Button) findViewById(R.id.done_btn);
 
 
 //        titleEditText.edit

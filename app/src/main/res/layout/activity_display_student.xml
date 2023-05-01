@@ -10,22 +10,23 @@
     tools:context=".DisplayStudentActivity">
 
 
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="45dp"
-        android:layout_marginBottom="25dp"
-        android:src="@drawable/stddetailstxt" />
-<!--    <TextView-->
+<!--    <ImageView-->
 <!--        android:layout_width="wrap_content"-->
 <!--        android:layout_height="wrap_content"-->
 <!--        android:layout_centerHorizontal="true"-->
 <!--        android:layout_marginTop="45dp"-->
 <!--        android:layout_marginBottom="25dp"-->
-<!--        android:fontFamily="@font/montserrat_bold"-->
-<!--        android:text="تفاصيل الطالب"-->
-<!--        android:textSize="25dp" />-->
+<!--        android:src="@drawable/stddetailstxtmodified" />-->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="35dp"
+        android:layout_marginBottom="25dp"
+        android:fontFamily="@font/montserrat_bold"
+        android:text="تفاصيل الطالب"
+        android:textColor="#000"
+        android:textSize="25dp" />
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/profile_image"
@@ -63,44 +64,44 @@
             android:orientation="vertical">
 
 
-            <ImageView
-                android:layout_width="120dp"
-                android:layout_height="40dp"
-                android:layout_marginTop="40dp"
-                android:src="@drawable/sharebtn" />
-<!--            <Button-->
+<!--            <ImageView-->
 <!--                android:layout_width="120dp"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:layout_marginTop="27dp"-->
-<!--                android:background="@color/main_blue_color"-->
-<!--                android:drawableRight="@drawable/share"-->
-<!--                android:drawablePadding="15dp"-->
-<!--                android:fontFamily="@font/montserrat_bold"-->
-<!--                android:paddingLeft="10dp"-->
-<!--                android:paddingRight="10dp"-->
-<!--                android:text="مشاركة"-->
-<!--                android:textColor="#fff"-->
-<!--                android:textSize="20dp" />-->
-
-            <!--            <Button-->
-<!--                android:layout_width="120dp"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:layout_marginTop="20dp"-->
-<!--                android:background="@color/main_blue_color"-->
-<!--                android:drawableRight="@drawable/save"-->
-<!--                android:drawablePadding="20dp"-->
-<!--                android:fontFamily="@font/montserrat_bold"-->
-<!--                android:paddingLeft="10dp"-->
-<!--                android:paddingRight="10dp"-->
-<!--                android:text="حفظ"-->
-<!--                android:textColor="#fff"-->
-<!--                android:textSize="20dp" />-->
-
-            <ImageView
+<!--                android:layout_height="40dp"-->
+<!--                android:layout_marginTop="40dp"-->
+<!--                android:src="@drawable/sharebtnmodified" />-->
+            <Button
                 android:layout_width="120dp"
-                android:layout_height="40dp"
-                android:layout_marginTop="10dp"
-                android:src="@drawable/savebtn" />
+                android:layout_height="wrap_content"
+                android:layout_marginTop="27dp"
+                android:background="@drawable/custombutton"
+                android:drawableRight="@drawable/share"
+                android:drawablePadding="15dp"
+                android:fontFamily="@font/montserrat_bold"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:text="مشاركة"
+                android:textColor="#fff"
+                android:textSize="20dp" />
+
+            <Button
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/custombutton"
+                android:drawableRight="@drawable/save"
+                android:drawablePadding="20dp"
+                android:fontFamily="@font/montserrat_bold"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:text="حفظ"
+                android:textColor="#fff"
+                android:textSize="20dp" />
+
+<!--            <ImageView-->
+<!--                android:layout_width="120dp"-->
+<!--                android:layout_height="40dp"-->
+<!--                android:layout_marginTop="10dp"-->
+<!--                android:src="@drawable/savebtnmodified" />-->
 
             <Button
                 android:id="@+id/health"
@@ -137,25 +138,25 @@
                 android:paddingBottom="15dp"
                 tools:ignore="ContentDescription" />
 
-            <ImageView
+<!--            <ImageView-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_gravity="right"-->
+<!--                android:layout_marginTop="5dp"-->
+<!--                android:paddingRight="20dp"-->
+<!--                android:layout_marginBottom="15dp"-->
+<!--                android:src="@drawable/per_detailsmodified"/>-->
+            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="right"
                 android:layout_marginTop="5dp"
-                android:paddingRight="20dp"
-                android:layout_marginBottom="15dp"
-                android:src="@drawable/per_details"/>
-<!--            <TextView-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:layout_gravity="right"-->
-<!--                android:layout_marginTop="10dp"-->
-<!--                android:layout_marginBottom="10dp"-->
-<!--                android:fontFamily="@font/montserrat_bold"-->
-<!--                android:padding="10dp"-->
-<!--                android:text="معلومات شخصية"-->
-<!--                android:textColor="#fff"-->
-<!--                android:textSize="30sp" />-->
+                android:layout_marginBottom="10dp"
+                android:fontFamily="@font/montserrat_bold"
+                android:padding="10dp"
+                android:text="معلومات شخصية"
+                android:textColor="#fff"
+                android:textSize="25sp" />
 
             <LinearLayout
                 android:layout_width="match_parent"

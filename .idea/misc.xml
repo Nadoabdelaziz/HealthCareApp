@@ -60,7 +60,9 @@
         <entry key="..\:/Users/nado2/Downloads/HealthCare-master/HealthCare-master/app/src/main/res/menu/health_bottom_nav_menu.xml" value="0.2125" />
         <entry key="..\:/Users/nado2/Downloads/HealthCare-master/HealthCare-master/app/src/main/res/menu/main_options_menu.xml" value="0.21614583333333334" />
         <entry key="..\:/Users/nado2/Music/HealthCareApp-main/HealthCareApp-main/app/src/main/res/drawable/custom_button.xml" value="0.152" />
+        <entry key="..\:/Users/nado2/Music/HealthCareApp-main/HealthCareApp-main/app/src/main/res/drawable/custombutton.xml" value="0.152" />
         <entry key="..\:/Users/nado2/Music/HealthCareApp-main/HealthCareApp-main/app/src/main/res/drawable/custombuttongreen.xml" value="0.152" />
+        <entry key="..\:/Users/nado2/Music/HealthCareApp-main/HealthCareApp-main/app/src/main/res/drawable/custombuttonunpressed.xml" value="0.152" />
         <entry key="..\:/Users/nado2/Music/HealthCareApp-main/HealthCareApp-main/app/src/main/res/drawable/greencheck.xml" value="0.152" />
         <entry key="..\:/Users/nado2/Music/HealthCareApp-main/HealthCareApp-main/app/src/main/res/drawable/image_border.xml" value="0.152" />
         <entry key="..\:/Users/nado2/Music/HealthCareApp-main/HealthCareApp-main/app/src/main/res/drawable/redcheck.xml" value="0.152" />
@@ -69,6 +71,7 @@
         <entry key="..\:/Users/nado2/Music/HealthCareApp-main/HealthCareApp-main/app/src/main/res/layout/activity_bar_code.xml" value="0.25" />
         <entry key="..\:/Users/nado2/Music/HealthCareApp-main/HealthCareApp-main/app/src/main/res/layout/activity_create_account.xml" value="0.234375" />
         <entry key="..\:/Users/nado2/Music/HealthCareApp-main/HealthCareApp-main/app/src/main/res/layout/activity_create_comment.xml" value="0.264" />
+        <entry key="..\:/Users/nado2/Music/HealthCareApp-main/HealthCareApp-main/app/src/main/res/layout/activity_create_student.xml" value="0.20364583333333333" />
         <entry key="..\:/Users/nado2/Music/HealthCareApp-main/HealthCareApp-main/app/src/main/res/layout/activity_display_student.xml" value="0.264" />
         <entry key="..\:/Users/nado2/Music/HealthCareApp-main/HealthCareApp-main/app/src/main/res/layout/activity_health.xml" value="0.17083333333333334" />
         <entry key="..\:/Users/nado2/Music/HealthCareApp-main/HealthCareApp-main/app/src/main/res/layout/activity_login_options.xml" value="0.234375" />

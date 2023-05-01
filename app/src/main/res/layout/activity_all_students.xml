@@ -63,13 +63,13 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/recyclerview"
         android:layout_centerHorizontal="true"
+        android:layout_marginTop="70dp"
         android:background="@drawable/custombutton"
-        android:textColor="#fff"
         android:fontFamily="@font/montserrat_bold"
-        android:paddingRight="20dp"
         android:paddingLeft="20dp"
-        android:textSize="25dp"
+        android:paddingRight="20dp"
         android:text="إضافة طالب جديد"
-        android:layout_marginTop="70dp"/>
+        android:textColor="#fff"
+        android:textSize="20dp" />
 
 </RelativeLayout>

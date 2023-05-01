@@ -91,27 +91,29 @@
         android:textSize="20dp" />
 
 
-    <ImageView
-        android:id="@+id/showall"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/recyclerview"
-        android:layout_alignParentLeft="true"
-        android:layout_marginLeft="20dp"
-        android:layout_marginBottom="-210dp"
-        android:layout_marginTop="10dp"
-        android:src="@drawable/showallbtnadmin" />
-<!--    <TextView-->
+<!--    <ImageView-->
 <!--        android:id="@+id/showall"-->
 <!--        android:layout_width="wrap_content"-->
 <!--        android:layout_height="wrap_content"-->
 <!--        android:layout_above="@+id/recyclerview"-->
 <!--        android:layout_alignParentLeft="true"-->
 <!--        android:layout_marginLeft="20dp"-->
-<!--        android:layout_marginBottom="-200dp"-->
-<!--        android:text="عرض الكل وإضافة جديد"-->
-<!--        android:textColor="@color/main_blue_color"-->
-<!--        android:textSize="18dp" />-->
+<!--        android:layout_marginTop="10dp"-->
+<!--        android:layout_marginBottom="-210dp"-->
+<!--        android:src="@drawable/showallbtnadmin" />-->
+    <TextView
+        android:id="@+id/showall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/recyclerview"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="20dp"
+        android:layout_marginBottom="-200dp"
+        android:fontFamily="@font/montserrat_bold"
+        android:text="عرض الكل وإضافة جديد"
+        android:textColor="#067FBF"
+        android:textSize="18dp" />
+
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerview"
@@ -140,29 +142,30 @@
         android:textSize="20dp" />
 
 
-    <ImageView
-        android:id="@+id/watchallforadmin"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/secondrecyclerviewforadmin"
-        android:layout_alignParentLeft="true"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="10dp"
-        android:src="@drawable/showallbtnadmin"
-        android:layout_marginBottom="-20dp"
-        android:visibility="gone" />
-<!--    <TextView-->
+<!--    <ImageView-->
 <!--        android:id="@+id/watchallforadmin"-->
 <!--        android:layout_width="wrap_content"-->
 <!--        android:layout_height="wrap_content"-->
 <!--        android:layout_above="@+id/secondrecyclerviewforadmin"-->
 <!--        android:layout_alignParentLeft="true"-->
 <!--        android:layout_marginLeft="20dp"-->
+<!--        android:layout_marginTop="10dp"-->
+<!--        android:src="@drawable/showallbtnadmin"-->
 <!--        android:layout_marginBottom="-20dp"-->
-<!--        android:text="عرض الكل وإضافة جديد"-->
-<!--        android:visibility="gone"-->
-<!--        android:textColor="@color/main_blue_color"-->
-<!--        android:textSize="18dp" />-->
+<!--        android:visibility="gone" />-->
+    <TextView
+        android:id="@+id/watchallforadmin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/secondrecyclerviewforadmin"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="20dp"
+        android:layout_marginBottom="-20dp"
+        android:fontFamily="@font/montserrat_bold"
+        android:text="عرض الكل وإضافة جديد"
+        android:visibility="gone"
+        android:textColor="#067FBF"
+        android:textSize="18dp" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/secondrecyclerviewforadmin"

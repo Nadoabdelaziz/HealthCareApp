@@ -83,11 +83,11 @@ public class FirstFragment extends Fragment {
 
         final TextView USRtype = (TextView) mView.findViewById(R.id.user_name2);
 
-        final ImageView lefttxt = (ImageView) mView.findViewById(R.id.watchallforadmin);
+        final TextView lefttxt = (TextView) mView.findViewById(R.id.watchallforadmin);
         final TextView righttxt = (TextView) mView.findViewById(R.id.trendingforadmin);
 
-        final ImageView showall = (ImageView) mView.findViewById(R.id.showall);
-        final ImageView showallforadmin = (ImageView) mView.findViewById(R.id.watchallforadmin);
+        final TextView showall = (TextView) mView.findViewById(R.id.showall);
+        final TextView showallforadmin = (TextView) mView.findViewById(R.id.watchallforadmin);
 
         showall.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -48,7 +48,7 @@ public class ThirdFragment extends Fragment {
     TextView textView;
     CameraSource cameraSource;
     View mview;
-    ImageView scandone;
+    ImageButton scandone;
     final int RequestCameraPermissionID = 1001;
 
     Student SearchedStd;
@@ -60,7 +60,7 @@ public class ThirdFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_third, container, false);
         this.mview = view;
 
-        scandone = (ImageView) mview.findViewById(R.id.sendqrcode);
+        scandone = (ImageButton) mview.findViewById(R.id.sendqrcode);
 
 
         cameraView = (SurfaceView) mview.findViewById(R.id.surface_view);

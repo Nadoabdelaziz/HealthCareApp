@@ -20,7 +20,7 @@ public class Pre_Login_Activity extends AppCompatActivity {
 
     // images array
     SharedPreferences sp;
-    int[] images = {R.drawable.loginkids, R.drawable.logindoc,R.drawable.loginfam};
+    int[] images = {R.drawable.loginkidsmodified, R.drawable.logindocmodified,R.drawable.loginfammodified};
 
     // Creating Object of ViewPagerAdapter
     SliderPagerAdapter mViewPagerAdapter;
@@ -31,8 +31,8 @@ public class Pre_Login_Activity extends AppCompatActivity {
         setContentView(R.layout.activity_pre_login);
 
 
-        ImageButton btnLog = (ImageButton) findViewById(R.id.loginnew);
-        ImageButton btnReg = (ImageButton) findViewById(R.id.registernew);
+        Button btnLog = (Button) findViewById(R.id.loginnew);
+        Button btnReg = (Button) findViewById(R.id.registernew);
 
         sp = getSharedPreferences("login", MODE_PRIVATE);
 
