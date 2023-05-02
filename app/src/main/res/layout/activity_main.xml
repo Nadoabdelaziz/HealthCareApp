@@ -224,7 +224,7 @@
             android:id="@+id/secbtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="-15dp"
+            android:layout_marginTop="-24dp"
             android:text="الشروط والأحكام"
             android:fontFamily="@font/montserrat_bold"
             android:textSize="18dp"

@@ -203,6 +203,7 @@
             android:fontFamily="@font/montserrat_bold"
             android:onClick="createAccount"
             android:paddingBottom="10dp"
+            android:visibility="gone"
             android:paddingTop="10dp"
             android:gravity="center"
             android:text="التالي"

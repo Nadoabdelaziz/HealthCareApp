@@ -112,7 +112,7 @@ public class TheFragmnetsActivity extends AppCompatActivity {
                                     break;
 
                                 case R.id.home:
-                                    viewPager.setCurrentItem(1);
+                                    viewPager.  setCurrentItem(1);
                                     Log.d("ViewPager", "onNavigationItemSelected: "+viewPager.getCurrentItem());
                                     break;
 

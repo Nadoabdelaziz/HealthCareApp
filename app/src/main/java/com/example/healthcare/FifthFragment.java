@@ -185,7 +185,8 @@ public class FifthFragment extends Fragment {
             }
         } else {
 
-            //RgOrders.setVisibility(View.VISIBLE);
+
+            RgOrders.setVisibility(View.VISIBLE);
             databaseReference = FirebaseDatabase.getInstance().getReference("Admins");
             databaseReference.addValueEventListener(new ValueEventListener() {
                 @Override

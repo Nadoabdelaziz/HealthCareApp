@@ -17,36 +17,81 @@
     <!--        app:layout_constraintTop_toTopOf="parent"-->
     <!--        app:srcCompat="@drawable/loginkids" />-->
 
+
+<!--    <ImageView-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:src="@drawable/dot_fill"-->
+<!--        android:padding="9dp"-->
+<!--        app:layout_constraintBottom_toTopOf="@+id/loginnew"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/viewmainpager"-->
+<!--        app:layout_constraintVertical_bias="1.0"/>-->
+
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/dots"
-        android:layout_width="10dp"
-        android:layout_height="30dp"
-        android:layout_marginLeft="192dp"
-        android:padding="9dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         app:layout_constraintBottom_toTopOf="@+id/loginnew"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/viewmainpager"
         app:layout_constraintVertical_bias="1.0"
-        app:tabBackground="@color/blue_btn_bg_pressed_color"
-        app:tabIndicatorGravity="center"
         app:tabIndicatorHeight="0dp" />
 
 
 
     <androidx.viewpager.widget.ViewPager
         android:id="@+id/viewmainpager"
-        android:layout_width="300sp"
-        android:layout_height="400sp"
+        android:layout_width="200dp"
+        android:layout_height="300sp"
         android:layout_marginStart="52dp"
-        android:layout_marginLeft="52dp"
+        android:layout_marginLeft="58dp"
         android:layout_marginEnd="59dp"
         android:layout_marginRight="59dp"
-        android:layout_marginBottom="168dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/loginnew"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView17"
         app:layout_constraintVertical_bias="1.0" />
+
+    <LinearLayout
+        android:id="@+id/layoutbullets"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="76dp"
+        android:gravity="center"
+        android:layout_marginLeft="15dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.77"
+        tools:layout_editor_absoluteX="52dp">
+
+        <ImageView
+            android:id="@+id/frstbullet"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="15dp"
+            android:src="@drawable/dot_fill" />
+
+        <ImageView
+            android:id="@+id/scndbullet"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="15dp"
+            android:src="@drawable/dot_empty" />
+
+
+        <ImageView
+            android:id="@+id/thrdbullet"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="15dp"
+            android:src="@drawable/dot_empty" />
+
+
+    </LinearLayout>
 
     <ImageView
         android:id="@+id/textView17"
@@ -55,7 +100,6 @@
         android:src="@drawable/texthere"
         android:layout_marginStart="176dp"
         android:layout_marginLeft="176dp"
-        android:layout_marginTop="40dp"
         android:layout_marginEnd="32dp"
         android:layout_marginRight="32dp"
         app:layout_constraintBottom_toTopOf="@+id/viewmainpager"
@@ -85,13 +129,14 @@
         android:layout_width="305dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="52dp"
+            android:layout_marginTop="55dp"
         android:layout_marginLeft="52dp"
         android:background="@drawable/custombutton"
         android:fontFamily="@font/montserrat_bold"
         android:text="تسجيل الدخول"
         android:textColor="#FFFF"
         android:textSize="22dp"
-        app:layout_constraintBottom_toTopOf="@+id/registernew"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toRightOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/viewmainpager"
@@ -131,7 +176,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="52dp"
         android:layout_marginLeft="52dp"
-        android:layout_marginBottom="17dp"
+        android:layout_marginBottom="27dp"
         android:background="@drawable/button_border"
         android:fontFamily="@font/montserrat_bold"
         android:text="اشتراك"

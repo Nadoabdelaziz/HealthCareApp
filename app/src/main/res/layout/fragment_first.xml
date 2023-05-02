@@ -108,7 +108,7 @@
         android:layout_above="@+id/recyclerview"
         android:layout_alignParentLeft="true"
         android:layout_marginLeft="20dp"
-        android:layout_marginBottom="-200dp"
+        android:layout_marginBottom="-210dp"
         android:fontFamily="@font/montserrat_bold"
         android:text="عرض الكل وإضافة جديد"
         android:textColor="#067FBF"

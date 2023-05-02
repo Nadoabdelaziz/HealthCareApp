@@ -28,6 +28,7 @@ import androidx.core.content.ContextCompat;
 
 import com.example.healthcare.models.Code128;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.squareup.picasso.Picasso;
@@ -209,7 +210,13 @@ public class DisplayStudentActivity extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         super.onBackPressed();
-        Intent intent = new Intent(DisplayStudentActivity.this,TheFragmnetsActivity.class);
-        startActivity(intent);
+        if(FirebaseAuth.getInstance().getCurrentUser().getEmail().equals("health@live.com")){
+            Intent intent = new Intent(DisplayStudentActivity.this,HealthFragmentsActivity.class);
+            startActivity(intent);
+        }
+        else {
+            Intent intent = new Intent(DisplayStudentActivity.this, TheFragmnetsActivity.class);
+            startActivity(intent);
+        }
     }
 }

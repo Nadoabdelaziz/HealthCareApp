@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">HealthCare</string>
+    <string name="app_name">ﻟﺳﻼﻣﺗك</string>
     <string name="passwordforgotten"><u>Forgot your password ?</u></string>
 
     <string-array name="doctorSpeciality">

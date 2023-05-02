@@ -15,7 +15,7 @@
         android:icon="@drawable/appnewlogo2"
         android:label="@string/app_name"
         android:roundIcon="@drawable/appnewlogo2"
-        android:supportsRtl="true"
+        android:supportsRtl="false"
         android:theme="@style/AppTheme">
         <activity
             android:name=".AdminOrdersActivity"

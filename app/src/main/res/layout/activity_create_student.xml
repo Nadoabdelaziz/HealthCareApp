@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:scrollbars="vertical"
     tools:context=".CreateStudentActivity">
@@ -57,6 +58,7 @@
         android:layout_height="match_parent"
         android:gravity="top"
         android:layout_marginLeft="30dp"
+
         android:layout_marginRight="30dp"
         android:layout_marginTop="20dp"
         android:orientation="vertical"
@@ -193,42 +195,220 @@
             android:layout_width="match_parent"
             android:layout_height="25dp"/>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="معلومات صحية"
-            android:layout_gravity="right"
-            android:textSize="22dp"
-            android:fontFamily="@font/montserrat_bold"
-            android:layout_marginBottom="5dp"
-            />
 
-        <EditText
-            android:id="@+id/Stddisease"
+
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp"
-            android:ems="10"
-            android:hint="حدد المرض"
-            />
+            android:gravity="right"
+            android:layout_height="wrap_content">
+
+            <ImageButton
+                android:id="@+id/addhealthrecord"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:background="@color/float_transparent"
+                android:src="@drawable/plus_calender" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="معلومات صحية"
+                android:textSize="22dp"
+                android:fontFamily="@font/montserrat_bold" />
+        </LinearLayout>
 
 
-        <EditText
-            android:id="@+id/StdPrctions"
-            android:layout_width="match_parent"
-            android:layout_marginBottom="8dp"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="تحذيرات " />
+        <ScrollView
+            android:layout_width="fill_parent"
+            android:paddingTop="5dp"
+            android:layout_margin="5dp"
+            android:paddingRight="5dp"
+            android:paddingLeft="5dp"
+            android:layout_height="160dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+                    <LinearLayout
+                        android:id="@+id/health1"
+                        android:layout_width="match_parent"
+                        android:orientation="vertical"
+                        android:background="@drawable/edit_text_background"
+                        android:visibility="gone"
+                        android:layout_marginBottom="20dp"
+                        android:layout_height="wrap_content">
+
+                            <Spinner
+                                android:id="@+id/Stddisease"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="10dp"
+                                android:layout_marginBottom="8dp"/>
+
+                    <!--        <EditText-->
+                    <!--            android:id="@+id/Stddisease"-->
+                    <!--            android:layout_width="match_parent"-->
+                    <!--            android:layout_height="wrap_content"-->
+                    <!--            android:layout_marginBottom="8dp"-->
+                    <!--            android:ems="10"-->
+                    <!--            android:hint="حدد المرض" />-->
 
 
-        <EditText
-            android:id="@+id/Stdknown"
-            android:layout_width="match_parent"
-            android:layout_marginBottom="8dp"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="يُعرِّف" />
+                            <EditText
+                                android:id="@+id/StdPrctions"
+                                android:layout_width="match_parent"
+                                android:layout_marginBottom="8dp"
+                                android:layout_height="wrap_content"
+                                android:ems="10"
+                                android:hint="تحذيرات " />
+
+
+                            <EditText
+                                android:id="@+id/Stdknown"
+                                android:layout_width="match_parent"
+                                android:layout_marginBottom="8dp"
+                                android:layout_height="wrap_content"
+                                android:ems="10"
+                                android:hint="يُعرِّف" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                            android:id="@+id/health2"
+                            android:layout_width="match_parent"
+                           android:background="@drawable/edit_text_background"
+                        android:orientation="vertical"
+                        android:visibility="gone"
+                            android:layout_marginBottom="20dp"
+                            android:layout_height="wrap_content">
+
+                            <Spinner
+                                android:id="@+id/Stddisease2"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="10dp"
+                                android:layout_marginBottom="8dp"/>
+
+                            <!--        <EditText-->
+                            <!--            android:id="@+id/Stddisease"-->
+                            <!--            android:layout_width="match_parent"-->
+                            <!--            android:layout_height="wrap_content"-->
+                            <!--            android:layout_marginBottom="8dp"-->
+                            <!--            android:ems="10"-->
+                            <!--            android:hint="حدد المرض" />-->
+
+
+                            <EditText
+                                android:id="@+id/StdPrctions2"
+                                android:layout_width="match_parent"
+                                android:layout_marginBottom="8dp"
+                                android:layout_height="wrap_content"
+                                android:ems="10"
+                                android:hint="تحذيرات " />
+
+
+                            <EditText
+                                android:id="@+id/Stdknown2"
+                                android:layout_width="match_parent"
+                                android:layout_marginBottom="8dp"
+                                android:layout_height="wrap_content"
+                                android:ems="10"
+                                android:hint="يُعرِّف" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/health3"
+                            android:layout_width="match_parent"
+                            android:orientation="vertical"
+                            android:background="@drawable/edit_text_background"
+                            android:layout_marginBottom="20dp"
+                            android:visibility="gone"
+                            android:layout_height="wrap_content">
+
+                            <Spinner
+                                android:id="@+id/Stddisease3"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="10dp"
+                                android:layout_marginBottom="8dp"/>
+
+                            <!--        <EditText-->
+                            <!--            android:id="@+id/Stddisease"-->
+                            <!--            android:layout_width="match_parent"-->
+                            <!--            android:layout_height="wrap_content"-->
+                            <!--            android:layout_marginBottom="8dp"-->
+                            <!--            android:ems="10"-->
+                            <!--            android:hint="حدد المرض" />-->
+
+
+                            <EditText
+                                android:id="@+id/StdPrctions3"
+                                android:layout_width="match_parent"
+                                android:layout_marginBottom="8dp"
+                                android:layout_height="wrap_content"
+                                android:ems="10"
+                                android:hint="تحذيرات " />
+
+
+                            <EditText
+                                android:id="@+id/Stdknown3"
+                                android:layout_width="match_parent"
+                                android:layout_marginBottom="8dp"
+                                android:layout_height="wrap_content"
+                                android:ems="10"
+                                android:hint="يُعرِّف" />
+
+                        </LinearLayout>
+
+
+                        <LinearLayout
+                            android:id="@+id/health4"
+                            android:layout_width="match_parent"
+                            android:background="@drawable/edit_text_background"
+                            android:orientation="vertical"
+                            android:layout_marginBottom="20dp"
+                            android:visibility="gone"
+                            android:layout_height="wrap_content">
+
+                            <Spinner
+                                android:id="@+id/Stddisease4"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="10dp"
+                                android:layout_marginBottom="8dp"/>
+
+                            <!--        <EditText-->
+                            <!--            android:id="@+id/Stddisease"-->
+                            <!--            android:layout_width="match_parent"-->
+                            <!--            android:layout_height="wrap_content"-->
+                            <!--            android:layout_marginBottom="8dp"-->
+                            <!--            android:ems="10"-->
+                            <!--            android:hint="حدد المرض" />-->
+
+
+                            <EditText
+                                android:id="@+id/StdPrctions4"
+                                android:layout_width="match_parent"
+                                android:layout_marginBottom="8dp"
+                                android:layout_height="wrap_content"
+                                android:ems="10"
+                                android:hint="تحذيرات " />
+
+
+                            <EditText
+                                android:id="@+id/Stdknown4"
+                                android:layout_width="match_parent"
+                                android:layout_marginBottom="8dp"
+                                android:layout_height="wrap_content"
+                                android:ems="10"
+                                android:hint="يُعرِّف" />
+
+                        </LinearLayout>
+            </LinearLayout>
+
+        </ScrollView>
 
 
 

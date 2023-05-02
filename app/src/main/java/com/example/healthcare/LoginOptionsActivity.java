@@ -5,6 +5,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.graphics.Color;
+import android.graphics.PorterDuff;
+import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.CountDownTimer;
@@ -30,27 +32,33 @@ public class LoginOptionsActivity extends AppCompatActivity {
 
 
         tech.setOnClickListener(new View.OnClickListener() {
+            @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
             @Override
             public void onClick(View v) {
-//
-//                tech.setBackgroundColor(Color.parseColor("#0080FF"));
-//                tech.setTextColor(Color.WHITE);
-//
-//                new CountDownTimer(300, 50) {
-//
-//                    @Override
-//                    public void onTick(long arg0) {
-//                        // TODO Auto-generated method stub
-//
-//                    }
-//
-//                    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
-//                    @Override
-//                    public void onFinish() {
-//                        tech.setBackground(getDrawable(R.drawable.custombuttonunpressed));
-//                        tech.setTextColor(Color.BLACK);
-//                    }
-//                }.start();
+
+                tech.setBackground(getDrawable(R.drawable.custombutton));
+                tech.setTextColor(Color.WHITE);
+                Drawable img = tech.getContext().getResources().getDrawable( R.drawable.tech_icon );
+                img.setColorFilter(Color.WHITE, PorterDuff.Mode.SRC_ATOP);
+                tech.setCompoundDrawablesWithIntrinsicBounds(null,null,img,null);
+
+                new CountDownTimer(300, 50) {
+
+                    @Override
+                    public void onTick(long arg0) {
+                        // TODO Auto-generated method stub
+
+                    }
+
+                    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
+                    @Override
+                    public void onFinish() {
+                        tech.setBackground(getDrawable(R.drawable.custombuttonunpressed));
+                        tech.setTextColor(Color.parseColor("#7A7A7A"));
+                        img.setColorFilter(Color.parseColor("#7A7A7A"), PorterDuff.Mode.SRC_ATOP);
+
+                    }
+                }.start();
 
                 Intent intent = new Intent(LoginOptionsActivity.this,MainActivity.class);
                 intent.putExtra("usertype","tech");
@@ -59,26 +67,31 @@ public class LoginOptionsActivity extends AppCompatActivity {
         });
 
         health.setOnClickListener(new View.OnClickListener() {
+            @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
             @Override
             public void onClick(View v) {
-//                health.setBackgroundColor(Color.parseColor("#0080FF"));
-//                health.setTextColor(Color.WHITE);
-//
-//                new CountDownTimer(300, 50) {
-//
-//                    @Override
-//                    public void onTick(long arg0) {
-//                        // TODO Auto-generated method stub
-//
-//                    }
-//
-//                    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
-//                    @Override
-//                    public void onFinish() {
-//                        health.setBackground(getDrawable(R.drawable.custombuttonunpressed));
-//                        health.setTextColor(Color.BLACK);
-//                    }
-//                }.start();
+                health.setBackground(getDrawable(R.drawable.custombutton));
+                health.setTextColor(Color.WHITE);
+                Drawable img = health.getContext().getResources().getDrawable( R.drawable.health_icon );
+                img.setColorFilter(Color.WHITE, PorterDuff.Mode.SRC_ATOP);
+                health.setCompoundDrawablesWithIntrinsicBounds(null,null,img,null);
+
+                new CountDownTimer(300, 50) {
+
+                    @Override
+                    public void onTick(long arg0) {
+                        // TODO Auto-generated method stub
+
+                    }
+
+                    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
+                    @Override
+                    public void onFinish() {
+                        health.setBackground(getDrawable(R.drawable.custombuttonunpressed));
+                        health.setTextColor(Color.parseColor("#7A7A7A"));
+                        img.setColorFilter(Color.BLACK, PorterDuff.Mode.SRC_ATOP);
+                    }
+                }.start();
 
 
                 Intent intent = new Intent(LoginOptionsActivity.this,MainActivity.class);
@@ -89,26 +102,31 @@ public class LoginOptionsActivity extends AppCompatActivity {
         });
 
         admin.setOnClickListener(new View.OnClickListener() {
+            @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
             @Override
             public void onClick(View v) {
-//                admin.setBackgroundColor(Color.parseColor("#0080FF"));
-//                admin.setTextColor(Color.WHITE);
-//
-//                new CountDownTimer(300, 50) {
-//
-//                    @Override
-//                    public void onTick(long arg0) {
-//                        // TODO Auto-generated method stub
-//
-//                    }
-//
-//                    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
-//                    @Override
-//                    public void onFinish() {
-//                        admin.setBackground(getDrawable(R.drawable.custombuttonunpressed));
-//                        admin.setTextColor(Color.BLACK);
-//                    }
-//                }.start();
+                admin.setBackground(getDrawable(R.drawable.custombutton));
+                admin.setTextColor(Color.WHITE);
+                Drawable img = admin.getContext().getResources().getDrawable( R.drawable.admin_icon );
+                img.setColorFilter(Color.WHITE, PorterDuff.Mode.SRC_ATOP);
+                admin.setCompoundDrawablesWithIntrinsicBounds(null,null,img,null);
+
+                new CountDownTimer(300, 50) {
+
+                    @Override
+                    public void onTick(long arg0) {
+                        // TODO Auto-generated method stub
+
+                    }
+
+                    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
+                    @Override
+                    public void onFinish() {
+                        admin.setBackground(getDrawable(R.drawable.custombuttonunpressed));
+                        admin.setTextColor(Color.parseColor("#7A7A7A"));
+                        img.setColorFilter(Color.parseColor("#7A7A7A"), PorterDuff.Mode.SRC_ATOP);
+                    }
+                }.start();
 
 
                 Intent intent = new Intent(LoginOptionsActivity.this,MainActivity.class);

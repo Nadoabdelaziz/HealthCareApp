@@ -16,6 +16,7 @@
         android:fontFamily="@font/nunito_sans_bold"
         android:text="ملاحظة جديدة"
         android:textSize="30dp"
+            android:textColor="#000"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -104,6 +105,7 @@
         android:layout_marginStart="18dp"
         android:layout_marginEnd="30dp"
         android:layout_marginTop="250dp"
+        android:gravity="right"
         android:ems="10"
         android:inputType="textPersonName"
         app:layout_constraintBottom_toTopOf="@+id/textView14"
@@ -141,12 +143,11 @@
         android:layout_width="match_parent"
         android:layout_height="150dp"
         android:layout_alignParentRight="true"
-        android:layout_marginLeft="148dp"
         android:layout_marginTop="355dp"
         android:background="@drawable/edit_text_background"
         android:layout_marginStart="18dp"
         android:layout_marginEnd="35dp"
-        android:gravity="top"
+        android:gravity="right"
         android:ems="10"
         android:hint="اذهب وتحقق من هذا ........................."
         android:inputType="textPersonName"
@@ -170,9 +171,8 @@
         android:id="@+id/sendComment"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
-        android:layout_marginEnd="30dp"
-        android:layout_marginLeft="80dp"
+        android:layout_marginEnd="40dp"
+        android:layout_marginLeft="40dp"
         android:layout_marginTop="604dp"
         android:fontFamily="@font/nunito_sans_bold"
         android:background="@drawable/custombutton"
@@ -183,5 +183,6 @@
         android:textColor="#FFFF"
         android:textSize="25dp"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

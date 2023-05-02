@@ -25,24 +25,24 @@
 
     <TextView
         android:id="@+id/textview"
-        android:layout_marginTop="4dp"
-        android:layout_gravity = "bottom"
-        android:gravity="center_horizontal"
-        android:layout_marginBottom="28dp"
-        android:textSize="22dp"
-        android:text="hello world"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textColor="#000"/>
+        android:layout_gravity="bottom"
+        android:layout_marginTop="4dp"
+        android:layout_marginBottom="28dp"
+        android:gravity="center_horizontal"
+        android:text="hello world"
+        android:textColor="#3D3D3D"
+        android:textSize="22dp" />
 
     <TextView
         android:id="@+id/textview100"
-        android:layout_marginTop="4dp"
-        android:layout_gravity = "bottom"
-        android:gravity="center_horizontal"
-        android:textSize="18dp"
-        android:text="ID: 123456789"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textColor="#000"/>
+        android:layout_gravity="bottom"
+        android:layout_marginTop="4dp"
+        android:gravity="center_horizontal"
+        android:text="ID: 123456789"
+        android:textColor="#666666"
+        android:textSize="18dp" />
 </androidx.cardview.widget.CardView>
