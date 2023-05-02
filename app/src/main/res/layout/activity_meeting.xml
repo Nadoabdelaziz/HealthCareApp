@@ -48,8 +48,20 @@
             android:weightSum="1">
 
             <TextView
+                android:id="@+id/errordata"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/red_btn_bg_pressed_color"
+                android:fontFamily="@font/nunito_sans_bold"
+                android:textSize="18dp"
+                android:visibility="gone"
+                android:gravity="center"
+                android:text="please enter all fields !"/>
+
+            <TextView
                 android:layout_width="wrap_content"
                 android:fontFamily="@font/nunito_sans_bold"
+                android:layout_marginTop="20dp"
                 android:layout_height="wrap_content"
                 android:text="عنوان الحدث"/>
 
@@ -185,6 +197,7 @@
                 />
             
             <EditText
+                android:id="@+id/desc"
                 android:layout_width="match_parent"
                 android:layout_height="150dp"
                 android:gravity="top|right"
@@ -323,8 +336,8 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_margin="10dp"
+        android:orientation="vertical"
+        android:layout_marginBottom="-25dp"
         android:layout_weight="0">
 
 <!--        <ImageView-->
@@ -344,17 +357,14 @@
 
         <Button
             android:id="@+id/delete_meeting_btn"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:onClick="deleteMeeting"
             android:text="مسح"
+            android:visibility="gone"
             android:backgroundTint="@color/red_btn_bg_color"
             android:textSize="25dp"
-            android:visibility="gone"
-            android:textColor="#fff"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toRightOf="@id/cancel_edit_meeting_btn"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:textColor="#fff" />
 
         <Button
             android:id="@+id/cancel_edit_meeting_btn"

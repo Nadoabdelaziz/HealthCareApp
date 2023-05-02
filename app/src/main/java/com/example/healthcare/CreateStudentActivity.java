@@ -47,6 +47,7 @@ public class CreateStudentActivity extends AppCompatActivity implements AdapterV
 
     LinearLayout L1,L2,L3,L4;
 
+
     loadingDialog ld;
     //private FirebaseAuth fbAuth;
     List<Student> students;
@@ -65,6 +66,7 @@ public class CreateStudentActivity extends AppCompatActivity implements AdapterV
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_student);
+
 
 
 
@@ -290,7 +292,7 @@ public class CreateStudentActivity extends AppCompatActivity implements AdapterV
                                     @Override
                                     public void onClick(SweetAlertDialog sweetAlertDialog) {
                                         Intent intent = new Intent(CreateStudentActivity.this, TheFragmnetsActivity.class);
-                                        startActivity(intent);
+                                        startActivity(getIntent());
                                     }
                                 })
                                 .show();

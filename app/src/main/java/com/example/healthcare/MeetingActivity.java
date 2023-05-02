@@ -31,8 +31,8 @@ public class MeetingActivity extends AppCompatActivity {
 
     Meeting meeting;
     TextView startDate;
-    TextView endDate;
-    EditText titleEditText;
+    TextView endDate,errorshow;
+    EditText titleEditText,desc;
     Button editMeetingBtn;
     TextView contactName;
     TextView contactPhone;
@@ -68,7 +68,9 @@ public class MeetingActivity extends AppCompatActivity {
         setContentView(R.layout.activity_meeting);
         data = new Data(this);
 
+        errorshow = (TextView) findViewById(R.id.errordata);
         back = (ImageView) findViewById(R.id.backbtn);
+        desc = (EditText) findViewById(R.id.desc);
 
 
 
@@ -143,11 +145,17 @@ public class MeetingActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Log.d("TAG", "onCreate: "+titleEditText.getText().toString());
-                data.addOrUpdateMeeting(meeting);
-                Log.e("MEETINGS", "Add meeting: " + meeting);
-                Log.e("MEETINGS", data.getMeetingList().toString());
-                finishActivity(EDIT_MEETING);
-                finish();
+                String myString = null;
+                if(!desc.getText().toString().isEmpty() && !startDate.getText().toString().equals("من") && !endDate.getText().toString().equals("الى") && !titleEditText.getText().toString().isEmpty()) {
+                    data.addOrUpdateMeeting(meeting);
+                    Log.e("MEETINGS", "Add meeting: " + titleEditText.getText().toString() + " - " +startDate.getText().toString() + " - "+endDate.getText().toString()+" - " +desc.getText().toString());
+                    Log.e("MEETINGS", data.getMeetingList().toString());
+                    finishActivity(EDIT_MEETING);
+                    finish();
+                }
+                else{
+                    errorshow.setVisibility(View.VISIBLE);
+                }
             }
         });
 

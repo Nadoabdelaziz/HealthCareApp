@@ -13,7 +13,7 @@ public class Meeting implements Serializable {
     private Date start;
     private Date end;
     private String contactId;
-    private String title = "Untitled";
+    private String title;
 
     Meeting() {
         this(new Date(), new Date());

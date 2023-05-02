@@ -16,8 +16,10 @@ import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
+import android.widget.Space;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -39,17 +41,48 @@ public class DisplayStudentActivity extends AppCompatActivity {
         public int REQUEST_CALL = 1;
         RelativeLayout frameLayout;
         ImageView imageView,backbtn;
+        Space space;
+        TextView label1,label2,label3;
         Button health;
         CircleImageView circleImageView;
         TextView fullName, speciality,SchoolName,Gender,BloodT,DateC,Nation,PhNo,Diseases;
         String name,id,school,gender,blood,datee,nation,phno,diseases;
         ProgressBar progressBar;
 
+    LinearLayout D1,D2,D3,D4;
+    ImageView I1,I2,I3,I4;
+
+    TextView d1,d2,d3,d4;
 
         @Override
         protected void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
             setContentView(R.layout.activity_display_student);
+
+
+
+
+            D1 = (LinearLayout) findViewById(R.id.disease1layout);
+            D2 = (LinearLayout) findViewById(R.id.disease2layout);
+            D3 = (LinearLayout) findViewById(R.id.disease3layout);
+            D4 = (LinearLayout) findViewById(R.id.disease4layout);
+
+
+            d1 = findViewById(R.id.disease1);
+            d2 = findViewById(R.id.disease2);
+            d3 = findViewById(R.id.disease3);
+            d4 = findViewById(R.id.disease4);
+
+
+            I1 = findViewById(R.id.imgphoto1);
+            I2 = findViewById(R.id.imgphoto2);
+            I3 = findViewById(R.id.imgphoto3);
+            I4 = findViewById(R.id.imgphoto4);
+
+
+            space = findViewById(R.id.spaceisa);
+
+            ImageView ivBarcodenew = (ImageView)findViewById(R.id.code128_barcode);
 
 
             fullName = findViewById(R.id.fullName);
@@ -61,7 +94,12 @@ public class DisplayStudentActivity extends AppCompatActivity {
             DateC = findViewById(R.id.DateN);
             Nation = findViewById(R.id.NatN);
             PhNo = findViewById(R.id.PhoneN);
-            //Diseases = findViewById(R.id.diseases);
+
+            label1 = findViewById(R.id.genderlabel);
+            label2 = findViewById(R.id.bloodlabel);
+            label3 = findViewById(R.id.nationlabel);
+
+            //Diseases = findViewById(R.id.disease);
 
             health = (Button)findViewById(R.id.health);
 
@@ -99,8 +137,516 @@ public class DisplayStudentActivity extends AppCompatActivity {
 
             diseases = intent.getStringExtra("diseases");
 
+            int count=0;
+            for( int i= 0; i < diseases.length(); i++)
+            {
+                if(diseases.charAt(i) == '-')
+                    count++;
+            }
+            String[] arrOfStr = diseases.split("-", count+1);
+
+            if(arrOfStr.length==1){
+                D1.setVisibility(View.VISIBLE);
+                d1.setVisibility(View.VISIBLE);
+                d1.setText(arrOfStr[0]);
+                switch (arrOfStr[0]){
+                    case "امراض القلب" :
+                        I1.setImageResource(R.drawable.heart_disease);
+                        break;
+                    case "أمراض الكلى" :
+                        I1.setImageResource(R.drawable.kidney_disease);
+                        break;
+                    case "أمراض عصبية" :
+                        I1.setImageResource(R.drawable.nerve_disease);
+                        break;
+                    case "مشاكل سمعية" :
+                        I1.setImageResource(R.drawable.ear_disease);
+                        break;
+                    case "مشاكل نفسية" :
+                        I1.setImageResource(R.drawable.phyco_disease);
+                        break;
+                    case "ربو" :
+                        I1.setImageResource(R.drawable.rio);
+                        break;
+                    case "األنيميا المنجلية" :
+                        I1.setImageResource(R.drawable.anemia_disease);
+                        break;
+                    case "فقر الدما لثالسيميا" :
+                        I1.setImageResource(R.drawable.blood_disease);
+                        break;
+                    case "الإصابات والإعاقات" :
+                        I1.setImageResource(R.drawable.body_disease);
+                        break;
+                    case "النظارات أو العدسات" :
+                        I1.setImageResource(R.drawable.eyes_disease);
+                        break;
+                    case "السكري" :
+                        I1.setImageResource(R.drawable.sugar_disease);
+                        break;
+                    case "حساسية الطعام" :
+                        I1.setImageResource(R.drawable.food_disease);
+                        break;
+                    default:
+                        break;
+
+
+
+                }
+            }
+            else if(arrOfStr.length==2) {
+                D1.setVisibility(View.VISIBLE);
+                d1.setVisibility(View.VISIBLE);
+                d1.setText(arrOfStr[0]);
+
+                D2.setVisibility(View.VISIBLE);
+                d2.setVisibility(View.VISIBLE);
+                d2.setText(arrOfStr[1]);
+
+                switch (arrOfStr[0]){
+                    case "امراض القلب" :
+                        I1.setImageResource(R.drawable.heart_disease);
+                        break;
+                    case "أمراض الكلى" :
+                        I1.setImageResource(R.drawable.kidney_disease);
+                        break;
+                    case "أمراض عصبية" :
+                        I1.setImageResource(R.drawable.nerve_disease);
+                        break;
+                    case "مشاكل سمعية" :
+                        I1.setImageResource(R.drawable.ear_disease);
+                        break;
+                    case "مشاكل نفسية" :
+                        I1.setImageResource(R.drawable.phyco_disease);
+                        break;
+                    case "ربو" :
+                        I1.setImageResource(R.drawable.rio);
+                        break;
+                    case "األنيميا المنجلية" :
+                        I1.setImageResource(R.drawable.anemia_disease);
+                        break;
+                    case "فقر الدما لثالسيميا" :
+                        I1.setImageResource(R.drawable.blood_disease);
+                        break;
+                    case "الإصابات والإعاقات" :
+                        I1.setImageResource(R.drawable.body_disease);
+                        break;
+                    case "النظارات أو العدسات" :
+                        I1.setImageResource(R.drawable.eyes_disease);
+                        break;
+                    case "السكري" :
+                        I1.setImageResource(R.drawable.sugar_disease);
+                        break;
+                    case "حساسية الطعام" :
+                        I1.setImageResource(R.drawable.food_disease);
+                        break;
+                    default:
+                        break;
+
+
+
+                }
+
+
+                switch (arrOfStr[1]){
+                    case "امراض القلب" :
+                        I2.setImageResource(R.drawable.heart_disease);
+                        break;
+                    case "أمراض الكلى" :
+                        I2.setImageResource(R.drawable.kidney_disease);
+                        break;
+                    case "أمراض عصبية" :
+                        I2.setImageResource(R.drawable.nerve_disease);
+                        break;
+                    case "مشاكل سمعية" :
+                        I2.setImageResource(R.drawable.ear_disease);
+                        break;
+                    case "مشاكل نفسية" :
+                        I2.setImageResource(R.drawable.phyco_disease);
+                        break;
+                    case "ربو" :
+                        I2.setImageResource(R.drawable.rio);
+                        break;
+                    case "األنيميا المنجلية" :
+                        I2.setImageResource(R.drawable.anemia_disease);
+                        break;
+                    case "فقر الدما لثالسيميا" :
+                        I2.setImageResource(R.drawable.blood_disease);
+                        break;
+                    case "الإصابات والإعاقات" :
+                        I2.setImageResource(R.drawable.body_disease);
+                        break;
+                    case "النظارات أو العدسات" :
+                        I2.setImageResource(R.drawable.eyes_disease);
+                        break;
+                    case "السكري" :
+                        I2.setImageResource(R.drawable.sugar_disease);
+                        break;
+                    case "حساسية الطعام" :
+                        I2.setImageResource(R.drawable.food_disease);
+                        break;
+                    default:
+                        break;
+
+
+
+                }
+
+            }
+            else  if(arrOfStr.length==3) {
+                D1.setVisibility(View.VISIBLE);
+                d1.setVisibility(View.VISIBLE);
+                d1.setText(arrOfStr[0]);
+
+                D2.setVisibility(View.VISIBLE);
+                d2.setVisibility(View.VISIBLE);
+                d2.setText(arrOfStr[1]);
+
+                D3.setVisibility(View.VISIBLE);
+                d3.setVisibility(View.VISIBLE);
+                d3.setText(arrOfStr[2]);
+
+
+                switch (arrOfStr[0]){
+                    case "امراض القلب" :
+                        I1.setImageResource(R.drawable.heart_disease);
+                        break;
+                    case "أمراض الكلى" :
+                        I1.setImageResource(R.drawable.kidney_disease);
+                        break;
+                    case "أمراض عصبية" :
+                        I1.setImageResource(R.drawable.nerve_disease);
+                        break;
+                    case "مشاكل سمعية" :
+                        I1.setImageResource(R.drawable.ear_disease);
+                        break;
+                    case "مشاكل نفسية" :
+                        I1.setImageResource(R.drawable.phyco_disease);
+                        break;
+                    case "ربو" :
+                        I1.setImageResource(R.drawable.rio);
+                        break;
+                    case "األنيميا المنجلية" :
+                        I1.setImageResource(R.drawable.anemia_disease);
+                        break;
+                    case "فقر الدما لثالسيميا" :
+                        I1.setImageResource(R.drawable.blood_disease);
+                        break;
+                    case "الإصابات والإعاقات" :
+                        I1.setImageResource(R.drawable.body_disease);
+                        break;
+                    case "النظارات أو العدسات" :
+                        I1.setImageResource(R.drawable.eyes_disease);
+                        break;
+                    case "السكري" :
+                        I1.setImageResource(R.drawable.sugar_disease);
+                        break;
+                    case "حساسية الطعام" :
+                        I1.setImageResource(R.drawable.food_disease);
+                        break;
+                    default:
+                        break;
+
+
+
+                }
+
+
+                switch (arrOfStr[1]){
+                    case "امراض القلب" :
+                        I2.setImageResource(R.drawable.heart_disease);
+                        break;
+                    case "أمراض الكلى" :
+                        I2.setImageResource(R.drawable.kidney_disease);
+                        break;
+                    case "أمراض عصبية" :
+                        I2.setImageResource(R.drawable.nerve_disease);
+                        break;
+                    case "مشاكل سمعية" :
+                        I2.setImageResource(R.drawable.ear_disease);
+                        break;
+                    case "مشاكل نفسية" :
+                        I2.setImageResource(R.drawable.phyco_disease);
+                        break;
+                    case "ربو" :
+                        I2.setImageResource(R.drawable.rio);
+                        break;
+                    case "األنيميا المنجلية" :
+                        I2.setImageResource(R.drawable.anemia_disease);
+                        break;
+                    case "فقر الدما لثالسيميا" :
+                        I2.setImageResource(R.drawable.blood_disease);
+                        break;
+                    case "الإصابات والإعاقات" :
+                        I2.setImageResource(R.drawable.body_disease);
+                        break;
+                    case "النظارات أو العدسات" :
+                        I2.setImageResource(R.drawable.eyes_disease);
+                        break;
+                    case "السكري" :
+                        I2.setImageResource(R.drawable.sugar_disease);
+                        break;
+                    case "حساسية الطعام" :
+                        I2.setImageResource(R.drawable.food_disease);
+                        break;
+                    default:
+                        break;
+
+
+
+                }
+
+                switch (arrOfStr[2]){
+                    case "امراض القلب" :
+                        I3.setImageResource(R.drawable.heart_disease);
+                        break;
+                    case "أمراض الكلى" :
+                        I3.setImageResource(R.drawable.kidney_disease);
+                        break;
+                    case "أمراض عصبية" :
+                        I3.setImageResource(R.drawable.nerve_disease);
+                        break;
+                    case "مشاكل سمعية" :
+                        I3.setImageResource(R.drawable.ear_disease);
+                        break;
+                    case "مشاكل نفسية" :
+                        I3.setImageResource(R.drawable.phyco_disease);
+                        break;
+                    case "ربو" :
+                        I3.setImageResource(R.drawable.rio);
+                        break;
+                    case "األنيميا المنجلية" :
+                        I3.setImageResource(R.drawable.anemia_disease);
+                        break;
+                    case "فقر الدما لثالسيميا" :
+                        I3.setImageResource(R.drawable.blood_disease);
+                        break;
+                    case "الإصابات والإعاقات" :
+                        I3.setImageResource(R.drawable.body_disease);
+                        break;
+                    case "النظارات أو العدسات" :
+                        I3.setImageResource(R.drawable.eyes_disease);
+                        break;
+                    case "السكري" :
+                        I3.setImageResource(R.drawable.sugar_disease);
+                        break;
+                    case "حساسية الطعام" :
+                        I3.setImageResource(R.drawable.food_disease);
+                        break;
+                    default:
+                        break;
+
+
+
+                }
+
+            }
+            else if(arrOfStr.length==4){
+                D1.setVisibility(View.VISIBLE);
+                d1.setVisibility(View.VISIBLE);
+                d1.setText(arrOfStr[0]);
+
+                D2.setVisibility(View.VISIBLE);
+                d2.setVisibility(View.VISIBLE);
+                d2.setText(arrOfStr[1]);
+
+                D3.setVisibility(View.VISIBLE);
+                d3.setVisibility(View.VISIBLE);
+                d3.setText(arrOfStr[2]);
+
+                D4.setVisibility(View.VISIBLE);
+                d1.setVisibility(View.VISIBLE);
+                d4.setText(arrOfStr[3]);
+
+
+                switch (arrOfStr[0]){
+                    case "امراض القلب" :
+                        I1.setImageResource(R.drawable.heart_disease);
+                        break;
+                    case "أمراض الكلى" :
+                        I1.setImageResource(R.drawable.kidney_disease);
+                        break;
+                    case "أمراض عصبية" :
+                        I1.setImageResource(R.drawable.nerve_disease);
+                        break;
+                    case "مشاكل سمعية" :
+                        I1.setImageResource(R.drawable.ear_disease);
+                        break;
+                    case "مشاكل نفسية" :
+                        I1.setImageResource(R.drawable.phyco_disease);
+                        break;
+                    case "ربو" :
+                        I1.setImageResource(R.drawable.rio);
+                        break;
+                    case "األنيميا المنجلية" :
+                        I1.setImageResource(R.drawable.anemia_disease);
+                        break;
+                    case "فقر الدما لثالسيميا" :
+                        I1.setImageResource(R.drawable.blood_disease);
+                        break;
+                    case "الإصابات والإعاقات" :
+                        I1.setImageResource(R.drawable.body_disease);
+                        break;
+                    case "النظارات أو العدسات" :
+                        I1.setImageResource(R.drawable.eyes_disease);
+                        break;
+                    case "السكري" :
+                        I1.setImageResource(R.drawable.sugar_disease);
+                        break;
+                    case "حساسية الطعام" :
+                        I1.setImageResource(R.drawable.food_disease);
+                        break;
+                    default:
+                        break;
+
+
+
+                }
+
+
+                switch (arrOfStr[1]){
+                    case "امراض القلب" :
+                        I2.setImageResource(R.drawable.heart_disease);
+                        break;
+                    case "أمراض الكلى" :
+                        I2.setImageResource(R.drawable.kidney_disease);
+                        break;
+                    case "أمراض عصبية" :
+                        I2.setImageResource(R.drawable.nerve_disease);
+                        break;
+                    case "مشاكل سمعية" :
+                        I2.setImageResource(R.drawable.ear_disease);
+                        break;
+                    case "مشاكل نفسية" :
+                        I2.setImageResource(R.drawable.phyco_disease);
+                        break;
+                    case "ربو" :
+                        I2.setImageResource(R.drawable.rio);
+                        break;
+                    case "األنيميا المنجلية" :
+                        I2.setImageResource(R.drawable.anemia_disease);
+                        break;
+                    case "فقر الدما لثالسيميا" :
+                        I2.setImageResource(R.drawable.blood_disease);
+                        break;
+                    case "الإصابات والإعاقات" :
+                        I2.setImageResource(R.drawable.body_disease);
+                        break;
+                    case "النظارات أو العدسات" :
+                        I2.setImageResource(R.drawable.eyes_disease);
+                        break;
+                    case "السكري" :
+                        I2.setImageResource(R.drawable.sugar_disease);
+                        break;
+                    case "حساسية الطعام" :
+                        I2.setImageResource(R.drawable.food_disease);
+                        break;
+                    default:
+                        break;
+
+
+
+                }
+
+                switch (arrOfStr[2]){
+                    case "امراض القلب" :
+                        I3.setImageResource(R.drawable.heart_disease);
+                        break;
+                    case "أمراض الكلى" :
+                        I3.setImageResource(R.drawable.kidney_disease);
+                        break;
+                    case "أمراض عصبية" :
+                        I3.setImageResource(R.drawable.nerve_disease);
+                        break;
+                    case "مشاكل سمعية" :
+                        I3.setImageResource(R.drawable.ear_disease);
+                        break;
+                    case "مشاكل نفسية" :
+                        I3.setImageResource(R.drawable.phyco_disease);
+                        break;
+                    case "ربو" :
+                        I3.setImageResource(R.drawable.rio);
+                        break;
+                    case "األنيميا المنجلية" :
+                        I3.setImageResource(R.drawable.anemia_disease);
+                        break;
+                    case "فقر الدما لثالسيميا" :
+                        I3.setImageResource(R.drawable.blood_disease);
+                        break;
+                    case "الإصابات والإعاقات" :
+                        I3.setImageResource(R.drawable.body_disease);
+                        break;
+                    case "النظارات أو العدسات" :
+                        I3.setImageResource(R.drawable.eyes_disease);
+                        break;
+                    case "السكري" :
+                        I3.setImageResource(R.drawable.sugar_disease);
+                        break;
+                    case "حساسية الطعام" :
+                        I3.setImageResource(R.drawable.food_disease);
+                        break;
+                    default:
+                        break;
+
+
+
+                }
+
+                switch (arrOfStr[3]){
+                    case "امراض القلب" :
+                        I4.setImageResource(R.drawable.heart_disease);
+                        break;
+                    case "أمراض الكلى" :
+                        I4.setImageResource(R.drawable.kidney_disease);
+                        break;
+                    case "أمراض عصبية" :
+                        I4.setImageResource(R.drawable.nerve_disease);
+                        break;
+                    case "مشاكل سمعية" :
+                        I4.setImageResource(R.drawable.ear_disease);
+                        break;
+                    case "مشاكل نفسية" :
+                        I4.setImageResource(R.drawable.phyco_disease);
+                        break;
+                    case "ربو" :
+                        I4.setImageResource(R.drawable.rio);
+                        break;
+                    case "األنيميا المنجلية" :
+                        I4.setImageResource(R.drawable.anemia_disease);
+                        break;
+                    case "فقر الدما لثالسيميا" :
+                        I4.setImageResource(R.drawable.blood_disease);
+                        break;
+                    case "إصابات والإعاقات" :
+                        I4.setImageResource(R.drawable.body_disease);
+                        break;
+                    case "النظارات أو العدسات" :
+                        I4.setImageResource(R.drawable.eyes_disease);
+                        break;
+                    case "السكري" :
+                        I4.setImageResource(R.drawable.sugar_disease);
+                        break;
+                    case "حساسية الطعام" :
+                        I4.setImageResource(R.drawable.food_disease);
+                        break;
+                    default:
+                        break;
+
+
+
+                }
+
+            }
+
+                //Log.d("TAGCount", "onCreate: "+arrOfStr.length);
+
+
+//            Diseases.setText(arrOfStr[0]);
+
+//            for (String a : arrOfStr)
+//                System.out.println(a);
 
             drawBarcode(id);
+
 
 
 
@@ -108,9 +654,26 @@ public class DisplayStudentActivity extends AppCompatActivity {
             //speciality.setText("ID: "+id+" : رقم تعريفي ");
             speciality.setText(id);
             SchoolName.setText(school);
-            Gender.setText(gender);
-            BloodT.setText(blood);
-            Nation.setText(nation);
+
+            if(!gender.equals("tech") && !blood.equals("tech") && !nation.equals("tech")){
+                Gender.setText(gender);
+                BloodT.setText(blood);
+                Nation.setText(nation);
+            }
+            else{
+                Gender.setVisibility(View.GONE);
+                BloodT.setVisibility(View.GONE);
+                Nation.setVisibility(View.GONE);
+
+                label3.setVisibility(View.GONE);
+                label2.setVisibility(View.GONE);
+                label1.setVisibility(View.GONE);
+
+                ivBarcodenew.setVisibility(View.GONE);
+
+                space.setVisibility(View.VISIBLE);
+
+            }
             DateC.setText("غير متاح");
             PhNo.setText(phno);
             //Diseases.setText(diseases);

@@ -177,11 +177,11 @@ public class StudentsAdapter extends RecyclerView.Adapter<StudentsAdapter.MyView
                             intent.putExtra("fullName", std.getFirstName());
                             intent.putExtra("nickname", std.getCin());
                             intent.putExtra("schoolname", std.getLastName());
-                            intent.putExtra("gender", "male");
-                            intent.putExtra("bloodtype", "A+");
-                            intent.putExtra("nation", "Egypt");
+                            intent.putExtra("gender", "tech");
+                            intent.putExtra("bloodtype", "tech");
+                            intent.putExtra("nation", "tech");
                             intent.putExtra("phoneNumber", std.getPhoneNumber());
-                            intent.putExtra("diseases", "NO");
+//                            intent.putExtra("diseases", "NO");
                             newV.getContext().startActivity(intent);
 
 
