@@ -131,6 +131,8 @@ public class StudentsAdapter extends RecyclerView.Adapter<StudentsAdapter.MyView
                             intent.putExtra("nation", std.getNationality());
                             intent.putExtra("phoneNumber", std.getPhoneNumber());
                             intent.putExtra("diseases", std.getDisease());
+                            intent.putExtra("prec", std.getPrecuations());
+
                             newV.getContext().startActivity(intent);
 
 
@@ -181,6 +183,8 @@ public class StudentsAdapter extends RecyclerView.Adapter<StudentsAdapter.MyView
                             intent.putExtra("bloodtype", "tech");
                             intent.putExtra("nation", "tech");
                             intent.putExtra("phoneNumber", std.getPhoneNumber());
+                            intent.putExtra("diseases", "tech");
+                            intent.putExtra("prec", "tech");
 //                            intent.putExtra("diseases", "NO");
                             newV.getContext().startActivity(intent);
 
