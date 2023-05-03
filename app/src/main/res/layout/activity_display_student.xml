@@ -70,6 +70,7 @@
             <!--                android:layout_marginTop="40dp"-->
             <!--                android:src="@drawable/sharebtnmodified" />-->
             <Button
+                android:id="@+id/sharepdf"
                 android:layout_width="120dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="27dp"
@@ -84,6 +85,7 @@
                 android:textSize="20dp" />
 
             <Button
+                android:id="@+id/savepdf"
                 android:layout_width="120dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"

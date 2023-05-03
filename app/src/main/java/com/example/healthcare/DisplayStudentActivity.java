@@ -4,11 +4,20 @@ import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.Canvas;
+import android.graphics.Color;
+import android.graphics.Paint;
+import android.graphics.Typeface;
 import android.graphics.drawable.BitmapDrawable;
+
+import com.bumptech.glide.load.Options;
 import com.example.healthcare.models.Code128;
 
+import android.graphics.pdf.PdfDocument;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Environment;
 import android.util.Log;
 import android.view.View;
 import android.view.animation.Animation;
@@ -35,6 +44,14 @@ import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.squareup.picasso.Picasso;
 
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+
+import static android.Manifest.permission.READ_EXTERNAL_STORAGE;
+import static android.Manifest.permission.WRITE_EXTERNAL_STORAGE;
+
+
 import de.hdodenhof.circleimageview.CircleImageView;
 public class DisplayStudentActivity extends AppCompatActivity {
 
@@ -49,6 +66,14 @@ public class DisplayStudentActivity extends AppCompatActivity {
         String name,id,school,gender,blood,datee,nation,phno,diseases,prec;
         ProgressBar progressBar;
 
+        int pageHeight = 1120;
+        int pagewidth = 792;
+        private static final int PERMISSION_REQUEST_CODE = 200;
+        Button savepdf,sharepdf;
+        // creating a bitmap variable
+        // for storing our images
+        Bitmap bmp, scaledbmp;
+
     LinearLayout D1,D2,D3,D4;
     ImageView I1,I2,I3,I4;
 
@@ -60,6 +85,31 @@ public class DisplayStudentActivity extends AppCompatActivity {
         protected void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
             setContentView(R.layout.activity_display_student);
+
+            savepdf = findViewById(R.id.savepdf);
+            sharepdf = findViewById(R.id.sharepdf);
+
+        bmp = BitmapFactory.decodeResource(getResources(),R.drawable.appmainscreen);
+        scaledbmp = Bitmap.createScaledBitmap(bmp, 180, 180, false);
+
+        // below code is used for
+        // checking our permissions.
+        if (checkPermission()) {
+            //Toast.makeText(this, "Permission Granted", Toast.LENGTH_SHORT).show();
+        } else {
+            requestPermission();
+        }
+
+        savepdf.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // calling method to
+                // generate our PDF file.
+                generatePDF();
+            }
+        });
+
+
 
 
         labelHealth = findViewById(R.id.labelHealth);
@@ -730,6 +780,147 @@ public class DisplayStudentActivity extends AppCompatActivity {
                 }
             });
         }
+    private void generatePDF() {
+        // creating an object variable
+        // for our PDF document.
+
+        Intent intent = getIntent();
+
+        name = intent.getStringExtra("fullName");
+        id = intent.getStringExtra("nickname");
+        school = intent.getStringExtra("schoolname");
+        gender = intent.getStringExtra("gender");
+        blood = intent.getStringExtra("bloodtype");
+        nation = intent.getStringExtra("nation");
+        phno = intent.getStringExtra("phoneNumber");
+
+        diseases = intent.getStringExtra("diseases");
+
+        prec = intent.getStringExtra("prec");
+
+
+        PdfDocument pdfDocument = new PdfDocument();
+
+        // two variables for paint "paint" is used
+        // for drawing shapes and we will use "title"
+        // for adding text in our PDF file.
+        Paint paint = new Paint();
+        Paint title = new Paint();
+        Paint title2 = new Paint();
+        Paint text = new Paint();
+
+
+        // we are adding page info to our PDF file
+        // in which we will be passing our pageWidth,
+        // pageHeight and number of pages and after that
+        // we are calling it to create our PDF.
+        PdfDocument.PageInfo mypageInfo = new PdfDocument.PageInfo.Builder(pagewidth, pageHeight, 1).create();
+
+        // below line is used for setting
+        // start page for our PDF file.
+        PdfDocument.Page myPage = pdfDocument.startPage(mypageInfo);
+
+        // creating a variable for canvas
+        // from our page of PDF.
+        Canvas canvas = myPage.getCanvas();
+
+        // below line is used to draw our image on our PDF file.
+        // the first parameter of our drawbitmap method is
+        // our bitmap
+        // second parameter is position from left
+        // third parameter is position from top and last
+        // one is our variable for paint.
+        canvas.drawBitmap(scaledbmp, 580, 0, paint);
+
+        // below line is used for adding typeface for
+        // our text which we will be adding in our PDF file.
+        title.setTypeface(Typeface.create(Typeface.DEFAULT, Typeface.BOLD));
+
+        // below line is used for setting text size
+        // which we will be displaying in our PDF file.
+        title.setTextSize(55);
+        title.setColor(ContextCompat.getColor(this, R.color.red_btn_bg_color));
+
+        canvas.drawText("لسلامتك", 239, 120, title);
+
+
+        title2.setTextSize(45);
+        title2.setColor(ContextCompat.getColor(this, R.color.red_btn_bg_color));
+
+        text.setTextSize(29);
+        text.setTypeface(Typeface.create(Typeface.DEFAULT,Typeface.BOLD));
+        text.setColor(ContextCompat.getColor(this, R.color.main_blue_color));
+
+        canvas.drawText("\n  معلومات شخصية",409,250,title2);
+
+        canvas.drawText("الاسم :  "+name+"\n", 409, 350, text);
+        canvas.drawText("الرقم تعريفي :  "+id+"\n", 409, 400, text);
+        canvas.drawText("اسم المدرسة :  "+school+"\n", 409, 450, text);
+        canvas.drawText("الجنس :  "+gender+"\n", 409, 500, text);
+        canvas.drawText(" فصيلة الدم :  "+blood+"\n", 409, 550, text);
+        canvas.drawText("الجنسية :  "+nation+"\n", 409, 600, text);
+        canvas.drawText("رقم الهاتف :  "+phno+"\n \n \n", 409, 650, text);
+
+        canvas.drawText("\n  معلومات صحية ",409,850,title2);
+        canvas.drawText("يعاني : "+diseases+"\n", 409, 950, text);
+
+        // after adding all attributes to our
+        // PDF file we will be finishing our page.
+        pdfDocument.finishPage(myPage);
+
+        // below line is used to set the name of
+        // our PDF file and its path.
+        File file = new File(Environment.getExternalStorageDirectory(), "Student"+id+".pdf");
+
+        try {
+            // after creating a file name we will
+            // write our PDF file to that location.
+            pdfDocument.writeTo(new FileOutputStream(file));
+
+            // below line is to print toast message
+            // on completion of PDF generation.
+            Toast.makeText(DisplayStudentActivity.this, "PDF file generated successfully.", Toast.LENGTH_SHORT).show();
+        } catch (IOException e) {
+            // below line is used
+            // to handle error
+            e.printStackTrace();
+        }
+        // after storing our pdf to that
+        // location we are closing our PDF file.
+        pdfDocument.close();
+    }
+
+    private boolean checkPermission() {
+        // checking of permissions.
+        int permission1 = ContextCompat.checkSelfPermission(getApplicationContext(), WRITE_EXTERNAL_STORAGE);
+        int permission2 = ContextCompat.checkSelfPermission(getApplicationContext(), READ_EXTERNAL_STORAGE);
+        return permission1 == PackageManager.PERMISSION_GRANTED && permission2 == PackageManager.PERMISSION_GRANTED;
+    }
+
+    private void requestPermission() {
+        // requesting permissions if not provided.
+        ActivityCompat.requestPermissions(this, new String[]{WRITE_EXTERNAL_STORAGE, READ_EXTERNAL_STORAGE}, PERMISSION_REQUEST_CODE);
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        if (requestCode == PERMISSION_REQUEST_CODE) {
+            if (grantResults.length > 0) {
+
+                // after requesting permissions we are showing
+                // users a toast message of permission granted.
+                boolean writeStorage = grantResults[0] == PackageManager.PERMISSION_GRANTED;
+                boolean readStorage = grantResults[1] == PackageManager.PERMISSION_GRANTED;
+
+                if (writeStorage && readStorage) {
+                    //Toast.makeText(this, "Permission Granted..", Toast.LENGTH_SHORT).show();
+                } else {
+                    //Toast.makeText(this, "Permission Denied.", Toast.LENGTH_SHORT).show();
+                    finish();
+                }
+            }
+        }
+    }
         private void drawBarcode(String id) {
             String barcode = id;
             Code128 code = new Code128(DisplayStudentActivity.this);
