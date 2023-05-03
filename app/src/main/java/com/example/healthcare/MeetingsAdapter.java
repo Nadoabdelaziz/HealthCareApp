@@ -14,13 +14,23 @@ import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.healthcare.models.Event;
+
 import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
 
 public class MeetingsAdapter extends RecyclerView.Adapter {
 
+    List<Event> eventslist;
     Data data;
     Activity activity;
+
+
+    MeetingsAdapter(List<Event> eventslist, Activity activity) {
+        this.eventslist = eventslist;
+        this.activity = activity;
+    }
 
     MeetingsAdapter(Data data, Activity activity) {
         this.data = data;
@@ -38,30 +48,30 @@ public class MeetingsAdapter extends RecyclerView.Adapter {
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
         MeetingHolder mHolder = (MeetingHolder) holder;
 
-        final Meeting currMeeting = data.getMeetingList().get(position);
+        //final String currEventTitle = eventslist.get(position).getTitle();
+        final Event currEvent = eventslist.get(position);
+
+        //final Meeting currMeeting = data.getMeetingList().get(position);
 
         Date today = Data.justGetDate(new Date());
 
-        Log.e("disable", today + " " + currMeeting.getStart());
+        //Log.e("disable", today + " " + currMeeting.getStart());
 
 
 
 
-        mHolder.updateView(currMeeting.getMeetingId());
+        mHolder.updateView(currEvent);
 
         mHolder.parent.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent editMeetingIntent = new Intent(activity, MeetingActivity.class);
-                editMeetingIntent.putExtra("meeting_id", currMeeting.getMeetingId());
-                activity.startActivityForResult(editMeetingIntent, MeetingActivity.EDIT_MEETING);
             }
         });
     }
 
     @Override
     public int getItemCount() {
-        return data.getMeetingList().size();
+        return eventslist.size();
     }
 
 
@@ -83,13 +93,13 @@ public class MeetingsAdapter extends RecyclerView.Adapter {
             this.parent = itemView;
         }
 
-        public void updateView(String meetingId) {
-            this.meetingId = meetingId;
-            if(meetingId != null) {
-                Meeting meeting = data.getMeetingById(meetingId);
-                titleTextView.setText(meeting.getTitle());
-                startTextView.setText(meeting.getStart().toString() + " الي");
-                endTextView.setText(meeting.getEnd().toString());
+        public void updateView(Event event) {
+//            this.meetingId = meetingId;
+//            if(meetingId != null) {
+//                Meeting meeting = data.getMeetingById(meetingId);
+                titleTextView.setText(event.getTitle());
+                startTextView.setText(event.getFrom());
+                endTextView.setText(event.getTo());
             }
         }
 
@@ -99,4 +109,4 @@ public class MeetingsAdapter extends RecyclerView.Adapter {
             return super.toString();
         }
     }
-}
+

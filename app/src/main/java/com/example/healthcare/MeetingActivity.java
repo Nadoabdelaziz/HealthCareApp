@@ -8,9 +8,11 @@ import android.app.TimePickerDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.provider.ContactsContract;
 import android.util.Log;
 import android.view.View;
@@ -23,12 +25,27 @@ import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
+import com.example.healthcare.models.Comment;
+import com.example.healthcare.models.Event;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
 
+import cn.pedant.SweetAlert.SweetAlertDialog;
+
 public class MeetingActivity extends AppCompatActivity {
 
+    Event ev1;
     Meeting meeting;
     TextView startDate;
     TextView endDate,errorshow;
@@ -38,6 +55,9 @@ public class MeetingActivity extends AppCompatActivity {
     TextView contactPhone;
     Button doneBtn;
     Data data;
+
+    DatabaseReference databaseReference;
+    FirebaseUser user;
 
     ImageView back;
 
@@ -147,11 +167,13 @@ public class MeetingActivity extends AppCompatActivity {
                 Log.d("TAG", "onCreate: "+titleEditText.getText().toString());
                 String myString = null;
                 if(!desc.getText().toString().isEmpty() && !startDate.getText().toString().equals("من") && !endDate.getText().toString().equals("الى") && !titleEditText.getText().toString().isEmpty()) {
-                    data.addOrUpdateMeeting(meeting);
-                    Log.e("MEETINGS", "Add meeting: " + titleEditText.getText().toString() + " - " +startDate.getText().toString() + " - "+endDate.getText().toString()+" - " +desc.getText().toString());
-                    Log.e("MEETINGS", data.getMeetingList().toString());
-                    finishActivity(EDIT_MEETING);
-                    finish();
+                    ev1 = new Event(titleEditText.getText().toString() , startDate.getText().toString(),endDate.getText().toString(),desc.getText().toString());
+                    addnewMeeting(ev1);
+                    //data.addOrUpdateMeeting(meeting);
+//                    Log.e("MEETINGS", "Add meeting: " + titleEditText.getText().toString() + " - " +startDate.getText().toString() + " - "+endDate.getText().toString()+" - " +desc.getText().toString());
+//                    Log.e("MEETINGS", data.getMeetingList().toString());
+//                    finishActivity(EDIT_MEETING);
+//                    finish();
                 }
                 else{
                     errorshow.setVisibility(View.VISIBLE);
@@ -278,13 +300,13 @@ public class MeetingActivity extends AppCompatActivity {
     }
 
     void updateContactViews() {
-        if (this.meeting.getContactId() != null) {
-            Contact contact = Data.getContactById(MeetingActivity.this, this.meeting.getContactId());
-            if (contact != null) {
-                contactPhone.setText(contact.getPhone());
-                contactName.setText(contact.getName());
-            }
-        }
+//        if (this.meeting.getContactId() != null) {
+//            Contact contact = Data.getContactById(MeetingActivity.this, this.meeting.getContactId());
+//            if (contact != null) {
+//                contactPhone.setText(contact.getPhone());
+//                contactName.setText(contact.getName());
+//            }
+//        }
 
 //        if (meeting.getContactId() == null) {
 //            findViewById(R.id.add_contact).setVisibility(View.VISIBLE);
@@ -296,10 +318,10 @@ public class MeetingActivity extends AppCompatActivity {
 //        }
     }
 
-    public void deleteContact(View v) {
-        meeting.setContactId(null);
-        updateContactViews();
-    }
+//    public void deleteContact(View v) {
+//        meeting.setContactId(null);
+//        updateContactViews();
+//    }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -339,6 +361,52 @@ public class MeetingActivity extends AppCompatActivity {
     public void cancelEditMeeting(View v) {
         finishActivity(EDIT_MEETING);
         finish();
+    }
+
+
+    public void addnewMeeting(Event event){
+        user = FirebaseAuth.getInstance().getCurrentUser();
+        databaseReference = FirebaseDatabase.getInstance().getReference("Teachers");
+        databaseReference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                DatabaseReference reference = FirebaseDatabase.getInstance().getReference("Events");
+                reference.push().setValue(event).addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void aVoid) {
+                        new SweetAlertDialog(MeetingActivity.this, SweetAlertDialog.SUCCESS_TYPE)
+                                .setTitleText("Congratulations")
+                                .setContentText("Your Event is Created successfully")
+                                .setConfirmClickListener(new SweetAlertDialog.OnSweetClickListener() {
+                                    @Override
+                                    public void onClick(SweetAlertDialog sweetAlertDialog) {
+                                        Intent intent = new Intent(MeetingActivity.this, TheFragmnetsActivity.class);
+                                        startActivity(intent);
+                                    }
+                                })
+                                .show();
+
+//                        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(MeetingActivity.this); // getActivity() for Fragment
+//                        prefs.edit().putBoolean("has_new_comment", true).commit();
+
+                    }
+                }).addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        new SweetAlertDialog(MeetingActivity.this, SweetAlertDialog.ERROR_TYPE)
+                                .setTitleText("Oops...")
+                                .setContentText("Something went wrong!")
+                                .show();
+                    }
+                });
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
     }
 
 }
